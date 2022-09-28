@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #test push3 commit without another branch
+=======
+#test push2 commit and merge
+>>>>>>> test-branch
 MOLTEST=["molecule1"]
 MOL=["molecule1","molecule2","molecule3","molecule4","molecule5","molecule6","enzyme1","enzyme2","enzyme3"]## liste des molécules associées à leur numéro
 
