@@ -1,25 +1,49 @@
-
+#ENZ  : Liste des enzymes utilisables (indexé par un numéro du tableau MOL)
+#REAC : Liste des entrées (indexé par un numéro du tableau MOL)
+#prod : produit à obtenir (indexé par un numéro du tableau MOL)
+#etqt : étiquette à avoir ?
+#n    : nb max d'étaps ?
 
 def pluscourtchemin(ENZ,REAC,prod,etqt,n):
+
+    """ PRESENCE : liste des molécules présente.
+    Evolue au cours de l'algorithme.
+    Chaque case coorespond à une molécule et est de la forme :
+    [boolean marquant la présence,
+    liste des réaction l'ayant produit selon le triplet (numéro d'étape, numéro de réaction, étiquette),
+    liste des étiquettes avec lesquelles la molécule a été produite,
+    liste des doublets (numéro d'étape, étiquette) avec lesquelles la molécule a été produite]"""
+    
+    
+        """ Initialisation des variables """
+    
     PRESENCE=[]
     for k in range (0,len(MOL)):
-        PRESENCE.append([False,[],[],[]]) ##liste de présence : le booléen signifie présent (true) ou non (false) / La 1ère liste sauvegarde les réactions qui ont produit la molécule avec le triplet (numéro d'étape, numéro de réaction, étiquette) / Les 2ème et 3ème listes sont contingentes mais elles simplifient le programme : la 2ème liste sauvegarde les étiquettes avec lesquelles la molécule a été produite / la 3ème liste sauvegarde les doublets (numéro d'étape, étiquette) avec lesquelles la molécule a été produite.
-    nbetape=0
-    nbmol=0
+        PRESENCE.append([False,[],[],[]])
+        # Initialisation de chaque molécule comme absente
+    nbetape=0 #Nombre d'étapes réactionnels pour obtenir le produis cherché (la plus longue chaine d'étapes)
+    nbmol=0   #Nombre total de molécules présente (au sens qui ont été produite à un moment)
     nbmolbis=0
+    
     for k in range (len(REAC)): ##initialisation de la liste de présence pour les réactifs de REAC (formés à l'étape -1, par la réaction 0 qui n'existe pas)
         if k==0:
             PRESENCE[REAC[k]]=[True,[(-1,0,'a')],['a'],[(-1,'a')]]
         if k==1:
             PRESENCE[REAC[k]]=[True,[(-1,0,'b')],['b'],[(-1,'b')]]
         nbmol+=1
-    for a in ENZ: ##initialisation de la liste de présence
+        
+    for a in ENZ: ##initialisation de la liste de présence pour ajouter les enzymes
         PRESENCE[a]=[True,[(-1,0,'e')],['e'],[(-1,'e')]]
         nbmol+=1
+        
+        
+        """ Boucle de recherche  """
+        
     while (nbetape<n): ##exploration des différents chemins réactionnels par itérations successives
         nbetape+=1
         nbmolbis=nbmol
         PRESENCEBIS=[] ## on veut que les molécules produites soient notées présentes uniquement à la fin de l'étape pour ne pas mélanger les étapes. On ne met donc pas à jour directement PRESENCE, mais d'abord PRESENCEBIS.
+        
         for i in range (len(PRESENCE)): ## itération sur les molécules présences
             if PRESENCE[i][0]:
                 REACPOT=REACPARMOL[i]
