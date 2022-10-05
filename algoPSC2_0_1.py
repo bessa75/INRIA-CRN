@@ -44,47 +44,56 @@ def pluscourtchemin(ENZ,REAC,prod,etqt,n):
         nbmolbis=nbmol
         PRESENCEBIS=[] ## on veut que les molécules produites soient notées présentes uniquement à la fin de l'étape pour ne pas mélanger les étapes. On ne met donc pas à jour directement PRESENCE, mais d'abord PRESENCEBIS.
         
-        for i in range (len(PRESENCE)): ## itération sur les molécules présences
-            if PRESENCE[i][0]:
-                REACPOT=REACPARMOL[i]
+        ## itération sur les molécules présences
+        for num_molecule in range (len(PRESENCE)): 
+            if PRESENCE[num_molecule][0]:
+                #On récupére la liste des réactions où la molécule intervient
+                REACPOT=REACPARMOL[num_molecule]
                 for a in REACPOT: ## itération sur les réactions impliquant la molécule en tant que réactif
-                    bool=True
+                
+                    reactifs_presents=True
                     for b in REACTIONS[a][0]: ## on teste si tout les réactifs de la réaction en question sont présents
                         if PRESENCE[b][0]==False:
-                            bool=False
+                            reactifs_presents=False
                             break
-                    if bool: ##si oui on met à jour la liste de présence
+                            
+                    if reactifs_presents: ##si oui on met à jour la liste de présence
                         if len(REACTIONS[a][0])==1: ## cas où il y a un seul réactif (marginal) / REACTIONS[a][0] est la liste des réactifs)
                             mol=REACTIONS[a][0][0] ## unique réactif
                             for e in PRESENCE[mol][2]: ##étape où on met à jour la liste de présence (molécule produite à telle étape, avec telle étiquette, par telle réaction)
-                                for p in REACTIONS[a][1]:
-                                    if e not in PRESENCE[p][2]:
-                                        PRESENCEBIS.append((p,e))
-                                    if (a,e) not in PRESENCE[p][3]:
-                                        PRESENCE[p][1].append((a,nbetape,e)) ## ici on se permet de mettre à jour PRESENCE et pas PRESENCEBIS car cela n'a pas d'influence.
-                                        PRESENCE[p][3].append((a,e))
-                                    if PRESENCE[p][0]==False:
+                                for produit in REACTIONS[a][1]:
+                                    if e not in PRESENCE[produit][2]:
+                                        PRESENCEBIS.append((produit,e))
+                                    if (a,e) not in PRESENCE[produit][3]:
+                                        PRESENCE[produit][1].append((a,nbetape,e)) ## ici on se permet de mettre à jour PRESENCE et pas PRESENCEBIS car cela n'a pas d'influence.
+                                        PRESENCE[produit][3].append((a,e))
+                                    if PRESENCE[produit][0]==False:
                                         nbmol+=1
+                                        
                         if len(REACTIONS[a][0])==2: ## cas où il y a deux réactifs (cas commun)
                             mol1=REACTIONS[a][0][0]
                             mol2=REACTIONS[a][0][1]
                             for e1 in PRESENCE[mol1][2]:
                                 for e2 in PRESENCE[mol2][2]:
                                     e=bin(e1,e2) ##utilisation de la relation binaire pour la propagation des étiquettes
-                                    for p in REACTIONS[a][1]: ##REACTIONS [a][1] correspons aux produits de la réaction a
-                                        if e not in PRESENCE[p][2]:
-                                            PRESENCEBIS.append((p,e))
-                                        if (a,e) not in PRESENCE[p][3]: ##contingent si on veut juste le plus court chemin
-                                            PRESENCE[p][3].append((a,e))
-                                            PRESENCE[p][1].append((a,nbetape,e))
-                                        if PRESENCE[p][0]==False:
+                                    for produit in REACTIONS[a][1]:##REACTIONS [a][1] correspons aux produits de la réaction a
+                                        if e not in PRESENCE[produit][2]:
+                                            PRESENCEBIS.append((produit,e))
+                                        if (a,e) not in PRESENCE[produit][3]: ##contingent si on veut juste le plus court chemin
+                                            PRESENCE[produit][3].append((a,e))
+                                            PRESENCE[produit][1].append((a,nbetape,e))
+                                        if PRESENCE[produit][0]==False:
                                             nbmol+=1
-
-        for a in PRESENCEBIS: #mise à jour de PRESENCE à partir de PRESENCE BIS
+        
+        #mise à jour de PRESENCE à partir de PRESENCE BIS
+        for a in PRESENCEBIS: 
             if a[1] not in PRESENCE[a[0]][2]:
                 PRESENCE[a[0]][2].append(a[1])
             PRESENCE[a[0]][0]=True
-    print("Mécanismes réactionnels obtenus pour le produit en "+str(nbetape)+" étapes avec l'étiquette "+etqt+" :")
+            
+    #Fin de la boucle de recherche
+    
+    print("Mécanismes réactionnels obtenus pour le produit en "+str(nbetape)+" étapes maximum avec l'étiquette "+etqt+" :")
     print(PRESENCE[prod][0:2])
     print("")
     if (PRESENCE[prod][0]==False):
@@ -110,7 +119,7 @@ def pluscourtchemin(ENZ,REAC,prod,etqt,n):
         for a in PROD: ##pour chaque produit on retrouve les réactifs qui l'ont formé et on leur associe l'étiquette correspondante
             r=-1
             for reac in PRESENCE[a[0]][1]:
-                if reac[1]==nbetape and reac[2]==a[1]:
+                if reac[1]==nbetape and reac[2]==a[1]: # Bon test ? reac[1] -> numéro de la réaction, reac[0] -> numéro de l'étape
                     r=reac[0]
                     break
             if r==-1:
@@ -313,17 +322,19 @@ with open(file) as f:
 
         blocs[bloc][1].extend([e  for e in elts if (e not in blocs[bloc][1])])
 MOL=enzymes+elmts
-MOL.pop(26)
+MOL.pop(26) # ?
 
 def numero(enzyme): ##retourne le numéro correspondant à un nom d'enzyme
     for i in range (0,len(MOL)):
         if MOL[i]==enzyme:
             return(i)
+  
 def numero2(L): ##retourne les numéros correspondant aux noms d'enzymes d'une liste d'enzymes
     L2=[]
     for k in range (0,len(L)):
         L2.append(numero(L[k]))
     return(L2)
+
 REACTIONS=[]
 for a in reaction:
     reac=([],[])
@@ -338,12 +349,18 @@ for a in reaction:
         else:
             reac[1].append(numero(m))
     REACTIONS.append(reac)
+    
+# REACPARMOL = ?
 REACPARMOL=[]
 for k in range (0,len(MOL)):
     REACPARMOL.append([])
 for k in range (0,len(REACTIONS)):
     u=REACTIONS[k][0][0]
     REACPARMOL[u].append(k)
+    
+    
+    """ Résolmution des 3 exemples"""
+    
 ##glucose et acetone donnent gluconolacrone
 ENZ=['ABTS','ADH', 'NADH', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF'] ##rajouter NAD pour fausser le résultat
 RE=['acetoneext','glucoseext']
