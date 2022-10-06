@@ -10,7 +10,7 @@ def pluscourtchemin(ENZ,REAC,prod,etqt,n):
     Evolue au cours de l'algorithme.
     Chaque case coorespond à une molécule et est de la forme :
     [boolean marquant la présence,
-    liste des réaction l'ayant produit selon le triplet (numéro d'étape, numéro de réaction, étiquette),
+    liste des réaction l'ayant produit selon le triplet (numéro de réaction, numéro d'étape, étiquette),
     liste des étiquettes avec lesquelles la molécule a été produite,
     liste des doublets (numéro d'étape, étiquette) avec lesquelles la molécule a été produite]"""
     
@@ -119,7 +119,7 @@ def pluscourtchemin(ENZ,REAC,prod,etqt,n):
         for a in PROD: ##pour chaque produit on retrouve les réactifs qui l'ont formé et on leur associe l'étiquette correspondante
             r=-1
             for reac in PRESENCE[a[0]][1]:
-                if reac[1]==nbetape and reac[2]==a[1]: # Bon test ? reac[1] -> numéro de la réaction, reac[0] -> numéro de l'étape
+                if reac[1]==nbetape and reac[2]==a[1]:
                     r=reac[0]
                     break
             if r==-1:
@@ -132,7 +132,7 @@ def pluscourtchemin(ENZ,REAC,prod,etqt,n):
                     PRODBIS.append((reactifs[0],a[1]))
                 else: ##on suppose la molécularité inférieure ou égale à 2
                     eti=a[1]
-                    L0=[]
+                    L0=[] #liste des étiquettes avec lesquels r20 a été formé avant nbetape
                     L1=[]
                     r20=reactifs[0]
                     r21=reactifs[1]
@@ -203,8 +203,8 @@ def pluscourtchemin(ENZ,REAC,prod,etqt,n):
         #print([MOL[a[0]] for a in PRODBIS])
         PROD=[]
         for a in PRODBIS:
-            if a not in PROD:
-                PROD.append(a)
+            ##if a not in PROD:
+            PROD.append(a)
         PRODBIS=[]
         nbetape-=1
     print("Les réactifs utilisés sont :")
