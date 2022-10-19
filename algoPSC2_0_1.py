@@ -17,15 +17,16 @@ def pluscourtchemin(ENZ,REAC,prod,etqt,n):
     
         """ Initialisation des variables """
     
+    # Initialisation de chaque molécule comme absente
     PRESENCE=[]
     for k in range (0,len(MOL)):
         PRESENCE.append([False,[],[],[]])
-        # Initialisation de chaque molécule comme absente
     nbetape=0 #Nombre d'étapes réactionnels pour obtenir le produis cherché (la plus longue chaine d'étapes)
     nbmol=0   #Nombre total de molécules présente (au sens qui ont été produite à un moment)
     nbmolbis=0
     
-    for k in range (len(REAC)): ##initialisation de la liste de présence pour les réactifs de REAC (formés à l'étape -1, par la réaction 0 qui n'existe pas)
+    ##initialisation de la liste de présence pour les réactifs de REAC (formés à l'étape -1, par la réaction 0 qui n'existe pas)
+    for k in range (len(REAC)): 
         if k==0:
             PRESENCE[REAC[k]]=[True,[(-1,0,'a')],['a'],[(-1,'a')]]
         if k==1:
@@ -37,26 +38,32 @@ def pluscourtchemin(ENZ,REAC,prod,etqt,n):
         nbmol+=1
         
         
-        """ Boucle de recherche  """
-        
-    while (nbetape<n): ##exploration des différents chemins réactionnels par itérations successives
+        """ Boucle de recherche descendante """
+    ##exploration des différents chemins réactionnels par itérations successives
+    while (nbetape<n): 
         nbetape+=1
         nbmolbis=nbmol
-        PRESENCEBIS=[] ## on veut que les molécules produites soient notées présentes uniquement à la fin de l'étape pour ne pas mélanger les étapes. On ne met donc pas à jour directement PRESENCE, mais d'abord PRESENCEBIS.
+        ## on veut que les molécules produites soient notées présentes uniquement à la fin de l'étape pour ne pas mélanger les étapes. On ne met donc pas à jour directement PRESENCE, mais d'abord PRESENCEBIS.
+        PRESENCEBIS=[] 
         
-        for i in range (len(PRESENCE)): ## itération sur les molécules présences
+        ## itération sur les molécules présences
+        for i in range (len(PRESENCE)): 
             if PRESENCE[i][0]:
                 REACPOT=REACPARMOL[i]
-                for a in REACPOT: ## itération sur les réactions impliquant la molécule en tant que réactif
+                ## itération sur les réactions impliquant la molécule en tant que réactif
+                for a in REACPOT: 
                     bool=True
-                    for b in REACTIONS[a][0]: ## on teste si tout les réactifs de la réaction en question sont présents
+                    ## Test de présence des réactifs de la réaction en question
+                    for b in REACTIONS[a][0]: 
                         if PRESENCE[b][0]==False:
                             bool=False
                             break
                     if bool: ##si oui on met à jour la liste de présence
-                        if len(REACTIONS[a][0])==1: ## cas où il y a un seul réactif (marginal) / REACTIONS[a][0] est la liste des réactifs)
+                        ## cas où il y a un seul réactif (marginal) / REACTIONS[a][0] est la liste des réactifs)
+                        if len(REACTIONS[a][0])==1: 
                             mol=REACTIONS[a][0][0] ## unique réactif
-                            for e in PRESENCE[mol][2]: ##étape où on met à jour la liste de présence (molécule produite à telle étape, avec telle étiquette, par telle réaction)
+                            ##étape de mise à jour de la liste de présence (molécule produite à telle étape, avec telle étiquette, par telle réaction)
+                            for e in PRESENCE[mol][2]: 
                                 for p in REACTIONS[a][1]:
                                     if e not in PRESENCE[p][2]:
                                         PRESENCEBIS.append((p,e))
@@ -80,13 +87,22 @@ def pluscourtchemin(ENZ,REAC,prod,etqt,n):
                                         if PRESENCE[p][0]==False:
                                             nbmol+=1
 
-        for a in PRESENCEBIS: #mise à jour de PRESENCE à partir de PRESENCE BIS
+        #mise à jour de PRESENCE à partir de PRESENCE BIS
+        for a in PRESENCEBIS: 
             if a[1] not in PRESENCE[a[0]][2]:
                 PRESENCE[a[0]][2].append(a[1])
             PRESENCE[a[0]][0]=True
-    print("Mécanismes réactionnels obtenus pour le produit en "+str(nbetape)+" étapes avec l'étiquette "+etqt+" :")
+
+        """ Fin boucle de recherche  """
+
+
+
+        """ Boucle de recherche ascendante """
+
+    print("Mécanismes réactionnels obtenus pour le produit en "+str(nbetape)+" étapes maximum avec l'étiquette "+etqt+" :")
     print(PRESENCE[prod][0:2])
     print("")
+    #On vérifie que le produit voulu a été créé
     if (PRESENCE[prod][0]==False):
         print("impossible d'arriver au produit")
         print("nombre d'étapes="+str(nbetape))
@@ -94,20 +110,29 @@ def pluscourtchemin(ENZ,REAC,prod,etqt,n):
         print('********************************************')
         print('')
         return(False)
+
     MECANISME=[]
+
+    #On vérifie que le produit a été créé selon l'étiquette (=l'équation logique) voulue
     if etqt not in PRESENCE[prod][2]:
         print("le produit est obtenu mais pas avec l'étiquette demandée")
         print('********************************************')
         print('')
         return(False)
+
     PROD=[(prod,etqt)]
     #print(PRESENCE[numero('DDib5')])
-    while nbetape>0: ##une fois le produit trouvé, on remonte la chaîne réactionnelle pour écrire le mécanisme par étapes
+
+    #une fois le produit trouvé, on remonte la chaîne réactionnelle pour écrire le mécanisme par étapes
+    while nbetape>0: 
         #print(nbetape)
         ETAPE=[]
         PRODBIS=[]
         #print(PROD)
-        for a in PROD: ##pour chaque produit on retrouve les réactifs qui l'ont formé et on leur associe l'étiquette correspondante
+
+        #pour chaque produit on retrouve les réactifs qui l'ont formé et on leur associe l'étiquette correspondante
+        for a in PROD:
+            # recherche du numéro r de la réaction ayant permis la production de la molécule a en nbetape étapes
             r=-1
             for reac in PRESENCE[a[0]][1]:
                 if reac[1]==nbetape and reac[2]==a[1]:
@@ -198,6 +223,8 @@ def pluscourtchemin(ENZ,REAC,prod,etqt,n):
                 PROD.append(a)
         PRODBIS=[]
         nbetape-=1
+
+
     print("Les réactifs utilisés sont :")
     print([MOL[a[0]] for a in PROD])
     print('')
