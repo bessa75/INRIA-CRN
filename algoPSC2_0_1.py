@@ -111,7 +111,7 @@ def pluscourtchemin(ENZ,REAC,prod,etqt,n):
         print('')
         return(False)
 
-    MECANISME=[]
+    MECANISME=[] #Liste de l'ensemble des étapes réactionnelles
 
     #On vérifie que le produit a été créé selon l'étiquette (=l'équation logique) voulue
     if etqt not in PRESENCE[prod][2]:
@@ -126,41 +126,56 @@ def pluscourtchemin(ENZ,REAC,prod,etqt,n):
     #une fois le produit trouvé, on remonte la chaîne réactionnelle pour écrire le mécanisme par étapes
     while nbetape>0: 
         #print(nbetape)
-        ETAPE=[]
-        PRODBIS=[]
+        ETAPE=[] # Liste des réactions ayant eu lieu à l'étape nbetape
+        PRODBIS=[] # Liste des molécules nécessaire à ces réactions de l'étape nbetape.
         #print(PROD)
 
         #pour chaque produit on retrouve les réactifs qui l'ont formé et on leur associe l'étiquette correspondante
         for a in PROD:
+
             # recherche du numéro r de la réaction ayant permis la production de la molécule a en nbetape étapes
             r=-1
             for reac in PRESENCE[a[0]][1]:
                 if reac[1]==nbetape and reac[2]==a[1]:
                     r=reac[0]
                     break
+            
+            #Si pas de réaction trouvé à l'étape nbetape produisant a
             if r==-1:
                 #print(nbetape,MOL[a[0]],a[1])
                 PRODBIS.append(a)
+            
             else:
                 ETAPE.append(r)
-                reactifs=REACTIONS[r][0]
+                reactifs=REACTIONS[r][0] #Liste des réactifs nécessaire pour produire "a" lors de la réaction trouvée
+                
+                #Ajout des réactifs nécessaire avec calcul de leur étiquette
                 if len(reactifs)==1:
                     PRODBIS.append((reactifs[0],a[1]))
-                else: ##on suppose la molécularité inférieure ou égale à 2
+                else: """?""" ##on suppose la molécularité inférieure ou égale à 2 
                     eti=a[1]
-                    L0=[] #liste des étiquettes avec lesquels r20 a été formé avant nbetape
-                    L1=[]
-                    r20=reactifs[0]
-                    r21=reactifs[1]
-                    P0=PRESENCE[r20][1]
-                    P1=PRESENCE[r21][1]
+            
+                    r20=reactifs[0] #réactif 1
+                    r21=reactifs[1] #réactif 2
+                    P0=PRESENCE[r20][1] #réactions ayant produit r20
+                    P1=PRESENCE[r21][1] #réactions ayant produit r21
+
+                    #Création de L0 et L1, liste des étiquettes avec lesquels r20 a pu être formé avant nbetape
+                    L0=[d[2] for d in PRESENCE[r20][1] if d[1]<=nbetape-1]
+                    L1=[d[2] for d in PRESENCE[r21][1] if d[1]<=nbetape-1]
+                    """
+                    L0=[] #liste des étiquettes avec lesquels r20 a pu être formé avant nbetape
                     for d in P0:
                         #print(d)
                         if d[1]<=nbetape-1:
-                            L0.append(d[2])
+                            L0.append(d[2])"""
+                    """
+                    L1=[] #liste des étiquettes avec lesquels r21 a pu être formé avant nbetape
                     for d in P1:
                         if d[1]<=nbetape-1:
                             L1.append(d[2])
+                    """
+
                     #print(L0)
                     #print(L1)
                     if eti=='e':
