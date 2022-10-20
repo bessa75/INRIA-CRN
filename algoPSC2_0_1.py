@@ -178,6 +178,8 @@ def pluscourtchemin(ENZ,REAC,prod,etqt,n):
 
                     #print(L0)
                     #print(L1)
+
+                    #Calcul de l'étiquette à affecté aux réactifs
                     if eti=='e':
                         for re in reactifs:
                             PRODBIS.append((re,'e'))
