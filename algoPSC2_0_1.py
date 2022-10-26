@@ -355,7 +355,12 @@ def résolution_équation(équation_logique):
     produit=numero(liste_mots[4])
 
     if liste_mots[1] == '+':
-        pluscourtchemin(enz,[réactif_1,réactif_2],produit,'ab',nb_réactions_max)
+        MECAS=pluscourtchemin(enz,[réactif_1,réactif_2],produit,'ab',nb_réactions_max)
+        mt=mecatexte(MECAS[0][0])
+        for d in mt:
+            print(d)
+        print("")
+        print("")
 		
 import re
 file = "catalog.bc"
