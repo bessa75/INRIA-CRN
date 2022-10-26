@@ -17,15 +17,16 @@ def pluscourtchemin(ENZ,REAC,prod,etqt,n):
     
         """ Initialisation des variables """
     
+    # Initialisation de chaque molécule comme absente
     PRESENCE=[]
     for k in range (0,len(MOL)):
         PRESENCE.append([False,[],[],[]])
-        # Initialisation de chaque molécule comme absente
     nbetape=0 #Nombre d'étapes réactionnels pour obtenir le produis cherché (la plus longue chaine d'étapes)
     nbmol=0   #Nombre total de molécules présente (au sens qui ont été produite à un moment)
     nbmolbis=0
     
-    for k in range (len(REAC)): ##initialisation de la liste de présence pour les réactifs de REAC (formés à l'étape -1, par la réaction 0 qui n'existe pas)
+    ##initialisation de la liste de présence pour les réactifs de REAC (formés à l'étape -1, par la réaction 0 qui n'existe pas)
+    for k in range (len(REAC)): 
         if k==0:
             PRESENCE[REAC[k]]=[True,[(-1,0,'a')],['a'],[(-1,'a')]]
         if k==1:
