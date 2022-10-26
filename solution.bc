@@ -1,0 +1,226 @@
+%%%%%%%%
+% GluOne
+%%%%%%%%
+
+
+parameter(k1=1.15157e-005).
+parameter(k2=24).
+parameter(k3=7.77313e-006).
+parameter(k4=1).
+parameter(k5=240).
+parameter(k6=2.91492e-009).
+parameter(k7=0.0009).
+parameter(k8=0.009).
+parameter(k9=5.82985e-008).
+parameter(k10=15).
+parameter(k11=150).
+parameter(k12=10000).
+parameter(k13=9.50049e-012).
+parameter(k14=0.033).
+parameter(k15=1.08824e-006).
+parameter(k16=0.07).
+parameter(k17=0.7).
+parameter(k18=0.33).
+parameter(k19=1.8077e-006).
+parameter(k20=40).
+parameter(k21=9.71641e-009).
+parameter(k22=20).
+parameter(k23=200).
+parameter(k24=400).
+
+parameter(k25=5e-3).
+parameter(k26=1e-2).
+
+MA(k25) for glucoseext => glucose.
+MA(k26) for acetoneext => acetone.
+
+MA(k1) for HRP + H_2O_2 => Cia5.
+MA(k2) for Cia5 => HRP + H_2O_2.
+MA(k3) for Cia5 + resazurin => Cib5.
+MA(k4) for Cib5 => Cia5 + resazurin.
+MA(k5) for Cib5 => HRP + resorufin.
+MA(k6) for HRP2 + NADH => Cf4.
+MA(k7) for Cf4 => HRP2 + NADH.
+MA(k8) for Cf4 => HRP2 + NADN.
+MA(k9) for AO + isopropanol => Cf3.
+MA(k10) for Cf3 => AO + isopropanol.
+MA(k11) for Cf3 => Cio3 + H_2O_2.
+MA(k12) for Cio3 => AO + HRP2.
+MA(k13) for ADH + NADH => Cia2.
+MA(k14) for Cia2 => ADH + NADH.
+MA(k15) for Cia2 + acetone => Cib2.
+MA(k16) for Cib2 => Cia2 + acetone.
+MA(k17) for Cib2 => Cfa2 + NAD.
+MA(k18) for Cfa2 => ADH + isopropanol.
+MA(k19) for G_1DH + NAD => Cia1.
+MA(k20) for Cia1 => G_1DH + NAD.
+MA(k21) for Cia1 + glucose => Cib1.
+MA(k22) for Cib1 => Cia1 + glucose.
+MA(k23) for Cib1 => Cfa1 + NADH.
+MA(k24) for Cfa1 => G_1DH + gluconolacrone.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%
+% GluNOx
+%%%%%%%%
+
+parameter(k1=0.0019).
+parameter(k2=7.77313e-006).
+parameter(k3=0.2).
+parameter(k4=2).
+parameter(k5=0.00777313).
+parameter(k6=200).
+parameter(k7=2000).
+parameter(k8=0.00777313).
+parameter(k9=200).
+parameter(k10=2000).
+parameter(k11=1.05042e-006).
+parameter(k12=0.2).
+parameter(k13=1.94328e-006).
+parameter(k14=0.2).
+parameter(k15=1.94328e-006).
+parameter(k16=1.05042e-006).
+parameter(k17=0.2).
+parameter(k18=0.2).
+parameter(k19=2).
+parameter(k20=2).
+parameter(k21=10000).
+
+MA(k1) for NO => volatNO.
+MA(k2) for O2 + NO => Cf6.
+MA(k3) for Cf6 => O2 + NO.
+MA(k4) for Cf6 => O2 + NO2b.
+MA(k5) for NO + NO2b => Cf5.
+MA(k6) for Cf5 => NO + NO2b.
+MA(k7) for Cf5 => N2O3.
+MA(k8) for DAF + N2O3 => Cf4.
+MA(k9) for Cf4 => DAF + N2O3.
+MA(k10) for Cf4 => DAFF.
+MA(k11) for NR + NO2 => Cia3.
+MA(k12) for Cia3 => NR + NO2.
+MA(k13) for NR + NADH => Cib3.
+MA(k14) for Cib3 => NR + NADH.
+MA(k15) for Cia3 + NADH => Cfa3.
+MA(k16) for Cib3 + NO2 => Cfb3.
+MA(k17) for Cfa3 => Cia3 + NADH.
+MA(k18) for Cfb3 => Cib3 + NO2.
+MA(k19) for Cfa3 => Cio3 + NO.
+MA(k20) for Cfb3 => Cio3 + NO.
+MA(k21) for Cio3 => NR + NAD.
+
+parameter(k22=5.44119e-005).
+parameter(k23=21).
+parameter(k25=0.000204045).
+parameter(k26=5.44119e-005).
+parameter(k27=21).
+parameter(k28=21).
+parameter(k29=210).
+parameter(k30=210).
+parameter(k31=10000).
+parameter(k32=3.37961e-007).
+parameter(k33=40).
+parameter(k34=9.71641e-009).
+parameter(k35=20).
+parameter(k36=200).
+parameter(k37=400).
+
+MA(k22) for NR + NO3 => Cia2.
+MA(k23) for Cia2 => NR + NO3.
+MA(k25) for Cia2 + NADH => Cfa2.
+MA(k26) for Cib3 + NO3 => Cfb2.
+MA(k27) for Cfa2 => Cia2 + NADH.
+MA(k28) for Cfb2 => Cib3 + NO3.
+MA(k29) for Cfa2 => Cio2 + NO2.
+MA(k30) for Cfb2 => Cio2 + NO2.
+MA(k31) for Cio2 => NR + NAD.
+MA(k32) for G_1DH + NAD => Cia1.
+MA(k33) for Cia1 => G_1DH + NAD.
+MA(k34) for Cia1 + glucose => Cib1.
+MA(k35) for Cib1 => Cia1 + glucose.
+MA(k36) for Cib1 => Cfa1 + NADH.
+MA(k37) for Cfa1 => G_1DH + gluconolacrone.
+
+parameter(k38=5e-3).
+parameter(k39=5e-3).
+parameter(k40=5e-3).
+
+MA(k38) for glucoseext => glucose.
+MA(k39) for NO3ext => NO3.
+MA(k40) for NO2ext => NO2.
+
+
+
+
+
+
+
+%%%%%%%
+% LacOH
+%%%%%%%
+
+parameter(k1=3.88656e-006).
+parameter(k2=10).
+parameter(k3=100).
+parameter(k4=4.63083e-006).
+parameter(k5=23.83).
+parameter(k6=238.3).
+parameter(k7=10000).
+parameter(k8=4.8661e-007).
+parameter(k9=30.8).
+parameter(k10=0.000119706).
+parameter(k11=30.8).
+parameter(k12=0.000119706).
+parameter(k13=4.8661e-007).
+parameter(k14=30.8).
+parameter(k15=30.8).
+parameter(k16=308).
+parameter(k17=308).
+parameter(k18=10000).
+parameter(k19=0.000590758).
+parameter(k20=76).
+parameter(k21=1.64099e-005).
+parameter(k22=76).
+parameter(k23=760).
+
+parameter(k24=5e-3).
+parameter(k25=1e-2).
+
+MA(k24) for Lactateext => Lactate.
+MA(k25) for EtOHext => EtOH.
+
+MA(k1) for NADH + ABTSOX => Cf3.
+MA(k2) for Cf3 => NADH + ABTSOX.
+MA(k3) for Cf3 => NAD + ABTS.
+MA(k4) for LO + Lactate => Cf2.
+MA(k5) for Cf2 => LO + Lactate.
+MA(k6) for Cf2 => Cio2 + H2O2.
+MA(k7) for Cio2 => LO + Pyruvate.
+MA(k8) for ADH + EtOH => Cia1.
+MA(k9) for Cia1 => ADH + EtOH.
+MA(k10) for ADH + NAD => Cib1.
+MA(k11) for Cib1 => ADH + NAD.
+MA(k12) for Cia1 + NAD => Cfa1.
+MA(k13) for Cib1 + EtOH => Cfb1.
+MA(k14) for Cfa1 => Cia1 + NAD.
+MA(k15) for Cfb1 => Cib1 + EtOH.
+MA(k16) for Cfa1 => Cio1 + acetaldehyde.
+MA(k17) for Cfb1 => Cio1 + acetaldehyde.
+MA(k18) for Cio1 => ADH + NADH.
+MA(k19) for POD + ABTS => Cia5.
+MA(k20) for Cia5 => POD + ABTS.
+MA(k21) for Cia5 + H2O2 => Cib5.
+MA(k22) for Cib5 => Cia5 + H2O2.
+MA(k23) for Cib5 => POD + ABTSOX.
