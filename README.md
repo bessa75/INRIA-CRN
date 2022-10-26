@@ -5,7 +5,7 @@ Git privé pour échanger les fichiers.
 Branches "main" et "edit-in-progress"
 
 
-##TODO
+## TODO
 
 Utiliser notebook jupyter pour intégrer des exemples
 
