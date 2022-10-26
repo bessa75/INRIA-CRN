@@ -251,6 +251,7 @@ def pluscourtchemin(ENZ,REAC,prod,etqt,n):
         print(e)
     print('********************************************')
     print('')
+
 def bin (c,d): ##relation binaire de propagation des étiquettes
     if c=='a' and d=='b':
         return('ab')
@@ -264,6 +265,7 @@ def bin (c,d): ##relation binaire de propagation des étiquettes
         return('b')
     else:
         return('e')
+
 def selec(L): ##fonction utile pour selec2ab
     if 'ab' in L:
         return('ab')
@@ -275,6 +277,7 @@ def selec(L): ##fonction utile pour selec2ab
         return('a')
     else:
         return('e')
+
 def selec2ab(L1,L2): ##cette fonction aide l'algorithme de remontée. Le but est, quand le produit d'une réaction est avec l'étiquette 'ab', de choisir avec quelles étiquettes on va considérer les réactifs qui ont mené à ce produit. Si on a 'o' on peut choisir 'a' ou 'b' indifféremment.
     l1=selec(L1)
     l2=selec(L2)
@@ -297,6 +300,7 @@ def selec2ab(L1,L2): ##cette fonction aide l'algorithme de remontée. Le but est
         if l2=='ab':
             return('o','ab')
     return(l1,l2)
+
 def mecatexte(MECANISME): ##simple fonction qui convertit le mécanisme réactionnel renvoyé par l'algorithme en un texte lisible pour l'utilisateur.
     MT=[]
     for k in range (len(MECANISME)):
@@ -305,6 +309,19 @@ def mecatexte(MECANISME): ##simple fonction qui convertit le mécanisme réactio
             ET.append(reaction[a])
         MT.append(ET)
     return(MT)
+
+#Prend un numéro de molécule en paramétre et renvoie le numéro de molécule faisant la logique "non" ainsi que le numéro de réaction
+def molécule_non_v1(numéro_molécule):
+    for réacion_i in REACTIONS:
+        if numéro_molécule in réacion_i[0]:
+            if réacion_i[0][0]==numéro_molécule:
+                molécule_non=réacion_i[0][1]
+            else:
+                molécule_non=réacion_i[0][0]
+
+            return molécule_non,réacion_i
+    raise Exception("Aucune molécule 'non' trouvée")
+
 import re
 file = "catalog.bc"
 
@@ -314,7 +331,9 @@ enzymes= []
 regex = ["(present\()|(, [e\-0-9]+\))|\.", "(MA.*for )|\+|(=>)|\."]
 blocs = {"inputs": (regex[0], inputs), "enzymes": (regex[0], enzymes), "elmts": (regex[1], elmts)}
 
-reaction = [] #facile les reactions
+
+""" Création du tableau "reaction" de l'ensemble des réactions possible données par le fichier file"""
+reaction = [] #Liste des réactions en version texte
 
 friends = {'test':[]} #en gros tu vas comprendre mais c'est juste chaque elmt et l'ensemble des elements avc lesquels il reagit
                       #par contre les enzymes sont pas comptés comme élements, du coup ils font pas partie des clés du dict.
@@ -356,6 +375,8 @@ with open(file) as f:
             elts = re.sub(blocs[bloc][0], '', l).split()
 
         blocs[bloc][1].extend([e  for e in elts if (e not in blocs[bloc][1])])
+
+
 MOL=enzymes+elmts
 MOL.pop(26) # ?
 
@@ -370,7 +391,7 @@ def numero2(L): ##retourne les numéros correspondant aux noms d'enzymes d'une l
         L2.append(numero(L[k]))
     return(L2)
 
-REACTIONS=[]
+REACTIONS=[] #Liste des réactions en version numéros
 for a in reaction:
     reac=([],[])
     for m in a[0]:
@@ -392,9 +413,38 @@ for k in range (0,len(MOL)):
 for k in range (0,len(REACTIONS)):
     u=REACTIONS[k][0][0]
     REACPARMOL[u].append(k)
+
+
+# ET : '+'
+# OU : '|'
+# NON : '!'
+# OU EXCLUSIF : '-'
+# symbole réaction : '=>'
+def résolution_équation(équation_logique):
+    nb_réactions_max=20
+
+    liste_mots = équation_logique.split(" ")
+
+    #Récupération du numéro du 1er réactif
+    if liste_mots[0][0]=='!':
+        réactif_1=molécule_non_v1(numéro(liste_mots[0][1:]))
+    else:
+        réactif_1=numéro(liste_mots[0])
     
-    
-    """ Résolmution des 3 exemples"""
+    #Récupération du numéro du 2eme réactif
+    if liste_mots[2][0]=='!':
+        réactif_2=molécule_non_v1(numéro(liste_mots[2][1:]))
+    else:
+        réactif_2=numéro(liste_mots[2])
+
+    produit=numero(liste_mots[4])
+
+    if liste_mots[1] == '+':
+        pluscourtchemin(enz,[réactif_1,réactif_2],produit,'ab',nb_réactions_max)
+
+
+
+    """ Résolution des 3 exemples"""
     
 ##glucose et acetone donnent gluconolacrone
 ENZ=['ABTS','ADH', 'NADH', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF'] ##rajouter NAD pour fausser le résultat
