@@ -1,0 +1,130 @@
+% Alexis Courbet, Patrick Amar, François Fages, Eric Renard, Franck Molina.
+% Computer-aided biochemical programming of synthetic microreactors as diagnostic devices.
+% Molecular Systems Biology, 14(4), 2018.
+% https://www.embopress.org/doi/full/10.15252/msb.20177845 
+
+
+
+% Orders of magnitude of realistic concentrations (numbers of molecules per nanomole)
+
+% Inputs
+
+present(glucoseext, 438319820).
+present(acetoneext, 315338397).
+present(Lactateext, 3153380).
+present(EtOHext, 5486881).
+present(NO3ext, 315338000).
+present(NO2ext, 1261356).
+
+% Enzymes
+
+present(ABTS, 630676000).
+present(ADH, 92078816).
+present(NADH, 31533).
+present(NAD, 1e9).
+present(resazurin, 315338394).
+present(HRP, 6565).
+present(AO, 175012).
+present(HRP2, 6565).
+present(POD, 21884).
+present(ADH, 92078696).
+present(NR, 26488392).
+present(G_1DH, 36295404).
+present(O2, 79780608).
+present(DAF, 63067600).
+
+% Transport reaction through the membrane
+
+ MA(5e-3) for glucoseext => glucose.
+ MA(1e-2) for acetoneext => acetone.
+ MA(5e-3) for Lactateext => Lactate.
+ MA(1e-2) for EtOHext => EtOH.
+ MA(5e-3) for NO3ext => NO3.
+ MA(5e-3) for NO2ext => NO2.
+
+% Enzymatic reactions
+
+ MA(1.15157e-005) for HRP + H_2O_2 => CCia5.
+ MA(24) for CCia5 => HRP + H_2O_2.
+ MA(7.77313e-006) for CCia5 + resazurin => CCib5.
+ MA(1) for CCib5 => CCia5 + resazurin.
+ MA(240) for CCib5 => HRP + resorufin.
+ MA(2.91492e-009) for HRP2 + NADH => CCf4.
+ MA(0.0009) for CCf4 => HRP2 + NADH.
+ MA(0.009) for CCf4 => HRP2 + NADN.
+ MA(5.82985e-008) for AO + isopropanol => CCf3.
+ MA(15) for CCf3 => AO + isopropanol.
+ MA(150) for CCf3 => CCio3 + H_2O_2.
+ MA(10000) for CCio3 => AO + HRP2.
+ MA(9.50049e-012) for ADH + NADH => CCia2.
+ MA(0.033) for CCia2 => ADH + NADH.
+ MA(1.08824e-006) for CCia2 + acetone => CCib2.
+ MA(0.07) for CCib2 => CCia2 + acetone.
+ MA(0.7) for CCib2 => CCfa2 + NAD.
+ MA(0.33) for CCfa2 => ADH + isopropanol.
+ MA(1.8077e-006) for G_1DH + NAD => CCia1.
+ MA(40) for CCia1 => G_1DH + NAD.
+ MA(9.71641e-009) for CCia1 + glucose => CCib1.
+ MA(20) for CCib1 => CCia1 + glucose.
+ MA(200) for CCib1 => CCfa1 + NADH.
+ MA(400) for CCfa1 => G_1DH + gluconolacrone.
+ MA(0.0019) for NO => volatNO.
+ MA(7.77313e-006) for O2 + NO => Cf6.
+ MA(0.2) for Cf6 => O2 + NO.
+ MA(2) for Cf6 => O2 + NO2b.
+ MA(0.00777313) for NO + NO2b => Cf5.
+ MA(200) for Cf5 => NO + NO2b.
+ MA(2000) for Cf5 => N2O3.
+ MA(0.00777313) for DAF + N2O3 => Cf4.
+ MA(200) for Cf4 => DAF + N2O3.
+ MA(2000) for Cf4 => DAFF.
+ MA(1.05042e-006) for NR + NO2 => Cia3.
+ MA(0.2) for Cia3 => NR + NO2.
+ MA(1.94328e-006) for NR + NADH => Cib3.
+ MA(0.2) for Cib3 => NR + NADH.
+ MA(1.94328e-006) for Cia3 + NADH => Cfa3.
+ MA(1.05042e-006) for Cib3 + NO2 => Cfb3.
+ MA(0.2) for Cfa3 => Cia3 + NADH.
+ MA(0.2) for Cfb3 => Cib3 + NO2.
+ MA(2) for Cfa3 => Cio3 + NO.
+ MA(2) for Cfb3 => Cio3 + NO.
+ MA(10000) for Cio3 => NR + NAD.
+ MA(5.44119e-005) for NR + NO3 => Cia2.
+ MA(21) for Cia2 => NR + NO3.
+ MA(0.000204045) for Cia2 + NADH => Cfa2.
+ MA(5.44119e-005) for Cib3 + NO3 => Cfb2.
+ MA(21) for Cfa2 => Cia2 + NADH.
+ MA(21) for Cfb2 => Cib3 + NO3.
+ MA(210) for Cfa2 => Cio2 + NO2.
+ MA(210) for Cfb2 => Cio2 + NO2.
+ MA(10000) for Cio2 => NR + NAD.
+ MA(3.37961e-007) for G_1DH + NAD => Cia1.
+ MA(40) for Cia1 => G_1DH + NAD.
+ MA(9.71641e-009) for Cia1 + glucose => Cib1.
+ MA(20) for Cib1 => Cia1 + glucose.
+ MA(200) for Cib1 => Cfa1 + NADH.
+ MA(400) for Cfa1 => G_1DH + gluconolacrone.
+ MA(3.88656e-006) for NADH + ABTSOX => DDf3.
+ MA(10) for DDf3 => NADH + ABTSOX.
+ MA(100) for DDf3 => NAD + ABTS.
+ MA(4.63083e-006) for LO + Lactate => DDf2.
+ MA(23.83) for DDf2 => LO + Lactate.
+ MA(238.3) for DDf2 => DDio2 + H2O2.
+ MA(10000) for DDio2 => LO + Pyruvate.
+ MA(4.8661e-007) for ADH + EtOH => DDia1.
+ MA(30.8) for DDia1 => ADH + EtOH.
+ MA(0.000119706) for ADH + NAD => DDib1.
+ MA(30.8) for DDib1 => ADH + NAD.
+ MA(0.000119706) for DDia1 + NAD => DDfa1.
+ MA(4.8661e-007) for DDib1 + EtOH => DDfb1.
+ MA(30.8) for DDfa1 => DDia1 + NAD.
+ MA(30.8) for DDfb1 => DDib1 + EtOH.
+ MA(308) for DDfa1 => DDio1 + acetaldehyde.
+ MA(308) for DDfb1 => DDio1 + acetaldehyde.
+ MA(10000) for DDio1 => ADH + NADH.
+ MA(0.000590758) for POD + ABTS => DDia5.
+ MA(76) for DDia5 => POD + ABTS.
+ MA(1.64099e-005) for DDia5 + H2O2 => DDib5.
+ MA(76) for DDib5 => DDia5 + H2O2.
+ MA(760) for DDib5 => POD + ABTSOX.
+
