@@ -249,6 +249,17 @@ def pluscourtchemin(ENZ,REAC,prod,etqt,n):
     """
     return(MECANISMES)
 
+def numero(enzyme): ##retourne le numéro correspondant à un nom d'enzyme
+    for i in range (0,len(MOL)):
+        if MOL[i]==enzyme:
+            return(i)
+
+def numero2(L): ##retourne les numéros correspondant aux noms d'enzymes d'une liste d'enzymes
+    L2=[]
+    for k in range (0,len(L)):
+        L2.append(numero(L[k]))
+    return(L2)
+
 def bin (c,d): ##relation binaire de propagation des étiquettes
     if c=='a' and d=='b':
         return('ab')
@@ -319,6 +330,33 @@ def molécule_non_v1(numéro_molécule):
             return molécule_non,réacion_i
     raise Exception("Aucune molécule 'non' trouvée")
 
+# ET : '+'
+# OU : '|'
+# NON : '!'
+# OU EXCLUSIF : '-'
+# symbole réaction : '=>'
+def résolution_équation(équation_logique):
+    nb_réactions_max=20
+
+    liste_mots = équation_logique.split(" ")
+
+    #Récupération du numéro du 1er réactif
+    if liste_mots[0][0]=='!':
+        réactif_1=molécule_non_v1(numéro(liste_mots[0][1:]))
+    else:
+        réactif_1=numéro(liste_mots[0])
+    
+    #Récupération du numéro du 2eme réactif
+    if liste_mots[2][0]=='!':
+        réactif_2=molécule_non_v1(numéro(liste_mots[2][1:]))
+    else:
+        réactif_2=numéro(liste_mots[2])
+
+    produit=numero(liste_mots[4])
+
+    if liste_mots[1] == '+':
+        pluscourtchemin(enz,[réactif_1,réactif_2],produit,'ab',nb_réactions_max)
+		
 import re
 file = "catalog.bc"
 
@@ -377,16 +415,6 @@ with open(file) as f:
 MOL=enzymes+elmts
 MOL.pop(26) # ?
 
-def numero(enzyme): ##retourne le numéro correspondant à un nom d'enzyme
-    for i in range (0,len(MOL)):
-        if MOL[i]==enzyme:
-            return(i)
-
-def numero2(L): ##retourne les numéros correspondant aux noms d'enzymes d'une liste d'enzymes
-    L2=[]
-    for k in range (0,len(L)):
-        L2.append(numero(L[k]))
-    return(L2)
 
 REACTIONS=[] #Liste des réactions en version numéros
 for a in reaction:
@@ -410,34 +438,6 @@ for k in range (0,len(MOL)):
 for k in range (0,len(REACTIONS)):
     u=REACTIONS[k][0][0]
     REACPARMOL[u].append(k)
-
-
-# ET : '+'
-# OU : '|'
-# NON : '!'
-# OU EXCLUSIF : '-'
-# symbole réaction : '=>'
-def résolution_équation(équation_logique):
-    nb_réactions_max=20
-
-    liste_mots = équation_logique.split(" ")
-
-    #Récupération du numéro du 1er réactif
-    if liste_mots[0][0]=='!':
-        réactif_1=molécule_non_v1(numéro(liste_mots[0][1:]))
-    else:
-        réactif_1=numéro(liste_mots[0])
-    
-    #Récupération du numéro du 2eme réactif
-    if liste_mots[2][0]=='!':
-        réactif_2=molécule_non_v1(numéro(liste_mots[2][1:]))
-    else:
-        réactif_2=numéro(liste_mots[2])
-
-    produit=numero(liste_mots[4])
-
-    if liste_mots[1] == '+':
-        pluscourtchemin(enz,[réactif_1,réactif_2],produit,'ab',nb_réactions_max)
 
 
 
