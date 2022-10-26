@@ -7,7 +7,9 @@ Branches "main" et "edit-in-progress"
 
 ## TODO
 
-Utiliser notebook jupyter pour intégrer des exemples
+Clarifier affichage mécanismes trouvés
+Vérifier fonctionnement du NON
+Implémenter le OU
 
 ## Ajouter des  files
 
