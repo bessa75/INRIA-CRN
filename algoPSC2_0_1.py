@@ -468,7 +468,7 @@ enz = numero2(ENZ)
 
 résolution_équation("Lactateext + EtOHext => ABTSOX")
 
-MECAS = pluscourtchemin(enz, re, numero('ABTSOX'), 'a', 50)
+MECAS = pluscourtchemin(enz, re, numero('ABTSOX'), 'a', 50)  # Pourquoi tag a ? OU logique ?
 mt = mecatexte(MECAS[0][0])
 for d in mt:
     print(d)
