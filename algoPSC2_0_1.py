@@ -4,7 +4,8 @@
 # etqt : étiquette à avoir ?
 # n    : nb max d'étaps ?
 
-def pluscourtchemin(ENZ, REAC, prod, etqt, n):
+def pluscourtchemin(ENZ,REAC,prod,n,imprime):
+
     """ PRESENCE : liste des molécules présente.
     Evolue au cours de l'algorithme.
     Chaque case coorespond à une molécule et est de la forme :
@@ -119,46 +120,46 @@ def pluscourtchemin(ENZ, REAC, prod, etqt, n):
     MECANISMES = []  ## liste des mécanismes sous forme de doublet (MECANISME, étiquette)
     MECANISME = []  ## mécanisme sous forme d'une liste d'étapes, chaque étape étant une liste de réactions
 
-    # On vérifie que le produit a été créé selon l'étiquette (=l'équation logique) voulue
-    if etqt not in PRESENCE[prod][2]:
-        print("le produit est obtenu mais pas avec l'étiquette demandée")
-        print('********************************************')
-        print('')
-        return (False)
+
+    #print(PRESENCE[numero('DDib5')])
 
     # une fois le produit trouvé, on remonte la chaîne réactionnelle pour écrire le mécanisme par étapes
     for meca in PRESENCE[prod][1]:
+        MECANISME=[]
+        presence_cycles=False ## booléen pour éviter que des cycles ne se répètent
         nbetape = meca[1]
-        PROD = [(prod, meca[2])]
+        PROD = [(prod,meca[2])]
         while nbetape > 0:
             # print(nbetape)
             ETAPE = []
             PRODBIS = []
-            NbEtape = []
-            # print(PROD)
+            #print([MOL[prod[0]] for prod in PROD])
 
             # pour chaque produit on retrouve les réactifs qui l'ont formé et on leur associe l'étiquette correspondante
             for a in PROD:
                 # recherche du numéro r de la réaction ayant permis la production de la molécule a en nbetape étapes
                 r = -1
                 for reac in PRESENCE[a[0]][1]:
-                    if reac[1] == nbetape and reac[2] == a[1] and reac[1] == min(
-                            [reac[1] for reac in PRESENCE[a[0]][1] if reac[2] == a[1]]):
+                    if reac[1] == nbetape and reac[2 == a[1] and reac[1 == min([reac[1] for reac in PRESENCE[a[0]][1] if reac[2 == a[1]]):
                         r = reac[0]
-                        NbEtape.append(reac[1])
                         break
-                if r == -1:  ## potentiellement contingent
-                    # print(nbetape,MOL[a[0]],a[1])
+                if r == -1: ## potentiellement contingent
+                    #print(nbetape,MOL[a[0]],a[1])
                     PRODBIS.append(a)
-                    NbEtape.append(-1)
                 else:
                     ETAPE.append(r)
                     reactifs = REACTIONS[r][0]
+                    produits = REACTIONS[r][1]
+                    for p in produits:
+                        if p == prod and nbetape < meca[1]-1:
+                            presence_cycles=True #détection d'un cycle rendant le mécanisme invalide : un mécanisme invalide est un mécanisme dans le quel le produit final n'apparait pas seulement dans la dernière réaction
+                            break ##on veut sortir de 3 boucles imbriquées donc on va rappeler ce break
+                    if presence_cycles:
+                        break
                     if len(reactifs) == 1:
                         PRODBIS.append((reactifs[0], a[1]))
                     else:  ##on suppose la molécularité inférieure ou égale à 2
                         eti = a[1]
-
                         r20 = reactifs[0]  # réactif 1
                         r21 = reactifs[1]  # réactif 2
                         P0 = PRESENCE[r20][1]  # réactions ayant produit r20
@@ -191,7 +192,7 @@ def pluscourtchemin(ENZ, REAC, prod, etqt, n):
                             else:
                                 PRODBIS.append((r21, 'e'))
                         if eti == 'ab':
-                            sel = selec2ab(L0, L1)  ##à compléter à partir d'ici
+                            sel = selec2ab(L0, L1)
                             if sel[0] != 'o':
                                 PRODBIS.append((reactifs[0], sel[0]))
                             if sel[1] != 'o':
@@ -219,6 +220,10 @@ def pluscourtchemin(ENZ, REAC, prod, etqt, n):
                                 for r in PRESENCE[r1][1]:
                                     if ((r[2] == 'a') or (r[2] == 'b')) and r[2] != etq:
                                         PRODBIS.append((r1, r[2]))
+                if presence_cycles: 
+                    break ##break prolongeant un autre pour sortir de 3 boucles successives
+            if presence_cycles:
+                break ##break prolongeant un autre pour sortir de 3 boucles successives
             if ETAPE != []:
                 MECANISME = [ETAPE] + MECANISME
             # print([MOL[a[0]] for a in PROD])
@@ -229,22 +234,29 @@ def pluscourtchemin(ENZ, REAC, prod, etqt, n):
             PRODBIS = []
             nbetape = max(NbEtape) - 1
         Enzs = []
-        for mol in PROD:
-            if mol != numero(REAC[0]) and mol != numero(REAC[1]):
-                Enzs.append(mol[0])
-        MECANISMES.append((MECANISME, etqt, Enzs))
+        #print(presence_cycles)
+        if presence_cycles==False:
+            for mol in PROD:
+                if mol != numero(REAC[0]) and mol != numero(REAC[1]):
+                    Enzs.append(mol[0])
+            MECANISMES.append((MECANISME,meca[2],Enzs))
 
-    """
-    print("Les réactifs utilisés sont :")
-    print([MOL[a[0]] for a in PROD])
-    print('')
-    print('Les étapes du mécanisme sont :')
-    M=mecatexte(MECANISME)
-    for e in M:
-        print(e)
+    
+
+
+    print('Les mécanismes après sélection sont les suivants')
+    print(MECANISMES)
+    print(" ")
+    if imprime==True: ##Si on décide de print les mécanismes sous forme de texte, on les affiche
+        i=0
+        for meca in MECANISMES:
+            i+=1
+            print("mécanisme "+str(i)+":")
+            txt=mecatexte(meca[0])
+            for a in txt:
+                print(a)
+            print(" ")
     print('********************************************')
-    print('')
-    """
     return MECANISMES
 
 
@@ -314,8 +326,7 @@ def selec2ab(L1,
     return (l1, l2)
 
 
-def mecatexte(
-        MECANISME):  ##simple fonction qui convertit le mécanisme réactionnel renvoyé par l'algorithme en un texte lisible pour l'utilisateur.
+def mecatexte(MECANISME):  ##simple fonction qui convertit le mécanisme réactionnel renvoyé par l'algorithme en un texte lisible pour l'utilisateur.
     MT = []
     for k in range(len(MECANISME)):
         ET = []
@@ -327,14 +338,17 @@ def mecatexte(
 
 # Prend un numéro de molécule en paramétre et renvoie le numéro de molécule faisant la logique "non" ainsi que le numéro de réaction
 def molécule_non_v1(numéro_molécule):
-    for réacion_i in REACTIONS:
+    for num_reac, réacion_i in enumerate(REACTIONS):
         if numéro_molécule in réacion_i[0]:
             if réacion_i[0][0] == numéro_molécule:
-                molécule_non = réacion_i[0][1]
+                molécule_non = réacion_i[1][0]
             else:
                 molécule_non = réacion_i[0][0]
-
-            return molécule_non, réacion_i
+            
+            print("Molécule non : ",molécule_non)
+            print()
+            
+            return molécule_non, num_reac
     raise Exception("Aucune molécule 'non' trouvée")
 
 
@@ -348,13 +362,13 @@ def résolution_équation(équation_logique):
 
     # Récupération du numéro du 1er réactif
     if liste_mots[0][0] == '!':
-        réactif_1 = molécule_non_v1(numero(liste_mots[0][1:]))
+        réactif_1, num_reac_non1 = molécule_non_v1(numero(liste_mots[0][1:]))
     else:
         réactif_1 = numero(liste_mots[0])
 
     # Récupération du numéro du 2eme réactif
     if liste_mots[2][0] == '!':
-        réactif_2 = molécule_non_v1(numero(liste_mots[2][1:]))
+        réactif_2, num_reac_non2 = molécule_non_v1(numero(liste_mots[2][1:]))
     else:
         réactif_2 = numero(liste_mots[2])
 
@@ -362,13 +376,152 @@ def résolution_équation(équation_logique):
 
     if liste_mots[1] == '+':
         # print(f"MECAS=pluscourtchemin({numero2(ENZ)},[{réactif_1}, {réactif_2}],{produit},'ab',{nb_réactions_max})")
-        MECAS = pluscourtchemin(numero2(ENZ), [réactif_1, réactif_2], produit, 'ab', nb_réactions_max)
+        MECAS = pluscourtchemin(numero2(ENZ), [réactif_1, réactif_2], produit, nb_réactions_max, True)
         mt = mecatexte(MECAS[0][0])
         for d in mt:
             print(d)
         print("")
         print("")
+        #return MECAS
 
+def check(Current,LETIQ,nmax,LREAC,LPROD):
+    ENZYME=[]
+    n=len(LPROD)
+    for ligne in Current:
+        for enz in ligne[2]:
+            ENZYME.append(enz)
+    for k in range(n):
+        chemins=pluscourtchemin(ENZYME,LREAC[k],LPROD[k],nmax)
+        if LETIQ[k]=='ab':
+            for chemin in chemins:
+                if chemin[1]!='ab':
+                    return False
+        if LETIQ[k]=='aob':
+            inda=False
+            indb=False
+            for chemin in chemins:
+                if chemin[1]=='a':
+                    inda=True
+                if chemin[1]=='b':
+                    indb=True
+            if not inda or not indb:
+                return False
+    return True
+
+
+def research(Allreactions,LETIQ,nmax,LREAC,LPROD):
+    n=len(Allreactions)
+    i=[0]*(n+1)
+    Borne = [0]*n
+    Current=[[]]*n
+    for k in range(n):
+        Borne[k]=len(Allreactions[k])
+    p = 0
+    while i[n]==0:
+        for k in range(n):
+            Current[k]=Allreactions[i[k]]
+        if (check(Current,LETIQ,nmax,LREAC,LPROD)):
+            return Current
+        i[0]+=1
+        while i[p]==MAX[p]:
+            i[p]=0
+            p+=1
+            i[p]+=1
+            if(i[p]!=MAX[p]):
+                p=0
+    return 0
+
+def res(LREAC,LPROD,LETIQ,nmax, ENZ):
+    n=len(LPROD)
+    ENZYME=[]
+    MECANISMES=[]
+    Allreactions=[]
+    for k in range(n):
+        Allreactions.append(pluscourtchemin(ENZ,LREAC[k],LPROD[k],nmax))
+
+    result=research(Allreactions,LETIQ,nmax, LREAC,LPROD)
+    if result==0:
+        return ("pas de solution au système")
+    else:
+        for k in range(n):
+            ENZYME.append(result[k][2])
+            MECANISMES.append(result[k][0])
+        return [ENZYME,MECANISMES]
+
+
+
+def ressystem(LREAC,LPROD,LETIQ,nmax, ENZ):
+    n=len(LPROD)
+    ENZYME=[]
+    MECANISMES=[]
+    for k in range(n):
+        if LETIQ[k]=='ab':
+            trouve=False
+            for chemin in pluscourtchemin(ENZ,LREAC[k],LPROD[k],nmax,False):
+                if chemin[1]=='ab':
+                    ENZYME.append(chemin[2])
+                    MECANISMES.append(chemin[0])
+                    trouve=True
+                    break
+            if not trouve:
+                return ('erreur pour le chemin'+str(k))
+
+        if LETIQ[k]=='aob':
+            trouvea=False
+            trouveb=False
+            LENZYME=[]
+            MECANISMEa=[]
+            MECANISMEb=[]
+            for chemin in pluscourtchemin(ENZ,LREAC[k],LPROD[k],nmax,False):
+                if not trouvea:
+                    if not trouveb:
+                        if chemin[1]=='a':
+                            for e in chemin[2]:
+                                LENZYME.append(e)
+                            MECANISMEa.append(chemin[0])
+                            trouvea=True
+                        if chemin[1]=='b':
+                            for e in chemin[2]:
+                                LENZYME.append(e)
+                            MECANISMEb.append(chemin[0])
+                            trouveb=True
+                    if chemin[1]=='a':
+                        for e in chemin[2]:
+                            LENZYME.append(e)
+                        trouvea=True
+                        MECANISMEa.append(chemin[0])
+                if not trouveb:
+                    if chemin[1]=='b':
+                        for e in chemin[2]:
+                            LENZYME.append(e)
+                        trouveb=True
+                        MECANISMEb.append(chemin[0])
+                if trouvea and trouveb :
+                    break
+            if not trouvea and not trouveb:
+                return ('erreur pour le chemin'+str(k))
+            else:
+                ENZYME.append(LENZYME)
+                MECANISMES.append((MECANISMEa,MECANISMEb))
+
+        if LETIQ[k]=='a':
+            chemin= pluscourtchemin(ENZ,LREAC[k],LPROD[k],'a',nmax)
+            ENZYME.append(chemin[2])
+            MECANISME.append(chemin[0])
+    """
+        if LETIQ[k]=='anb':
+            LNEGATION=recherchetemoin(LREAC[k])
+            i=0
+            nmin=nmax
+            NNEG=LNEGATION.length()
+            for j in range(NNEG):
+                ENZYMENEG=pluscourtcheminneg(enz,numleneg,numero(LPROD[k]),'ab',nmax,LNEGATION[j])
+                if ENZYMENEG[1]<nmin:
+                    i=j
+                    nmin=ENZYMENEG[1]
+            ENZYME.append(pluscourtcheminneg(enz,numero2(LREAC[k]),numero(LPROD[k]),'ab',nmin,LNEGATION[j]))
+    """
+    return [ENZYME,MECANISMES]
 
 import re
 
