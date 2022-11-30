@@ -332,15 +332,27 @@ def mecatexte(MECANISME):  ##simple fonction qui convertit le mécanisme réacti
 
 # Prend un numéro de molécule en paramétre et renvoie le numéro de molécule faisant la logique "non" ainsi que le numéro de réaction
 def molécule_non_v1(numéro_molécule):
-    for num_reac, réacion_i in enumerate(REACTIONS):
+    if(MOL[numéro_molécule].endswith('ext')): #Il faut prendre la molécule une fois dans la cellule pour chercher un non
+        nom_molécule=MOL[numéro_molécule]
+        if MOL[numéro_molécule+1]==nom_molécule[:-3]:
+            numéro_molécule=numéro_molécule+1
+        else:
+            for num_molécule_boucle,nom_molécule_boucle in enumerate(MOL):
+                if nom_molécule_boucle==nom_molécule[:-3]:
+                    numéro_molécule=num_molécule_boucle
+                    break
+        
+
+    for num_reac, réacion_i in enumerate(REACTIONS): # La molécule une fois rentré ne peut pas sortir, donc pas besoin d'exclure la réaction retour (sauf s'il la réaction A=>Aext devient possible)
         if numéro_molécule in réacion_i[0]:
             if réacion_i[0][0] == numéro_molécule:
                 molécule_non = réacion_i[1][0]
             else:
                 molécule_non = réacion_i[0][0]
-
-            print("Molécule non : ",molécule_non)
-            print()
+            
+            print(f"Molécule non : {MOL[molécule_non]}")
+            réaction_négation=REACTIONS[num_reac]
+            print(f"Réaction de négation : {' + '.join([MOL[indice_réactif] for indice_réactif in réaction_négation[0]])} => {MOL[réaction_négation[1][0]]}")
 
             return molécule_non, num_reac
     raise Exception("Aucune molécule 'non' trouvée")

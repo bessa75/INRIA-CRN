@@ -92,11 +92,14 @@ algoPSC2_0_1.REACPARMOL=REACPARMOL
     
 """    Résolution des 3 exemples"""
 
+"""
 ## glucose et acetone donnent gluconolacrone
 algoPSC2_0_1.ENZ = ['AO', 'ADH', 'G_1DH', 'NAD', 'resazurin', 'HRP', 'H2O2']  ##rajouter NAD pour fausser le résultat
 MECAS = algoPSC2_0_1.résolution_équation("acetoneext + glucoseext => resorufin")
+"""
 
 
+"""
 ## Test lescture équation
 ENZ=['ABTS','ADH', 'NADH', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF','NAD'] ##rajouter NAD pour fausser le résultat
 RE=['acetoneext','glucoseext']
@@ -109,12 +112,17 @@ for d in mt[0]:
     print(d)
 print("")
 print("")
+"""
 
+
+"""
 ##NO et glucose donnent gluconolacrone avec NO3 en réactif annexe
 algoPSC2_0_1.ENZ = ['ABTS', 'ADH', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'NAD']
 algoPSC2_0_1.résolution_équation("NO2 + glucoseext => DAFF")
+"""
 
 
+"""
 ## Ancien OU logique à changer sur le fonctionnement pluscourtchemin
 
 ENZ=['ABTS', 'ADH', 'NAD', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'LO']
@@ -127,3 +135,11 @@ MECAS = algoPSC2_0_1.pluscourtchemin(algoPSC2_0_1.numero2(ENZ), algoPSC2_0_1.num
 mt = algoPSC2_0_1.mecatexte(MECAS[0][0])
 for d in mt:
     print(d)
+"""
+
+
+"""
+##glucose et Non(acetone) donnent gluconolacrone
+algoPSC2_0_1.ENZ = ['AO', 'ADH', 'G_1DH', 'NAD', 'resazurin', 'HRP', 'H2O2']  ##rajouter NAD pour fausser le résultat
+algoPSC2_0_1.résolution_équation("!acetoneext + glucoseext => NADH")
+"""
