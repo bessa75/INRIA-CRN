@@ -1,0 +1,129 @@
+import algoPSC2_0_1
+import algoresolution_système
+
+
+"""    Déclaration variables et constantes"""
+import re #bibliothéque python
+
+file = "catalog.bc"
+nb_réactions_max = 50
+algoPSC2_0_1.nb_réactions_max=nb_réactions_max
+
+elmts = []
+inputs = []
+enzymes = []
+regex = ["(present\()|(, [e\-0-9]+\))|\.", "(MA.*for )|\+|(=>)|\."]
+blocs = {"inputs": (regex[0], inputs), "enzymes": (regex[0], enzymes), "elmts": (regex[1], elmts)}
+
+""" Création du tableau "reaction" de l'ensemble des réactions possible données par le fichier file"""
+friends = {'test': []}  # Chaque elmt et l'ensemble des elements avec lesquels il reagit
+# par contre les enzymes ne sont pas comptés comme éléments, du coup ils ne font pas partie des clés du dict.
+
+reaction = []  # Liste des réactions en version texte
+with open(file) as f:
+    while f.readline() != "% Inputs\n":
+        continue
+    bloc = 'inputs'
+    while True:
+        l = f.readline()
+        if not l:
+            break
+
+        if l[0] == '%':
+            if l.find("Enzymes") > 0:
+                bloc = 'enzymes'
+                continue
+            if l.find('reaction') > 0:
+                bloc = 'elmts'
+                continue
+            continue
+
+        if len(l) < 3:
+            continue
+
+        if bloc == 'elmts':
+            elmt = l.split('=>')
+            reactifs = re.sub("(MA.*for )|\+", " ", elmt[0]).split()
+            for r in reactifs:
+                try:
+                    friends[r].extend([e for e in reactifs if e not in friends[r]])
+                except:
+                    friends.update({r: [e for e in reactifs if e != r]})
+            produits = re.sub("\+|\.", " ", elmt[1]).split()
+            reaction.append((reactifs, produits))
+            elts = reactifs + produits
+        else:
+            elts = re.sub(blocs[bloc][0], '', l).split()
+
+        blocs[bloc][1].extend([e for e in elts if (e not in blocs[bloc][1])])
+algoPSC2_0_1.reaction=reaction
+
+MOL = enzymes + elmts
+MOL.pop(26)  # ?
+algoPSC2_0_1.MOL=MOL
+
+
+REACTIONS = []  # Liste des réactions en version numéros
+for a in reaction:
+    reac = ([], [])
+    for m in a[0]:
+        if m == 'H_20_2' or m == 'H202' or m == 'H_2O_2':
+            reac[0].append(algoPSC2_0_1.numero('H2O2'))
+        else:
+            reac[0].append(algoPSC2_0_1.numero(m))
+    for m in a[1]:
+        if m == 'H_20_2' or m == 'H202' or m == 'H_2O_2':
+            reac[1].append(algoPSC2_0_1.numero('H2O2'))
+        else:
+            reac[1].append(algoPSC2_0_1.numero(m))
+    REACTIONS.append(reac)
+algoPSC2_0_1.REACTIONS=REACTIONS
+
+
+REACPARMOL = [] # REACPARMOL = ?
+for k in range(0, len(MOL)):
+    REACPARMOL.append([])
+for k in range(0, len(REACTIONS)):
+    u = REACTIONS[k][0][0]
+    REACPARMOL[u].append(k)
+algoPSC2_0_1.REACPARMOL=REACPARMOL
+
+    
+    
+"""    Résolution des 3 exemples"""
+
+## glucose et acetone donnent gluconolacrone
+algoPSC2_0_1.ENZ = ['AO', 'ADH', 'G_1DH', 'NAD', 'resazurin', 'HRP', 'H2O2']  ##rajouter NAD pour fausser le résultat
+MECAS = algoPSC2_0_1.résolution_équation("acetoneext + glucoseext => resorufin")
+
+
+## Test lescture équation
+ENZ=['ABTS','ADH', 'NADH', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF','NAD'] ##rajouter NAD pour fausser le résultat
+RE=['acetoneext','glucoseext']
+re=algoPSC2_0_1.numero2(RE)
+enz=algoPSC2_0_1.numero2(ENZ)
+solution=algoresolution_système.ressystem([re],[algoPSC2_0_1.numero('gluconolacrone')],['ab'],20,enz)
+
+mt = algoPSC2_0_1.mecatexte(solution[0])
+for d in mt[0]:
+    print(d)
+print("")
+print("")
+
+##NO et glucose donnent gluconolacrone avec NO3 en réactif annexe
+algoPSC2_0_1.ENZ = ['ABTS', 'ADH', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'NAD']
+algoPSC2_0_1.résolution_équation("NO2 + glucoseext => DAFF")
+
+
+## Ancien OU logique à changer sur le fonctionnement pluscourtchemin
+
+ENZ=['ABTS', 'ADH', 'NAD', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'LO']
+algoPSC2_0_1.ENZ = ENZ
+RE = ['Lactateext', 'EtOHext']
+
+algoPSC2_0_1.résolution_équation("Lactateext + EtOHext => ABTSOX")
+
+MECAS = algoPSC2_0_1.pluscourtchemin(algoPSC2_0_1.numero2(ENZ), algoPSC2_0_1.numero2(RE), algoPSC2_0_1.numero('ABTSOX'), nb_réactions_max, True)  # Pourquoi tag a ? OU logique ?
+mt = algoPSC2_0_1.mecatexte(MECAS[0][0])
+for d in mt:
+    print(d)

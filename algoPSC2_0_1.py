@@ -70,8 +70,7 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime):
                                     if e not in PRESENCE[produit][2]:
                                         PRESENCEBIS.append((produit, e))
                                     if (a, e) not in PRESENCE[produit][3]:
-                                        PRESENCE[produit][1].append((a, nbetape,
-                                                                     e))  ## ici on se permet de mettre à jour PRESENCE et pas PRESENCEBIS car cela n'a pas d'influence.
+                                        PRESENCE[produit][1].append((a, nbetape, e))  ## ici on se permet de mettre à jour PRESENCE et pas PRESENCEBIS car cela n'a pas d'influence.
                                         PRESENCE[produit][3].append((a, e))
                                     if PRESENCE[produit][0] == False:
                                         nbmol += 1
@@ -81,14 +80,11 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime):
                             mol2 = REACTIONS[a][0][1]
                             for e1 in PRESENCE[mol1][2]:
                                 for e2 in PRESENCE[mol2][2]:
-                                    e = bin(e1,
-                                            e2)  ##utilisation de la relation binaire pour la propagation des étiquettes
-                                    for produit in REACTIONS[a][
-                                        1]:  ##REACTIONS [a][1] correspond aux produits de la réaction a
+                                    e = bin(e1,e2)  ##utilisation de la relation binaire pour la propagation des étiquettes
+                                    for produit in REACTIONS[a][1]:  ##REACTIONS [a][1] correspond aux produits de la réaction a
                                         if e not in PRESENCE[produit][2]:
                                             PRESENCEBIS.append((produit, e))
-                                        if (a, e) not in PRESENCE[produit][
-                                            3]:  ##contingent si on veut juste le plus court chemin
+                                        if (a, e) not in PRESENCE[produit][3]:  ##contingent si on veut juste le plus court chemin
                                             PRESENCE[produit][3].append((a, e))
                                             PRESENCE[produit][1].append((a, nbetape, e))
                                         if PRESENCE[produit][0] == False:
@@ -104,10 +100,9 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime):
 
         """ Boucle de recherche ascendante """
 
-    print("Mécanismes réactionnels obtenus pour le produit en " + str(
-        nbetape) + " étapes maximum avec l'étiquette " + etqt + " :")
-    print(PRESENCE[prod][0:2])
-    print("")
+    #print("Mécanismes réactionnels obtenus pour le produit en " + str(nbetape) + " étapes maximum avec l'étiquette "+etqt+" :")
+    #print(PRESENCE[prod][0:2])
+    #print("")
     # On vérifie que le produit voulu a été créé
     if (PRESENCE[prod][0] == False):
         print("impossible d'arriver au produit")
@@ -140,7 +135,7 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime):
                 # recherche du numéro r de la réaction ayant permis la production de la molécule a en nbetape étapes
                 r = -1
                 for reac in PRESENCE[a[0]][1]:
-                    if reac[1] == nbetape and reac[2 == a[1] and reac[1 == min([reac[1] for reac in PRESENCE[a[0]][1] if reac[2 == a[1]]):
+                    if reac[1] == nbetape and reac[2] == a[1] and reac[1] == min([reac[1] for reac in PRESENCE[a[0]][1] if reac[2] == a[1]]):
                         r = reac[0]
                         break
                 if r == -1: ## potentiellement contingent
@@ -220,7 +215,7 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime):
                                 for r in PRESENCE[r1][1]:
                                     if ((r[2] == 'a') or (r[2] == 'b')) and r[2] != etq:
                                         PRODBIS.append((r1, r[2]))
-                if presence_cycles: 
+                if presence_cycles:
                     break ##break prolongeant un autre pour sortir de 3 boucles successives
             if presence_cycles:
                 break ##break prolongeant un autre pour sortir de 3 boucles successives
@@ -232,7 +227,7 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime):
             for a in PRODBIS:
                 PROD.append(a)
             PRODBIS = []
-            nbetape = max(NbEtape) - 1
+            nbetape=nbetape-1
         Enzs = []
         #print(presence_cycles)
         if presence_cycles==False:
@@ -241,7 +236,7 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime):
                     Enzs.append(mol[0])
             MECANISMES.append((MECANISME,meca[2],Enzs))
 
-    
+
 
 
     print('Les mécanismes après sélection sont les suivants')
@@ -260,6 +255,58 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime):
     return MECANISMES
 
 
+def bin(c, d):  ##relation binaire de propagation des étiquettes
+    if c == 'a' and d == 'b':
+        return('ab')
+    if c == 'b' and d == 'a':
+        return('ab')
+    if c == 'ab' or d == 'ab':
+        return('ab')
+    if c == 'a' or d == 'a':
+        return('a')
+    if c == 'b' or d == 'b':
+        return('b')
+    else:
+        return('e')
+
+
+def selec(L):  ##fonction utile pour selec2ab
+    if 'ab' in L:
+        return('ab')
+    if 'a' in L and 'b' in L:
+        return('o')
+    if 'b' in L:
+        return('b')
+    if 'a' in L:
+        return('a')
+    else:
+        return('e')
+
+
+def selec2ab(L1,L2):  ##cette fonction aide l'algorithme de remontée. Le but est, quand le produit d'une réaction est avec l'étiquette 'ab', de choisir avec quelles étiquettes on va considérer les réactifs qui ont mené à ce produit. Si on a 'o' on peut choisir 'a' ou 'b' indifféremment.
+    l1 = selec(L1)
+    l2 = selec(L2)
+    if l2 == 'o':
+        if l1 == 'ab':
+            return('ab', 'o')
+        if l1 == 'b':
+            return('b', 'a')
+        if l1 == 'a':
+            return('a', 'b')
+        if l1 == 'o':
+            return('o', 'o')
+    if l1 == 'o':
+        if l2 == 'o':
+            return('o', 'o')
+        if l2 == 'b':
+            return('a', 'b')
+        if l2 == 'a':
+            return('b', 'a')
+        if l2 == 'ab':
+            return('o', 'ab')
+    return(l1, l2)
+
+
 def numero(enzyme):  ##retourne le numéro correspondant à un nom d'enzyme
     for i in range(0, len(MOL)):
         if MOL[i] == enzyme:
@@ -271,59 +318,6 @@ def numero2(L):  ##retourne les numéros correspondant aux noms d'enzymes d'une 
     for k in range(0, len(L)):
         L2.append(numero(L[k]))
     return (L2)
-
-
-def bin(c, d):  ##relation binaire de propagation des étiquettes
-    if c == 'a' and d == 'b':
-        return ('ab')
-    if c == 'b' and d == 'a':
-        return ('ab')
-    if c == 'ab' or d == 'ab':
-        return ('ab')
-    if c == 'a' or d == 'a':
-        return ('a')
-    if c == 'b' or d == 'b':
-        return ('b')
-    else:
-        return ('e')
-
-
-def selec(L):  ##fonction utile pour selec2ab
-    if 'ab' in L:
-        return ('ab')
-    if 'a' in L and 'b' in L:
-        return ('o')
-    if 'b' in L:
-        return ('b')
-    if 'a' in L:
-        return ('a')
-    else:
-        return ('e')
-
-
-def selec2ab(L1,
-             L2):  ##cette fonction aide l'algorithme de remontée. Le but est, quand le produit d'une réaction est avec l'étiquette 'ab', de choisir avec quelles étiquettes on va considérer les réactifs qui ont mené à ce produit. Si on a 'o' on peut choisir 'a' ou 'b' indifféremment.
-    l1 = selec(L1)
-    l2 = selec(L2)
-    if l2 == 'o':
-        if l1 == 'ab':
-            return ('ab', 'o')
-        if l1 == 'b':
-            return ('b', 'a')
-        if l1 == 'a':
-            return ('a', 'b')
-        if l1 == 'o':
-            return ('o', 'o')
-    if l1 == 'o':
-        if l2 == 'o':
-            return ('o', 'o')
-        if l2 == 'b':
-            return ('a', 'b')
-        if l2 == 'a':
-            return ('b', 'a')
-        if l2 == 'ab':
-            return ('o', 'ab')
-    return (l1, l2)
 
 
 def mecatexte(MECANISME):  ##simple fonction qui convertit le mécanisme réactionnel renvoyé par l'algorithme en un texte lisible pour l'utilisateur.
@@ -344,10 +338,10 @@ def molécule_non_v1(numéro_molécule):
                 molécule_non = réacion_i[1][0]
             else:
                 molécule_non = réacion_i[0][0]
-            
+
             print("Molécule non : ",molécule_non)
             print()
-            
+
             return molécule_non, num_reac
     raise Exception("Aucune molécule 'non' trouvée")
 
@@ -375,7 +369,7 @@ def résolution_équation(équation_logique):
     produit = numero(liste_mots[4])
 
     if liste_mots[1] == '+':
-        # print(f"MECAS=pluscourtchemin({numero2(ENZ)},[{réactif_1}, {réactif_2}],{produit},'ab',{nb_réactions_max})")
+        #print(f"MECAS=pluscourtchemin({numero2(ENZ)},[{réactif_1}, {réactif_2}],{produit},{nb_réactions_max}, True)")
         MECAS = pluscourtchemin(numero2(ENZ), [réactif_1, réactif_2], produit, nb_réactions_max, True)
         mt = mecatexte(MECAS[0][0])
         for d in mt:
@@ -383,245 +377,3 @@ def résolution_équation(équation_logique):
         print("")
         print("")
         #return MECAS
-
-def check(Current,LETIQ,nmax,LREAC,LPROD):
-    ENZYME=[]
-    n=len(LPROD)
-    for ligne in Current:
-        for enz in ligne[2]:
-            ENZYME.append(enz)
-    for k in range(n):
-        chemins=pluscourtchemin(ENZYME,LREAC[k],LPROD[k],nmax)
-        if LETIQ[k]=='ab':
-            for chemin in chemins:
-                if chemin[1]!='ab':
-                    return False
-        if LETIQ[k]=='aob':
-            inda=False
-            indb=False
-            for chemin in chemins:
-                if chemin[1]=='a':
-                    inda=True
-                if chemin[1]=='b':
-                    indb=True
-            if not inda or not indb:
-                return False
-    return True
-
-
-def research(Allreactions,LETIQ,nmax,LREAC,LPROD):
-    n=len(Allreactions)
-    i=[0]*(n+1)
-    Borne = [0]*n
-    Current=[[]]*n
-    for k in range(n):
-        Borne[k]=len(Allreactions[k])
-    p = 0
-    while i[n]==0:
-        for k in range(n):
-            Current[k]=Allreactions[i[k]]
-        if (check(Current,LETIQ,nmax,LREAC,LPROD)):
-            return Current
-        i[0]+=1
-        while i[p]==MAX[p]:
-            i[p]=0
-            p+=1
-            i[p]+=1
-            if(i[p]!=MAX[p]):
-                p=0
-    return 0
-
-def res(LREAC,LPROD,LETIQ,nmax, ENZ):
-    n=len(LPROD)
-    ENZYME=[]
-    MECANISMES=[]
-    Allreactions=[]
-    for k in range(n):
-        Allreactions.append(pluscourtchemin(ENZ,LREAC[k],LPROD[k],nmax))
-
-    result=research(Allreactions,LETIQ,nmax, LREAC,LPROD)
-    if result==0:
-        return ("pas de solution au système")
-    else:
-        for k in range(n):
-            ENZYME.append(result[k][2])
-            MECANISMES.append(result[k][0])
-        return [ENZYME,MECANISMES]
-
-
-
-def ressystem(LREAC,LPROD,LETIQ,nmax, ENZ):
-    n=len(LPROD)
-    ENZYME=[]
-    MECANISMES=[]
-    for k in range(n):
-        if LETIQ[k]=='ab':
-            trouve=False
-            for chemin in pluscourtchemin(ENZ,LREAC[k],LPROD[k],nmax,False):
-                if chemin[1]=='ab':
-                    ENZYME.append(chemin[2])
-                    MECANISMES.append(chemin[0])
-                    trouve=True
-                    break
-            if not trouve:
-                return ('erreur pour le chemin'+str(k))
-
-        if LETIQ[k]=='aob':
-            trouvea=False
-            trouveb=False
-            LENZYME=[]
-            MECANISMEa=[]
-            MECANISMEb=[]
-            for chemin in pluscourtchemin(ENZ,LREAC[k],LPROD[k],nmax,False):
-                if not trouvea:
-                    if not trouveb:
-                        if chemin[1]=='a':
-                            for e in chemin[2]:
-                                LENZYME.append(e)
-                            MECANISMEa.append(chemin[0])
-                            trouvea=True
-                        if chemin[1]=='b':
-                            for e in chemin[2]:
-                                LENZYME.append(e)
-                            MECANISMEb.append(chemin[0])
-                            trouveb=True
-                    if chemin[1]=='a':
-                        for e in chemin[2]:
-                            LENZYME.append(e)
-                        trouvea=True
-                        MECANISMEa.append(chemin[0])
-                if not trouveb:
-                    if chemin[1]=='b':
-                        for e in chemin[2]:
-                            LENZYME.append(e)
-                        trouveb=True
-                        MECANISMEb.append(chemin[0])
-                if trouvea and trouveb :
-                    break
-            if not trouvea and not trouveb:
-                return ('erreur pour le chemin'+str(k))
-            else:
-                ENZYME.append(LENZYME)
-                MECANISMES.append((MECANISMEa,MECANISMEb))
-
-        if LETIQ[k]=='a':
-            chemin= pluscourtchemin(ENZ,LREAC[k],LPROD[k],'a',nmax)
-            ENZYME.append(chemin[2])
-            MECANISME.append(chemin[0])
-    """
-        if LETIQ[k]=='anb':
-            LNEGATION=recherchetemoin(LREAC[k])
-            i=0
-            nmin=nmax
-            NNEG=LNEGATION.length()
-            for j in range(NNEG):
-                ENZYMENEG=pluscourtcheminneg(enz,numleneg,numero(LPROD[k]),'ab',nmax,LNEGATION[j])
-                if ENZYMENEG[1]<nmin:
-                    i=j
-                    nmin=ENZYMENEG[1]
-            ENZYME.append(pluscourtcheminneg(enz,numero2(LREAC[k]),numero(LPROD[k]),'ab',nmin,LNEGATION[j]))
-    """
-    return [ENZYME,MECANISMES]
-
-import re
-
-file = "catalog.bc"
-nb_réactions_max = 50
-
-elmts = []
-inputs = []
-enzymes = []
-regex = ["(present\()|(, [e\-0-9]+\))|\.", "(MA.*for )|\+|(=>)|\."]
-blocs = {"inputs": (regex[0], inputs), "enzymes": (regex[0], enzymes), "elmts": (regex[1], elmts)}
-
-""" Création du tableau "reaction" de l'ensemble des réactions possible données par le fichier file"""
-reaction = []  # Liste des réactions en version texte
-
-friends = {'test': []}  # Chaque elmt et l'ensemble des elements avec lesquels il reagit
-# par contre les enzymes ne sont pas comptés comme éléments, du coup ils ne font pas partie des clés du dict.
-
-with open(file) as f:
-    while f.readline() != "% Inputs\n":
-        continue
-    bloc = 'inputs'
-    while True:
-        l = f.readline()
-        if not l:
-            break
-
-        if l[0] == '%':
-            if l.find("Enzymes") > 0:
-                bloc = 'enzymes'
-                continue
-            if l.find('reaction') > 0:
-                bloc = 'elmts'
-                continue
-            continue
-
-        if len(l) < 3:
-            continue
-
-        if bloc == 'elmts':
-            elmt = l.split('=>')
-            reactifs = re.sub("(MA.*for )|\+", " ", elmt[0]).split()
-            for r in reactifs:
-                try:
-                    friends[r].extend([e for e in reactifs if e not in friends[r]])
-                except:
-                    friends.update({r: [e for e in reactifs if e != r]})
-            produits = re.sub("\+|\.", " ", elmt[1]).split()
-            reaction.append((reactifs, produits))
-            elts = reactifs + produits
-        else:
-            elts = re.sub(blocs[bloc][0], '', l).split()
-
-        blocs[bloc][1].extend([e for e in elts if (e not in blocs[bloc][1])])
-
-MOL = enzymes + elmts
-MOL.pop(26)  # ?
-
-REACTIONS = []  # Liste des réactions en version numéros
-for a in reaction:
-    reac = ([], [])
-    for m in a[0]:
-        if m == 'H_20_2' or m == 'H202' or m == 'H_2O_2':
-            reac[0].append(numero('H2O2'))
-        else:
-            reac[0].append(numero(m))
-    for m in a[1]:
-        if m == 'H_20_2' or m == 'H202' or m == 'H_2O_2':
-            reac[1].append(numero('H2O2'))
-        else:
-            reac[1].append(numero(m))
-    REACTIONS.append(reac)
-
-# REACPARMOL = ?
-REACPARMOL = []
-for k in range(0, len(MOL)):
-    REACPARMOL.append([])
-for k in range(0, len(REACTIONS)):
-    u = REACTIONS[k][0][0]
-    REACPARMOL[u].append(k)
-
-""" Résolution des 3 exemples"""
-
-##glucose et acetone donnent gluconolacrone
-ENZ = ['AO', 'ADH', 'G_1DH', 'NAD', 'resazurin', 'HRP', 'H2O2']  ##rajouter NAD pour fausser le résultat
-résolution_équation("acetoneext + glucoseext => resorufin")
-
-##NO et glucose donnent gluconolacrone avec NO3 en réactif annexe
-ENZ = ['ABTS', 'ADH', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'NAD']
-résolution_équation("NO2 + glucoseext => DAFF")
-
-##
-ENZ = ['ABTS', 'ADH', 'NAD', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'LO']
-RE = ['Lactateext', 'EtOHext']
-re = numero2(RE)
-enz = numero2(ENZ)
-
-résolution_équation("Lactateext + EtOHext => ABTSOX")
-
-MECAS = pluscourtchemin(enz, re, numero('ABTSOX'), 'a', 50)  # Pourquoi tag a ? OU logique ?
-mt = mecatexte(MECAS[0][0])
-for d in mt:
-    print(d)
