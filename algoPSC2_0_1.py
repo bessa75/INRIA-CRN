@@ -13,10 +13,10 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime):
     liste des réaction l'ayant produit selon le triplet (numéro de réaction, numéro d'étape, étiquette),
     liste des étiquettes avec lesquelles la molécule a été produite,
     liste des doublets (numéro d'étape, étiquette) avec lesquelles la molécule a été produite]"""
-
-
+    
+    
     """     Initialisation des variables """
-
+    
     # Initialisation de chaque molécule comme absente
     PRESENCE=[]
     for k in range (0,len(MOL)):
@@ -24,7 +24,7 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime):
     nbetape=0 #Nombre d'étapes réactionnels pour obtenir le produis cherché (la plus longue chaine d'étapes)
     nbmol=0   #Nombre total de molécules présente (au sens qui ont été produite à un moment)
     nbmolbis=0
-
+    
     ##initialisation de la liste de présence pour les réactifs de REAC (formés à l'étape -1, par la réaction 0 qui n'existe pas)
     for k in range (len(REAC)):
         if k==0:
@@ -36,6 +36,7 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime):
         if a not in REAC:
             PRESENCE[a]=[True,[(-1,0,'e')],['e'],[(-1,'e')]]
             nbmol+=1
+    
 
     """ Boucle de recherche descendante """
     ##exploration des différents chemins réactionnels par itérations successives
@@ -50,10 +51,10 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime):
             if PRESENCE[num_molecule][0]:
                 #On récupére la liste des réactions où la molécule intervient
                 REACPOT=REACPARMOL[num_molecule]
-
+                
                 ## itération sur les réactions impliquant la molécule en tant que réactif
                 for a in REACPOT:
-
+                
                     reactifs_presents=True
                     for b in REACTIONS[a][0]:
                         ## on teste si tout les réactifs de la réaction en question sont présents
@@ -238,8 +239,8 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime):
                     Enzs.append(mol[0])
             MECANISMES.append((MECANISME,meca[2],Enzs))
 
-
-
+    
+    
 
     print('Les mécanismes après sélection sont les suivants')
     print(MECANISMES)
@@ -268,6 +269,7 @@ def bin (c,d): ##relation binaire de propagation des étiquettes
         return('b')
     else:
         return('e')
+
 def selec(L): ##fonction utile pour selec2ab
     if 'ab' in L:
         return('ab')
@@ -279,6 +281,7 @@ def selec(L): ##fonction utile pour selec2ab
         return('a')
     else:
         return('e')
+
 def selec2ab(L1,L2): ##cette fonction aide l'algorithme de remontée. Le but est, quand le produit d'une réaction est avec l'étiquette 'ab', de choisir avec quelles étiquettes on va considérer les réactifs qui ont mené à ce produit. Si on a 'o' on peut choisir 'a' ou 'b' indifféremment.
     l1=selec(L1)
     l2=selec(L2)
@@ -301,6 +304,7 @@ def selec2ab(L1,L2): ##cette fonction aide l'algorithme de remontée. Le but est
         if l2=='ab':
             return('o','ab')
     return(l1,l2)
+
 def mecatexte(MECANISME): ##simple fonction qui convertit le mécanisme réactionnel renvoyé par l'algorithme en un texte lisible pour l'utilisateur.
     MT=[]
     for k in range (len(MECANISME)):
@@ -363,8 +367,9 @@ enzymes= []
 regex = ["(present\()|(, [e\-0-9]+\))|\.", "(MA.*for )|\+|(=>)|\."]
 blocs = {"inputs": (regex[0], inputs), "enzymes": (regex[0], enzymes), "elmts": (regex[1], elmts)}
 
+
 """ Création du tableau "reaction" de l'ensemble des réactions possible données par le fichier file"""
-reaction = [] #facile les reactions
+reaction = [] #Liste des réactions en version texte
 
 friends = {'test':[]} #en gros tu vas comprendre mais c'est juste chaque elmt et l'ensemble des elements avc lesquels il reagit
                       #par contre les enzymes sont pas comptés comme élements, du coup ils font pas partie des clés du dict.
@@ -406,6 +411,8 @@ with open(file) as f:
             elts = re.sub(blocs[bloc][0], '', l).split()
 
         blocs[bloc][1].extend([e  for e in elts if (e not in blocs[bloc][1])])
+
+
 MOL=enzymes+elmts
 MOL.pop(26)
 
@@ -418,6 +425,7 @@ def numero2(L): ##retourne les numéros correspondant aux noms d'enzymes d'une l
     for k in range (0,len(L)):
         L2.append(numero(L[k]))
     return(L2)
+
 REACTIONS=[]
 for a in reaction:
     reac=([],[])
@@ -439,8 +447,11 @@ for k in range (0,len(MOL)):
 for k in range (0,len(REACTIONS)):
     u=REACTIONS[k][0][0]
     REACPARMOL[u].append(k)
-#print(MOL)
+
+
+
 """ Résolution des 3 exemples"""
+
 ##glucose et acetone donnent gluconolacrone
 ENZ=['AO', 'ADH', 'G_1DH','NAD','resazurin','HRP','H2O2'] ##rajouter NAD pour fausser le résultat
 RE=['acetoneext','glucoseext']
