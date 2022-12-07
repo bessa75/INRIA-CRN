@@ -1,13 +1,17 @@
 import algoPSC2_0_1
 import algoresolution_système
 
+def numero(texte):
+    if type(texte) is str:
+        return algoPSC2_0_1.numero(texte,MOL)
+    if type(texte) is list:
+        return algoPSC2_0_1.numero2(texte,MOL)
 
 """    Déclaration variables et constantes"""
 import re #bibliothéque python
 
 file = "catalog.bc"
 nb_réactions_max = 50
-algoPSC2_0_1.nb_réactions_max=nb_réactions_max
 
 elmts = []
 inputs = []
@@ -56,11 +60,9 @@ with open(file) as f:
             elts = re.sub(blocs[bloc][0], '', l).split()
 
         blocs[bloc][1].extend([e for e in elts if (e not in blocs[bloc][1])])
-algoPSC2_0_1.reaction=reaction
 
 MOL = enzymes + elmts
 MOL.pop(26)  # ?
-algoPSC2_0_1.MOL=MOL
 
 
 REACTIONS = []  # Liste des réactions en version numéros
@@ -68,16 +70,15 @@ for a in reaction:
     reac = ([], [])
     for m in a[0]:
         if m == 'H_20_2' or m == 'H202' or m == 'H_2O_2':
-            reac[0].append(algoPSC2_0_1.numero('H2O2'))
+            reac[0].append(algoPSC2_0_1.numero('H2O2',MOL))
         else:
-            reac[0].append(algoPSC2_0_1.numero(m))
+            reac[0].append(algoPSC2_0_1.numero(m,MOL))
     for m in a[1]:
         if m == 'H_20_2' or m == 'H202' or m == 'H_2O_2':
-            reac[1].append(algoPSC2_0_1.numero('H2O2'))
+            reac[1].append(algoPSC2_0_1.numero('H2O2',MOL))
         else:
-            reac[1].append(algoPSC2_0_1.numero(m))
+            reac[1].append(algoPSC2_0_1.numero(m,MOL))
     REACTIONS.append(reac)
-algoPSC2_0_1.REACTIONS=REACTIONS
 
 
 REACPARMOL = [] # REACPARMOL = ?
@@ -87,15 +88,14 @@ for k in range(0, len(REACTIONS)):
     u = REACTIONS[k][0][0]
     REACPARMOL[u].append(k)
 algoPSC2_0_1.REACPARMOL=REACPARMOL
-
     
     
 """    Résolution des 3 exemples"""
 
 """
-## glucose et acetone donnent gluconolacrone
+##glucose et acetone donnent gluconolacrone
 algoPSC2_0_1.ENZ = ['AO', 'ADH', 'G_1DH', 'NAD', 'resazurin', 'HRP', 'H2O2']  ##rajouter NAD pour fausser le résultat
-MECAS = algoPSC2_0_1.résolution_équation("acetoneext + glucoseext => resorufin")
+MECAS = algoPSC2_0_1.résolution_équation("acetoneext + glucoseext => resorufin",nb_réactions_max,reaction,MOL,REACTIONS,REACPARMOL)
 """
 
 
@@ -103,11 +103,12 @@ MECAS = algoPSC2_0_1.résolution_équation("acetoneext + glucoseext => resorufin
 ## Test lescture équation
 ENZ=['ABTS','ADH', 'NADH', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF','NAD'] ##rajouter NAD pour fausser le résultat
 RE=['acetoneext','glucoseext']
-re=algoPSC2_0_1.numero2(RE)
-enz=algoPSC2_0_1.numero2(ENZ)
-solution=algoresolution_système.ressystem([re],[algoPSC2_0_1.numero('gluconolacrone')],['ab'],20,enz)
+re=numero(RE)
+enz=numero(ENZ)
 
-mt = algoPSC2_0_1.mecatexte(solution[0])
+solution=algoresolution_système.ressystem([re],[numero('gluconolacrone')],['ab'],20,enz,reaction,MOL,REACTIONS,REACPARMOL)
+
+mt = algoPSC2_0_1.mecatexte(solution[0],reaction)
 for d in mt[0]:
     print(d)
 print("")
@@ -118,21 +119,21 @@ print("")
 """
 ##NO et glucose donnent gluconolacrone avec NO3 en réactif annexe
 algoPSC2_0_1.ENZ = ['ABTS', 'ADH', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'NAD']
-algoPSC2_0_1.résolution_équation("NO2 + glucoseext => DAFF")
+algoPSC2_0_1.résolution_équation("NO2 + glucoseext => DAFF",nb_réactions_max,reaction,MOL,REACTIONS,REACPARMOL)
 """
 
 
 """
 ## Ancien OU logique à changer sur le fonctionnement pluscourtchemin
 
-ENZ=['ABTS', 'ADH', 'NAD', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'LO']
-algoPSC2_0_1.ENZ = ENZ
-RE = ['Lactateext', 'EtOHext']
+ENZ=numero(['ABTS', 'ADH', 'NAD', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'LO'])
+algoPSC2_0_1.ENZ = ['ABTS', 'ADH', 'NAD', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'LO']
+RE = numero(['Lactateext', 'EtOHext'])
 
-algoPSC2_0_1.résolution_équation("Lactateext + EtOHext => ABTSOX")
+algoPSC2_0_1.résolution_équation("Lactateext + EtOHext => ABTSOX",nb_réactions_max,reaction,MOL,REACTIONS,REACPARMOL)
 
-MECAS = algoPSC2_0_1.pluscourtchemin(algoPSC2_0_1.numero2(ENZ), algoPSC2_0_1.numero2(RE), algoPSC2_0_1.numero('ABTSOX'), nb_réactions_max, True)  # Pourquoi tag a ? OU logique ?
-mt = algoPSC2_0_1.mecatexte(MECAS[0][0])
+MECAS = algoPSC2_0_1.pluscourtchemin(ENZ, RE, numero('ABTSOX'), nb_réactions_max, True,reaction,MOL,REACTIONS,REACPARMOL)  # Pourquoi tag a ? OU logique ?
+mt = algoPSC2_0_1.mecatexte(MECAS[0][0],reaction)
 for d in mt:
     print(d)
 """
@@ -141,5 +142,11 @@ for d in mt:
 """
 ##glucose et Non(acetone) donnent gluconolacrone
 algoPSC2_0_1.ENZ = ['AO', 'ADH', 'G_1DH', 'NAD', 'resazurin', 'HRP', 'H2O2']  ##rajouter NAD pour fausser le résultat
-algoPSC2_0_1.résolution_équation("!acetoneext + glucoseext => NADH")
+algoPSC2_0_1.résolution_équation("!acetoneext + glucoseext => NADH",nb_réactions_max,reaction,MOL,REACTIONS,REACPARMOL)
+"""
+
+"""
+##glucose et acetone donnent gluconolacrone
+algoPSC2_0_1.ENZ = ['AO', 'ADH', 'G_1DH', 'NAD', 'resazurin', 'HRP', 'H2O2']  ##rajouter NAD pour fausser le résultat
+algoPSC2_0_1.résolution_équation("acetoneext + glucoseext => resorufin",nb_réactions_max,reaction,MOL,REACTIONS,REACPARMOL)
 """
