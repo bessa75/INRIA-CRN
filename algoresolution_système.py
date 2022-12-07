@@ -1,13 +1,13 @@
 from algoPSC2_0_1 import pluscourtchemin
 
-def check(Current,LETIQ,nmax,LREAC,LPROD):
+def check(Current,LETIQ,nmax,LREAC,LPROD,reaction,MOL,REACTIONS,REACPARMOL):
     ENZYME=[]
     n=len(LPROD)
     for ligne in Current:
         for enz in ligne[2]:
             ENZYME.append(enz)
     for k in range(n):
-        chemins=pluscourtchemin(ENZYME,LREAC[k],LPROD[k],nmax)
+        chemins=pluscourtchemin(ENZYME,LREAC[k],LPROD[k],nmax,reaction,MOL,REACTIONS,REACPARMOL)
         if LETIQ[k]=='ab':
             for chemin in chemins:
                 if chemin[1]!='ab':
@@ -36,7 +36,7 @@ def research(Allreactions,LETIQ,nmax,LREAC,LPROD):
     while i[n]==0:
         for k in range(n):
             Current[k]=Allreactions[i[k]]
-        if (check(Current,LETIQ,nmax,LREAC,LPROD)):
+        if (check(Current,LETIQ,nmax,LREAC,LPROD,reaction,MOL,REACTIONS,REACPARMOL)):
             return Current
         i[0]+=1
         while i[p]==MAX[p]:
@@ -47,13 +47,13 @@ def research(Allreactions,LETIQ,nmax,LREAC,LPROD):
                 p=0
     return 0
 
-def res(LREAC,LPROD,LETIQ,nmax, ENZ):
+def res(LREAC,LPROD,LETIQ,nmax,ENZ,reaction,MOL,REACTIONS,REACPARMOL):
     n=len(LPROD)
     ENZYME=[]
     MECANISMES=[]
     Allreactions=[]
     for k in range(n):
-        Allreactions.append(pluscourtchemin(ENZ,LREAC[k],LPROD[k],nmax))
+        Allreactions.append(pluscourtchemin(ENZ,LREAC[k],LPROD[k],nmax,reaction,MOL,REACTIONS,REACPARMOL))
 
     result=research(Allreactions,LETIQ,nmax, LREAC,LPROD)
     if result==0:
@@ -66,14 +66,14 @@ def res(LREAC,LPROD,LETIQ,nmax, ENZ):
 
 
 
-def ressystem(LREAC,LPROD,LETIQ,nmax, ENZ):
+def ressystem(LREAC,LPROD,LETIQ,nmax,ENZ,reaction,MOL,REACTIONS,REACPARMOL):
     n=len(LPROD)
     ENZYME=[]
     MECANISMES=[]
     for k in range(n):
         if LETIQ[k]=='ab':
             trouve=False
-            for chemin in pluscourtchemin(ENZ,LREAC[k],LPROD[k],nmax,False):
+            for chemin in pluscourtchemin(ENZ,LREAC[k],LPROD[k],nmax,False,reaction,MOL,REACTIONS,REACPARMOL):
                 if chemin[1]=='ab':
                     ENZYME.append(chemin[2])
                     MECANISMES.append(chemin[0])
@@ -88,7 +88,7 @@ def ressystem(LREAC,LPROD,LETIQ,nmax, ENZ):
             LENZYME=[]
             MECANISMEa=[]
             MECANISMEb=[]
-            for chemin in pluscourtchemin(ENZ,LREAC[k],LPROD[k],nmax,False):
+            for chemin in pluscourtchemin(ENZ,LREAC[k],LPROD[k],nmax,False,reaction,MOL,REACTIONS,REACPARMOL):
                 if not trouvea:
                     if not trouveb:
                         if chemin[1]=='a':
@@ -121,7 +121,7 @@ def ressystem(LREAC,LPROD,LETIQ,nmax, ENZ):
                 MECANISMES.append((MECANISMEa,MECANISMEb))
 
         if LETIQ[k]=='a':
-            chemin= pluscourtchemin(ENZ,LREAC[k],LPROD[k],'a',nmax)
+            chemin= pluscourtchemin(ENZ,LREAC[k],LPROD[k],nmax,False,reaction,MOL,REACTIONS,REACPARMOL)
             ENZYME.append(chemin[2])
             MECANISME.append(chemin[0])
     """

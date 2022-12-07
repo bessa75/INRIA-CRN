@@ -4,7 +4,7 @@
 # etqt : étiquette à avoir ?
 # n    : nb max d'étaps ?
 
-def pluscourtchemin(ENZ,REAC,prod,n,imprime):
+def pluscourtchemin(ENZ,REAC,prod,n,imprime,reaction,MOL,REACTIONS,REACPARMOL):
 
     """ PRESENCE : liste des molécules présente.
     Evolue au cours de l'algorithme.
@@ -232,7 +232,7 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime):
         #print(presence_cycles)
         if presence_cycles==False:
             for mol in PROD:
-                if mol != numero(REAC[0]) and mol != numero(REAC[1]):
+                if mol != numero(REAC[0],MOL) and mol != numero(REAC[1],MOL):
                     Enzs.append(mol[0])
             MECANISMES.append((MECANISME,meca[2],Enzs))
 
@@ -247,7 +247,7 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime):
         for meca in MECANISMES:
             i+=1
             print("mécanisme "+str(i)+":")
-            txt=mecatexte(meca[0])
+            txt=mecatexte(meca[0],reaction)
             for a in txt:
                 print(a)
             print(" ")
@@ -307,20 +307,20 @@ def selec2ab(L1,L2):  ##cette fonction aide l'algorithme de remontée. Le but es
     return(l1, l2)
 
 
-def numero(enzyme):  ##retourne le numéro correspondant à un nom d'enzyme
+def numero(enzyme,MOL):  ##retourne le numéro correspondant à un nom d'enzyme
     for i in range(0, len(MOL)):
         if MOL[i] == enzyme:
             return (i)
 
 
-def numero2(L):  ##retourne les numéros correspondant aux noms d'enzymes d'une liste d'enzymes
+def numero2(L,MOL):  ##retourne les numéros correspondant aux noms d'enzymes d'une liste d'enzymes
     L2 = []
     for k in range(0, len(L)):
-        L2.append(numero(L[k]))
+        L2.append(numero(L[k],MOL))
     return (L2)
 
 
-def mecatexte(MECANISME):  ##simple fonction qui convertit le mécanisme réactionnel renvoyé par l'algorithme en un texte lisible pour l'utilisateur.
+def mecatexte(MECANISME,reaction):  ##simple fonction qui convertit le mécanisme réactionnel renvoyé par l'algorithme en un texte lisible pour l'utilisateur.
     MT = []
     for k in range(len(MECANISME)):
         ET = []
@@ -331,7 +331,7 @@ def mecatexte(MECANISME):  ##simple fonction qui convertit le mécanisme réacti
 
 
 # Prend un numéro de molécule en paramétre et renvoie le numéro de molécule faisant la logique "non" ainsi que le numéro de réaction
-def molécule_non_v1(numéro_molécule):
+def molécule_non_v1(numéro_molécule,MOL,REACTIONS):
     if(MOL[numéro_molécule].endswith('ext')): #Il faut prendre la molécule une fois dans la cellule pour chercher un non
         nom_molécule=MOL[numéro_molécule]
         if MOL[numéro_molécule+1]==nom_molécule[:-3]:
@@ -363,27 +363,27 @@ def molécule_non_v1(numéro_molécule):
 # NON : '!'
 # OU EXCLUSIF : '-'
 # symbole réaction : '=>'
-def résolution_équation(équation_logique):
+def résolution_équation(équation_logique,nb_réactions_max,reaction,MOL,REACTIONS,REACPARMOL):
     liste_mots = équation_logique.split(" ")
 
     # Récupération du numéro du 1er réactif
     if liste_mots[0][0] == '!':
-        réactif_1, num_reac_non1 = molécule_non_v1(numero(liste_mots[0][1:]))
+        réactif_1, num_reac_non1 = molécule_non_v1(numero(liste_mots[0][1:],MOL),MOL,REACTIONS)
     else:
-        réactif_1 = numero(liste_mots[0])
+        réactif_1 = numero(liste_mots[0],MOL)
 
     # Récupération du numéro du 2eme réactif
     if liste_mots[2][0] == '!':
-        réactif_2, num_reac_non2 = molécule_non_v1(numero(liste_mots[2][1:]))
+        réactif_2, num_reac_non2 = molécule_non_v1(numero(liste_mots[2][1:],MOL),MOL,REACTIONS)
     else:
-        réactif_2 = numero(liste_mots[2])
+        réactif_2 = numero(liste_mots[2],MOL)
 
-    produit = numero(liste_mots[4])
+    produit = numero(liste_mots[4],MOL)
 
     if liste_mots[1] == '+':
         #print(f"MECAS=pluscourtchemin({numero2(ENZ)},[{réactif_1}, {réactif_2}],{produit},{nb_réactions_max}, True)")
-        MECAS = pluscourtchemin(numero2(ENZ), [réactif_1, réactif_2], produit, nb_réactions_max, True)
-        mt = mecatexte(MECAS[0][0])
+        MECAS = pluscourtchemin(numero2(ENZ,MOL), [réactif_1, réactif_2], produit, nb_réactions_max, True,reaction,MOL,REACTIONS,REACPARMOL)
+        mt = mecatexte(MECAS[0][0],reaction)
         for d in mt:
             print(d)
         print("")
