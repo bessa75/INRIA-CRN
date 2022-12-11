@@ -1,0 +1,628 @@
+{'ZZ': 'unspecific monooxygenase', 'Y': 'alcohol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'alcohol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'alcohol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'alcohol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'alcohol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'alcohol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'alcohol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'alcohol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'alcohol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'alcohol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'alcohol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'alcohol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'alcohol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'alcohol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'alcohol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'alcohol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'carbonyl reductase (NADPH)', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'carbonyl reductase (NADPH)', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase', 'W': 'inositol 2-dehydrogenase'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'carbonyl reductase (NADPH)', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'carbonyl reductase (NADPH)', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase', 'W': 'inositol 2-dehydrogenase'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'alcohol dehydrogenase (NADP+)', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'alcohol dehydrogenase (NADP+)', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase', 'W': 'inositol 2-dehydrogenase'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'alcohol dehydrogenase (NADP+)', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'alcohol dehydrogenase (NADP+)', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase', 'W': 'inositol 2-dehydrogenase'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'methanol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'methanol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'methanol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'methanol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'methanol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'methanol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'methanol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'methanol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'methanol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'methanol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'methanol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'methanol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'methanol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'methanol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'methanol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'methanol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '2-(R)-hydroxypropyl-CoM dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '2-(R)-hydroxypropyl-CoM dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '2-(R)-hydroxypropyl-CoM dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '2-(R)-hydroxypropyl-CoM dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '2-(R)-hydroxypropyl-CoM dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '2-(R)-hydroxypropyl-CoM dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '2-(R)-hydroxypropyl-CoM dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '2-(R)-hydroxypropyl-CoM dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '2-(R)-hydroxypropyl-CoM dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '2-(R)-hydroxypropyl-CoM dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '2-(R)-hydroxypropyl-CoM dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '2-(R)-hydroxypropyl-CoM dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '2-(R)-hydroxypropyl-CoM dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '2-(R)-hydroxypropyl-CoM dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '2-(R)-hydroxypropyl-CoM dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '2-(R)-hydroxypropyl-CoM dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '2-(S)-hydroxypropyl-CoM dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '2-(S)-hydroxypropyl-CoM dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '2-(S)-hydroxypropyl-CoM dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '2-(S)-hydroxypropyl-CoM dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '2-(S)-hydroxypropyl-CoM dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '2-(S)-hydroxypropyl-CoM dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '2-(S)-hydroxypropyl-CoM dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '2-(S)-hydroxypropyl-CoM dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '2-(S)-hydroxypropyl-CoM dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '2-(S)-hydroxypropyl-CoM dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '2-(S)-hydroxypropyl-CoM dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '2-(S)-hydroxypropyl-CoM dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '2-(S)-hydroxypropyl-CoM dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '2-(S)-hydroxypropyl-CoM dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '2-(S)-hydroxypropyl-CoM dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '2-(S)-hydroxypropyl-CoM dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '(R,R)-butanediol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '(R,R)-butanediol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '(R,R)-butanediol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '(R,R)-butanediol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '(R,R)-butanediol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '(R,R)-butanediol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '(R,R)-butanediol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '(R,R)-butanediol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '(R,R)-butanediol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '(R,R)-butanediol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '(R,R)-butanediol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '(R,R)-butanediol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '(R,R)-butanediol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '(R,R)-butanediol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '(R,R)-butanediol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '(R,R)-butanediol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'glycerol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'glycerol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'glycerol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'glycerol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'glycerol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'glycerol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'glycerol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'glycerol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'glycerol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'glycerol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'glycerol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'glycerol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'glycerol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'glycerol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'glycerol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'glycerol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'alcohol dehydrogenase [NAD(P)+]', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'alcohol dehydrogenase [NAD(P)+]', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase', 'W': 'inositol 2-dehydrogenase'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'alcohol dehydrogenase [NAD(P)+]', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'alcohol dehydrogenase [NAD(P)+]', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase', 'W': 'inositol 2-dehydrogenase'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'octanol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'octanol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'octanol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'octanol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'octanol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'octanol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'octanol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'octanol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'octanol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'octanol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'octanol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'octanol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'octanol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'octanol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'octanol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'octanol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '(S,S)-butanediol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '(S,S)-butanediol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '(S,S)-butanediol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '(S,S)-butanediol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '(S,S)-butanediol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '(S,S)-butanediol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '(S,S)-butanediol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '(S,S)-butanediol dehydrogenase', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '(S,S)-butanediol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '(S,S)-butanediol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '(S,S)-butanediol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '(S,S)-butanediol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '(S,S)-butanediol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '(S,S)-butanediol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '(S,S)-butanediol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '(S,S)-butanediol dehydrogenase', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'isopropanol dehydrogenase (NADP+)', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'isopropanol dehydrogenase (NADP+)', 'Z': 'superoxide dismutase', 'X': 'alcohol dehydrogenase', 'W': 'inositol 2-dehydrogenase'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'isopropanol dehydrogenase (NADP+)', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'isopropanol dehydrogenase (NADP+)', 'Z': 'nitrite reductase (NO-forming)', 'X': 'alcohol dehydrogenase', 'W': 'inositol 2-dehydrogenase'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '2-oxopropyl-CoM reductase (carboxylating)', 'Z': 'hyoscyamine (6S)-dioxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'aldose reductase'}
+{'ZZ': 'unspecific monooxygenase', 'Y': '2-oxopropyl-CoM reductase (carboxylating)', 'Z': 'hyoscyamine (6S)-dioxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glycerol dehydrogenase (NADP+)'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'acetoacetate decarboxylase', 'Z': 'hyoscyamine (6S)-dioxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'aldose reductase'}
+{'ZZ': 'unspecific monooxygenase', 'Y': 'acetoacetate decarboxylase', 'Z': 'hyoscyamine (6S)-dioxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glycerol dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'chloride peroxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'chloride peroxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'chloride peroxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'chloride peroxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'chloride peroxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'chloride peroxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'chloride peroxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'chloride peroxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'manganese peroxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'manganese peroxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'manganese peroxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'manganese peroxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'manganese peroxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'manganese peroxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'manganese peroxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'manganese peroxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'lignin peroxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'lignin peroxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'lignin peroxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'lignin peroxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'lignin peroxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'lignin peroxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'lignin peroxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'lignin peroxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'versatile peroxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'versatile peroxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'versatile peroxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'versatile peroxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'versatile peroxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'versatile peroxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'versatile peroxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'versatile peroxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'dye decolorizing peroxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'dye decolorizing peroxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'dye decolorizing peroxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'dye decolorizing peroxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'dye decolorizing peroxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'dye decolorizing peroxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'dye decolorizing peroxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'dye decolorizing peroxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'iodide peroxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'iodide peroxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'iodide peroxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'iodide peroxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'iodide peroxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'iodide peroxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'iodide peroxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'iodide peroxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'unspecific peroxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'unspecific peroxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'unspecific peroxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'unspecific peroxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'unspecific peroxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'unspecific peroxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'unspecific peroxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'unspecific peroxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'myeloperoxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'myeloperoxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'myeloperoxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'myeloperoxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'myeloperoxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'myeloperoxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'myeloperoxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'myeloperoxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '3-methyl-L-tyrosine peroxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '3-methyl-L-tyrosine peroxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '3-methyl-L-tyrosine peroxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '3-methyl-L-tyrosine peroxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '3-methyl-L-tyrosine peroxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '3-methyl-L-tyrosine peroxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '3-methyl-L-tyrosine peroxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '3-methyl-L-tyrosine peroxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'orcinol 2-monooxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'orcinol 2-monooxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'orcinol 2-monooxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'orcinol 2-monooxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'orcinol 2-monooxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'orcinol 2-monooxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'orcinol 2-monooxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'orcinol 2-monooxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'unspecific monooxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'unspecific monooxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'unspecific monooxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'unspecific monooxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'unspecific monooxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'unspecific monooxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'unspecific monooxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'unspecific monooxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'nitrilotriacetate monooxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'nitrilotriacetate monooxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'nitrilotriacetate monooxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'nitrilotriacetate monooxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'nitrilotriacetate monooxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'nitrilotriacetate monooxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'nitrilotriacetate monooxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'nitrilotriacetate monooxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'heme oxygenase (biliverdin-producing)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'heme oxygenase (biliverdin-producing)', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'heme oxygenase (biliverdin-producing)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'heme oxygenase (biliverdin-producing)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'heme oxygenase (biliverdin-producing)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'heme oxygenase (biliverdin-producing)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'heme oxygenase (biliverdin-producing)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'heme oxygenase (biliverdin-producing)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'vitamin D 25-hydroxylase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'vitamin D 25-hydroxylase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'vitamin D 25-hydroxylase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'vitamin D 25-hydroxylase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'vitamin D 25-hydroxylase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'vitamin D 25-hydroxylase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'vitamin D 25-hydroxylase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'vitamin D 25-hydroxylase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'cholesterol 24-hydroxylase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'cholesterol 24-hydroxylase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'cholesterol 24-hydroxylase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'cholesterol 24-hydroxylase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'cholesterol 24-hydroxylase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'cholesterol 24-hydroxylase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'cholesterol 24-hydroxylase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'cholesterol 24-hydroxylase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '1,8-cineole 2-exo-monooxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '1,8-cineole 2-exo-monooxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '1,8-cineole 2-exo-monooxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '1,8-cineole 2-exo-monooxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '1,8-cineole 2-exo-monooxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '1,8-cineole 2-exo-monooxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '1,8-cineole 2-exo-monooxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '1,8-cineole 2-exo-monooxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'long-chain fatty acid omega-monooxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'long-chain fatty acid omega-monooxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'long-chain fatty acid omega-monooxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'long-chain fatty acid omega-monooxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'long-chain fatty acid omega-monooxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'long-chain fatty acid omega-monooxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'long-chain fatty acid omega-monooxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'long-chain fatty acid omega-monooxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'calcidiol 1-monooxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'calcidiol 1-monooxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'calcidiol 1-monooxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'calcidiol 1-monooxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'calcidiol 1-monooxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'calcidiol 1-monooxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'calcidiol 1-monooxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'calcidiol 1-monooxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'beta-carotene 3-hydroxylase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'beta-carotene 3-hydroxylase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'beta-carotene 3-hydroxylase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'beta-carotene 3-hydroxylase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'beta-carotene 3-hydroxylase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'beta-carotene 3-hydroxylase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'beta-carotene 3-hydroxylase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'beta-carotene 3-hydroxylase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'aminocyclopropanecarboxylate oxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'aminocyclopropanecarboxylate oxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'aminocyclopropanecarboxylate oxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'aminocyclopropanecarboxylate oxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'aminocyclopropanecarboxylate oxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'aminocyclopropanecarboxylate oxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'aminocyclopropanecarboxylate oxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'aminocyclopropanecarboxylate oxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'plant 4,4-dimethylsterol C-4alpha-methyl-monooxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'plant 4,4-dimethylsterol C-4alpha-methyl-monooxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'plant 4,4-dimethylsterol C-4alpha-methyl-monooxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'plant 4,4-dimethylsterol C-4alpha-methyl-monooxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'plant 4,4-dimethylsterol C-4alpha-methyl-monooxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'plant 4,4-dimethylsterol C-4alpha-methyl-monooxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'plant 4,4-dimethylsterol C-4alpha-methyl-monooxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'plant 4,4-dimethylsterol C-4alpha-methyl-monooxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'CMP-N-acetylneuraminate monooxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'CMP-N-acetylneuraminate monooxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'CMP-N-acetylneuraminate monooxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'CMP-N-acetylneuraminate monooxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'CMP-N-acetylneuraminate monooxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'CMP-N-acetylneuraminate monooxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'CMP-N-acetylneuraminate monooxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'CMP-N-acetylneuraminate monooxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'methane monooxygenase (particulate)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'methane monooxygenase (particulate)', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'methane monooxygenase (particulate)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'methane monooxygenase (particulate)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'methane monooxygenase (particulate)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'methane monooxygenase (particulate)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'methane monooxygenase (particulate)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'methane monooxygenase (particulate)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid C4-monooxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid C4-monooxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid C4-monooxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid C4-monooxygenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid C4-monooxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid C4-monooxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid C4-monooxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid C4-monooxygenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '4-hydroxysphinganine ceramide fatty acyl 2-hydroxylase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '4-hydroxysphinganine ceramide fatty acyl 2-hydroxylase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '4-hydroxysphinganine ceramide fatty acyl 2-hydroxylase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '4-hydroxysphinganine ceramide fatty acyl 2-hydroxylase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '4-hydroxysphinganine ceramide fatty acyl 2-hydroxylase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '4-hydroxysphinganine ceramide fatty acyl 2-hydroxylase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '4-hydroxysphinganine ceramide fatty acyl 2-hydroxylase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '4-hydroxysphinganine ceramide fatty acyl 2-hydroxylase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'stearoyl-CoA 9-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'stearoyl-CoA 9-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'stearoyl-CoA 9-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'stearoyl-CoA 9-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'stearoyl-CoA 9-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'stearoyl-CoA 9-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'stearoyl-CoA 9-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'stearoyl-CoA 9-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid omega-(9-4) desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid omega-(9-4) desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid omega-(9-4) desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid omega-(9-4) desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid omega-(9-4) desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid omega-(9-4) desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid omega-(9-4) desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid omega-(9-4) desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'linoleoyl-lipid DELTA12 conjugase (11E,13Z-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'linoleoyl-lipid DELTA12 conjugase (11E,13Z-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'linoleoyl-lipid DELTA12 conjugase (11E,13Z-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'linoleoyl-lipid DELTA12 conjugase (11E,13Z-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'linoleoyl-lipid DELTA12 conjugase (11E,13Z-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'linoleoyl-lipid DELTA12 conjugase (11E,13Z-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'linoleoyl-lipid DELTA12 conjugase (11E,13Z-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'linoleoyl-lipid DELTA12 conjugase (11E,13Z-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid 4-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid 4-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid 4-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid 4-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid 4-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid 4-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid 4-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid 4-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid 8-(E)-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid 8-(E)-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid 8-(E)-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid 8-(E)-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid 8-(E)-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid 8-(E)-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid 8-(E)-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid 8-(E)-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid 10-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid 10-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid 10-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid 10-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid 10-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid 10-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid 10-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid 10-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'stearoyl-[acyl-carrier-protein] 9-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'stearoyl-[acyl-carrier-protein] 9-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'stearoyl-[acyl-carrier-protein] 9-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'stearoyl-[acyl-carrier-protein] 9-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'stearoyl-[acyl-carrier-protein] 9-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'stearoyl-[acyl-carrier-protein] 9-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'stearoyl-[acyl-carrier-protein] 9-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'stearoyl-[acyl-carrier-protein] 9-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'DELTA7-sterol 5(6)-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'DELTA7-sterol 5(6)-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'DELTA7-sterol 5(6)-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'DELTA7-sterol 5(6)-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'DELTA7-sterol 5(6)-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'DELTA7-sterol 5(6)-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'DELTA7-sterol 5(6)-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'DELTA7-sterol 5(6)-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid omega-6 desaturase (cytochrome b5)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid omega-6 desaturase (cytochrome b5)', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid omega-6 desaturase (cytochrome b5)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid omega-6 desaturase (cytochrome b5)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid omega-6 desaturase (cytochrome b5)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid omega-6 desaturase (cytochrome b5)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid omega-6 desaturase (cytochrome b5)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid omega-6 desaturase (cytochrome b5)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-[acyl-carrier-protein] 6-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-[acyl-carrier-protein] 6-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-[acyl-carrier-protein] 6-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-[acyl-carrier-protein] 6-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-[acyl-carrier-protein] 6-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-[acyl-carrier-protein] 6-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-[acyl-carrier-protein] 6-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-[acyl-carrier-protein] 6-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid 8-(E/Z)-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid 8-(E/Z)-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid 8-(E/Z)-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid 8-(E/Z)-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid 8-(E/Z)-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid 8-(E/Z)-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid 8-(E/Z)-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'sphingolipid 8-(E/Z)-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-CoA 6-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-CoA 6-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-CoA 6-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-CoA 6-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-CoA 6-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-CoA 6-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-CoA 6-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-CoA 6-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid (8-3)-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid (8-3)-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid (8-3)-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid (8-3)-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid (8-3)-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid (8-3)-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid (8-3)-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid (8-3)-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid DELTA6-acetylenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid DELTA6-acetylenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid DELTA6-acetylenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid DELTA6-acetylenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid DELTA6-acetylenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid DELTA6-acetylenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid DELTA6-acetylenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid DELTA6-acetylenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-CoA (8-3)-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-CoA (8-3)-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-CoA (8-3)-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-CoA (8-3)-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-CoA (8-3)-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-CoA (8-3)-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-CoA (8-3)-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-CoA (8-3)-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid (9-3)-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid (9-3)-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid (9-3)-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid (9-3)-desaturase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid (9-3)-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid (9-3)-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid (9-3)-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'acyl-lipid (9-3)-desaturase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'tryptophan 7-halogenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'tryptophan 7-halogenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'tryptophan 7-halogenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'tryptophan 7-halogenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'tryptophan 7-halogenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'tryptophan 7-halogenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'tryptophan 7-halogenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'tryptophan 7-halogenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'ferroxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'ferroxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'ferroxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'ferroxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'ferroxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'ferroxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'ferroxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'ferroxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'manganese oxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'manganese oxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'manganese oxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'manganese oxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'manganese oxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'manganese oxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'manganese oxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'manganese oxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '4-hydroxy-tetrahydrodipicolinate reductase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '4-hydroxy-tetrahydrodipicolinate reductase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '4-hydroxy-tetrahydrodipicolinate reductase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '4-hydroxy-tetrahydrodipicolinate reductase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '4-hydroxy-tetrahydrodipicolinate reductase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '4-hydroxy-tetrahydrodipicolinate reductase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '4-hydroxy-tetrahydrodipicolinate reductase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '4-hydroxy-tetrahydrodipicolinate reductase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '7-hydroxymethyl chlorophyll a reductase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '7-hydroxymethyl chlorophyll a reductase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '7-hydroxymethyl chlorophyll a reductase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '7-hydroxymethyl chlorophyll a reductase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '7-hydroxymethyl chlorophyll a reductase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '7-hydroxymethyl chlorophyll a reductase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '7-hydroxymethyl chlorophyll a reductase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': '7-hydroxymethyl chlorophyll a reductase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'nitrogenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'nitrogenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'nitrogenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'nitrogenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'nitrogenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'nitrogenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'nitrogenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'nitrogenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'vanadium-dependent nitrogenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'vanadium-dependent nitrogenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'vanadium-dependent nitrogenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'vanadium-dependent nitrogenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'vanadium-dependent nitrogenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'vanadium-dependent nitrogenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'vanadium-dependent nitrogenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'vanadium-dependent nitrogenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'coproporphyrinogen oxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'coproporphyrinogen oxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'coproporphyrinogen oxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'coproporphyrinogen oxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'coproporphyrinogen oxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'coproporphyrinogen oxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'coproporphyrinogen oxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'coproporphyrinogen oxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'bilirubin oxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'bilirubin oxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'bilirubin oxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'bilirubin oxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'bilirubin oxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'bilirubin oxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'bilirubin oxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'bilirubin oxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'NADH oxidase (H2O-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'NADH oxidase (H2O-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'NADH oxidase (H2O-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'NADH oxidase (H2O-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'NADH oxidase (H2O-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'NADH oxidase (H2O-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'NADH oxidase (H2O-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'NADH oxidase (H2O-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'nitrite reductase (cytochrome; ammonia-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'nitrite reductase (cytochrome; ammonia-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'nitrite reductase (cytochrome; ammonia-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'nitrite reductase (cytochrome; ammonia-forming)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'nitrite reductase (cytochrome; ammonia-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'nitrite reductase (cytochrome; ammonia-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'nitrite reductase (cytochrome; ammonia-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'nitrite reductase (cytochrome; ammonia-forming)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'trimethylamine-N-oxide reductase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'trimethylamine-N-oxide reductase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'trimethylamine-N-oxide reductase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'trimethylamine-N-oxide reductase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'trimethylamine-N-oxide reductase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'trimethylamine-N-oxide reductase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'trimethylamine-N-oxide reductase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'trimethylamine-N-oxide reductase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'hydroxylamine dehydrogenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'hydroxylamine dehydrogenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'hydroxylamine dehydrogenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'hydroxylamine dehydrogenase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'hydroxylamine dehydrogenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'hydroxylamine dehydrogenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'hydroxylamine dehydrogenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'hydroxylamine dehydrogenase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'assimilatory sulfite reductase (ferredoxin)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'assimilatory sulfite reductase (ferredoxin)', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'assimilatory sulfite reductase (ferredoxin)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'assimilatory sulfite reductase (ferredoxin)', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'assimilatory sulfite reductase (ferredoxin)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'assimilatory sulfite reductase (ferredoxin)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'assimilatory sulfite reductase (ferredoxin)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'assimilatory sulfite reductase (ferredoxin)', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'molybdenum cofactor sulfurtransferase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'molybdenum cofactor sulfurtransferase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'molybdenum cofactor sulfurtransferase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'molybdenum cofactor sulfurtransferase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'molybdenum cofactor sulfurtransferase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'molybdenum cofactor sulfurtransferase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'molybdenum cofactor sulfurtransferase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'molybdenum cofactor sulfurtransferase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'ribulose-bisphosphate carboxylase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'ribulose-bisphosphate carboxylase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'ribulose-bisphosphate carboxylase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'ribulose-bisphosphate carboxylase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'ribulose-bisphosphate carboxylase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'ribulose-bisphosphate carboxylase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'ribulose-bisphosphate carboxylase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'ribulose-bisphosphate carboxylase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'quinol-cytochrome-c reductase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'quinol-cytochrome-c reductase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'quinol-cytochrome-c reductase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'quinol-cytochrome-c reductase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'quinol-cytochrome-c reductase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'quinol-cytochrome-c reductase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'quinol-cytochrome-c reductase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'quinol-cytochrome-c reductase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'cytochrome-c oxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'cytochrome-c oxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'cytochrome-c oxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'cytochrome-c oxidase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'cytochrome-c oxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'cytochrome-c oxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'cytochrome-c oxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'cytochrome-c oxidase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'H+-transporting two-sector ATPase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'H+-transporting two-sector ATPase', 'X': 'carbonyl reductase (NADPH)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'H+-transporting two-sector ATPase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'H+-transporting two-sector ATPase', 'X': 'carbonyl reductase (NADPH)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'H+-transporting two-sector ATPase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase (NADP+)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'H+-transporting two-sector ATPase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'D-xylose 1-dehydrogenase (NADP+, D-xylono-1,5-lactone-forming)'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'H+-transporting two-sector ATPase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose 1-dehydrogenase [NAD(P)+]'}
+{'ZZ': 'carboxylesterase', 'Y': 'alcohol dehydrogenase', 'Z': 'H+-transporting two-sector ATPase', 'X': 'alcohol dehydrogenase (NADP+)', 'W': 'glucose-6-phosphate dehydrogenase (NADP+)'}

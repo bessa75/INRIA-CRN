@@ -116,7 +116,6 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime,reaction,MOL,REACTIONS,REACPARMOL):
     MECANISME = []  ## mécanisme sous forme d'une liste d'étapes, chaque étape étant une liste de réactions
 
 
-    #print(PRESENCE[numero('DDib5')])
 
     # une fois le produit trouvé, on remonte la chaîne réactionnelle pour écrire le mécanisme par étapes
     for meca in PRESENCE[prod][1]:

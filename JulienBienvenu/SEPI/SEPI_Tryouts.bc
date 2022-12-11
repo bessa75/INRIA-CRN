@@ -1,0 +1,53 @@
+about.
+
+clear_model.
+load(library:examples/sepi/CRNVeryShort.bc).
+list_model.
+draw_reactions.
+clear_model.
+load(library:examples/sepi/CRNlong.bc).
+list_model.
+draw_reactions.
+clear_model.
+load(library:examples/sepi/CRNAlexis.bc).
+list_model.
+draw_reactions.
+
+clear_model.
+load(library:examples/sepi/BrendaBiochamReactionsSmart1SubsetM.bc).
+draw_reactions.
+
+clear_model.
+load(library:examples/modalINF473L/catalog.bc).
+draw_reactions.
+
+search_reduction(library:examples/modalINF473L/catalog.bc, library:examples/sepi/CRNshort.bc, timeout : 200, merge_restriction : not_species, mapping_restriction : [acetone->a, glucose->b, resorufin->j]).
+
+search_reduction(library:examples/modalINF473L/catalog.bc, library:examples/sepi/CRNlong.bc, timeout : 200, merge_restriction : not_species, mapping_restriction : [acetone->a, glucose->b, resorufin->j]).
+
+search_reduction(library:examples/modalINF473L/catalog.bc, library:examples/sepi/CRNVeryShort.bc, timeout : 200, merge_restriction : not_species, mapping_restriction : [acetone->acetone, glucose->glucose, resorufin->resorufin]).
+
+search_reduction(library:examples/modalINF473L/catalog.bc, library:examples/sepi/CRNAlexis.bc, timeout : 200, merge_restriction : not_species, mapping_restriction : [acetone->acetone, glucose->glucose, resorufin->resorufin]).
+
+search_reduction(library:examples/sepi/CRNlong.bc, library:examples/sepi/CRNAlexis.bc, timeout : 200, merge_restriction : not_species, mapping_restriction : [a->acetone, b->glucose, j->resorufin]).
+
+search_reduction(library:examples/sepi/CRNAlexis.bc, library:examples/sepi/CRNVeryShort.bc, timeout : 200, merge_restriction : not_species, mapping_restriction : [acetone->acetone, glucose->glucose, resorufin->resorufin]).
+
+search_reduction(library:examples/sepi/CRNlong.bc, library:examples/sepi/CRNAlexis.bc, timeout : 100000000000, stats : yes, merge_restriction : not_species, mapping_restriction : [a->acetone, b->glucose, j->resorufin]).
+
+search_reduction(library:examples/sepi/BrendaBiochamReactionsSmart1SubsetM.bc, library:examples/sepi/CRNlong.bc, timeout : 1000000000000000000000000, stats : yes, merge_restriction : not_species, mapping_restriction : [m286->a, m33->b, m25014->j]).
+
+clear_model.
+add_function( resorufin = (acetone * glucose), NADH = (glucose * (1 - acetone))).
+list_model.
+draw_reactions.
+
+clear_model.
+add_function( NADH = EtOH, ABTSOX = (1-EtOH)*Lactate).
+list_model.
+draw_reactions.
+
+clear_model.
+add_function( NADH = glucose*(1-NOx), DAFF = glucose*NOx).
+list_model.
+draw_reactions.
