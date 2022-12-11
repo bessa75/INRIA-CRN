@@ -1,4 +1,4 @@
-from algoPSC2_0_1 import pluscourtchemin
+from recherche_chemin import pluscourtchemin
 
 def check(Current,LETIQ,nmax,LREAC,LPROD,reaction,MOL,REACTIONS,REACPARMOL):
     ENZYME=[]
