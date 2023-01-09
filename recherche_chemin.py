@@ -231,7 +231,7 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime,reaction,MOL,REACTIONS,REACPARMOL):
         #print(presence_cycles)
         if presence_cycles==False:
             for mol in PROD:
-                if mol != numero(REAC[0],MOL) and mol != numero(REAC[1],MOL):
+                if mol != numero(REAC[0],MOL) and mol != numero(REAC[1],MOL) and mol not in Enzs:
                     Enzs.append(mol[0])
             MECANISMES.append((MECANISME,meca[2],Enzs))
 
