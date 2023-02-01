@@ -1,0 +1,64 @@
+def algo_negation(A,B,C,ENZ,CYCLESPARMOL,REACPARMOL,reaction,MOL,REACTIONS,n):
+    PRODINT=[]
+    REACT=[]
+    ACONSOMMER=[C]
+    CYCLES=[False]
+    BOOL=[]
+    L=[]
+    for k in range (0,len(CYCLEC)):
+        bool=False
+        m1,m2=CYCLEC[k]
+        if len[m1]==1 and C in m2 and m1[0] not in ACONSOMMER:
+            ACONSOMMER.append(m1[0])
+            bool=True
+            CYCLES.append((m2,m1))
+        if len[m2]==1 and C in m1 and m2[0] not in ACONSOMMER:
+            ACONSOMMER.append(m2[0])
+            if bool==False:
+                CYCLES.append((m1,m2))
+        bool=False
+    for i in range (0,len(ACONSOMMER)):
+        M=ACONSOMMER[i]
+        REACC=REACPARMOL[M]
+        CYCLEC=CYCLESPARMOL[M]
+        for k in range (0,len(REACC)):
+            r,p=REACC[k]
+            if len(r)==1:
+                if (p,r) not in CYCLEC and (r,p) not in CYCLEC and M==C:
+                    return("C est une molecule instable")
+            elif len(r)==2: #on considere la molecularite inferieure ou egale a 2
+                im=min([i for i in range (0,len(r)) if r[i]!=C])
+                prodint=r[im]
+                PRODINT.append(prodint)
+                REACT.append(REACC[k])
+                if M==C:
+                    BOOL.append(False)
+                else:
+                    BOOL.append((True,i))
+    PRESENCE=pluscourtchemin(ENZ,[B],0,n,True,reac,MOL,REACTIONS,REACPARMOL,bool=True)
+    for k in range (0,len(PRODINT)):
+        m=PRODINT[k]
+        PRESm=PRESENCE[m]
+        if PRESm[0]:
+            P2=pluscourtchemin(ENZ,[B],m,n,True,reac,MOL,REACTIONS,REACPARMOL,bool=False)
+            for mec in P2:
+                if mec[1]=='a':
+                    meca=mec[0]
+                    meca.append(REACT[k])
+                    if BOOL[k]!=False:
+                        meca.append(CYCLES[BOOL[k][1]])
+                    Res=(meca,'a',mec[2])
+                if mec[1]=='e':
+                    meca=mec[0]
+                    meca.append(REACT[k])
+                    if BOOL[k]!=False:
+                        meca.append(CYCLES[BOOL[k][1]])
+                    Res=(meca,'e',mec[2])
+    """ PRESENCE : liste des molécules présente.
+    Evolue au cours de l'algorithme.
+    Chaque case coorespond à une molécule et est de la forme :
+    [boolean marquant la présence,
+    liste des réaction l'ayant produit selon le triplet (numéro de réaction, numéro d'étape, étiquette),
+    liste des étiquettes avec lesquelles la molécule a été produite,
+    liste des doublets (numéro d'étape, étiquette) avec lesquelles la molécule a été produite]"""
+    return(meca)
