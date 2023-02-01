@@ -7,7 +7,7 @@ def check(Current,LETIQ,nmax,LREAC,LPROD,reaction,MOL,REACTIONS,REACPARMOL):
         for enz in ligne[2]:
             ENZYME.append(enz)
     for k in range(n):
-        chemins=pluscourtchemin(ENZYME,LREAC[k],LPROD[k],nmax,reaction,MOL,REACTIONS,REACPARMOL)
+        chemins=pluscourtchemin(ENZYME,LREAC[k],LPROD[k],nmax,False,reaction,MOL,REACTIONS,REACPARMOL)
         if LETIQ[k]=='ab':
             for chemin in chemins:
                 if chemin[1]!='ab':
