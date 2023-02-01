@@ -1,23 +1,17 @@
 import recherche_chemin
 import algoresolution_système
 
-#bibliothéque python
-import re
-import time
-
-start_time = time.time()
-
 def numero(texte):
     if type(texte) is str:
-        return recherche_chemin.numero(texte,liste_molecules)
+        return recherche_chemin.numero(texte,MOL)
     if type(texte) is list:
-        return recherche_chemin.numero2(texte,liste_molecules)
+        return recherche_chemin.numero2(texte,MOL)
 
 """    Déclaration variables et constantes"""
-
+import re #bibliothéque python
 
 file = "catalog.bc"
-nb_réactions_max = 50
+nmax = 50
 
 elmts = []
 inputs = []
@@ -67,118 +61,97 @@ with open(file) as f:
 
         blocs[bloc][1].extend([e for e in elts if (e not in blocs[bloc][1])])
 
-liste_molecules = elmts
-for molecule in enzymes :
-    if not(molecule in enzymes):
-        liste_molecules.append(molecule)
-liste_molecules.pop(numero('H_2O_2'))  # Remove 'H_2O_2', 'H2O2' is in list
+MOL = enzymes + elmts
+MOL.pop(26)  # ?
 
-dictionnaire_molecules={liste_molecules[i] : i for i in range(len(liste_molecules))}
 
 REACTIONS = []  # Liste des réactions en version numéros
 for a in reaction:
     reac = ([], [])
     for m in a[0]:
         if m == 'H_20_2' or m == 'H202' or m == 'H_2O_2':
-            reac[0].append(recherche_chemin.numero('H2O2',liste_molecules))
+            reac[0].append(recherche_chemin.numero('H2O2',MOL))
         else:
-            reac[0].append(recherche_chemin.numero(m,liste_molecules))
+            reac[0].append(recherche_chemin.numero(m,MOL))
     for m in a[1]:
         if m == 'H_20_2' or m == 'H202' or m == 'H_2O_2':
-            reac[1].append(recherche_chemin.numero('H2O2',liste_molecules))
+            reac[1].append(recherche_chemin.numero('H2O2',MOL))
         else:
-            reac[1].append(recherche_chemin.numero(m,liste_molecules))
+            reac[1].append(recherche_chemin.numero(m,MOL))
     REACTIONS.append(reac)
 
 
 REACPARMOL = [] # REACPARMOL = ?
-for k in range(0, len(liste_molecules)):
+for k in range(0, len(MOL)):
     REACPARMOL.append([])
 for k in range(0, len(REACTIONS)):
     u = REACTIONS[k][0][0]
     REACPARMOL[u].append(k)
-recherche_chemin.REACPARMOL=REACPARMOL
 
 
-print("Temps d'initialisation : ",time.time()-start_time)
-    
 """    Résolution des 3 exemples"""
 
-def test_1():
-    ##glucose et acetone donnent gluconolacrone
-    ENZ = ['AO', 'ADH', 'G_1DH', 'NAD', 'resazurin', 'HRP', 'H2O2']  ##rajouter NAD pour fausser le résultat
-    MECAS = recherche_chemin.résolution_équation(ENZ,"acetoneext + glucoseext => resorufin",nb_réactions_max,reaction,liste_molecules,REACTIONS,REACPARMOL)
 
-
-def test_2():
-## Test lescture équation
-    ENZ=['ABTS','ADH', 'NADH', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF','NAD'] ##rajouter NAD pour fausser le résultat
-    RE=['acetoneext','glucoseext']
-    re=numero(RE)
-    enz=numero(ENZ)
-
-    solution=algoresolution_système.ressystem([re],[numero('gluconolacrone')],['ab'],20,enz,reaction,liste_molecules,REACTIONS,REACPARMOL)
-
-    mt = recherche_chemin.mecatexte(solution[0],reaction)
-    for d in mt[0]:
-        print(d)
-    print("")
-    print("")
-
-    
-def test_3():
-##NO et glucose donnent gluconolacrone avec NO3 en réactif annexe
-    ENZ = ['ABTS', 'ADH', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'NAD']
-    recherche_chemin.résolution_équation(ENZ,"NO2 + glucoseext => DAFF",nb_réactions_max,reaction,liste_molecules,REACTIONS,REACPARMOL)
-
-
-def test_4():
-## Ancien OU logique à changer sur le fonctionnement pluscourtchemin
-    ENZ=numero(['ABTS', 'ADH', 'NAD', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'LO'])
-    #recherche_chemin.ENZ = ['ABTS', 'ADH', 'NAD', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'LO']
-    RE = numero(['Lactateext', 'EtOHext'])
-
-    recherche_chemin.résolution_équation(ENZ,"Lactateext + EtOHext => ABTSOX",nb_réactions_max,reaction,liste_molecules,REACTIONS,REACPARMOL)
-
-    MECAS = recherche_chemin.pluscourtchemin(ENZ, RE, numero('ABTSOX'), nb_réactions_max, True,reaction,liste_molecules,REACTIONS,REACPARMOL)  # Pourquoi tag a ? OU logique ?
-    mt = recherche_chemin.mecatexte(MECAS[0][0],reaction)
-    for d in mt:
-        print(d)
-
-
-def test_5():
-##glucose et Non(acetone) donnent gluconolacrone
-    ENZ = ['AO', 'ADH', 'G_1DH', 'NAD', 'resazurin', 'HRP', 'H2O2']  ##rajouter NAD pour fausser le résultat
-    recherche_chemin.résolution_équation(ENZ,"!acetoneext + glucoseext => NADH",nb_réactions_max,reaction,liste_molecules,REACTIONS,REACPARMOL)
-
-    
-def test_6():
 ##glucose et acetone donnent gluconolacrone
-    ENZ = ['AO', 'ADH', 'G_1DH', 'NAD', 'resazurin', 'HRP', 'H2O2']  ##rajouter NAD pour fausser le résultat
-    recherche_chemin.résolution_équation(ENZ,"acetoneext + glucoseext => resorufin",nb_réactions_max,reaction,liste_molecules,REACTIONS,REACPARMOL)
+ENZ = ['AO', 'ADH', 'G_1DH', 'NAD', 'resazurin', 'HRP', 'H2O2']  ##rajouter NAD pour fausser le résultat
+algoresolution_système.reaction=reaction
+enz=numero(ENZ)
+re=['acetoneext','glucoseext']
+prod='resorufin'
+RE=numero(re)
+PROD=numero(prod)
+Sol=algoresolution_système.res(RE,[PROD],'ab',nmax,enz,reaction,MOL,REACTIONS,REACPARMOL)
 
 
-start_time = time.time()
 
-test_1()
-print()
-print('------------------------------------------------------------------')
-print()
-test_2()
-print()
-print('------------------------------------------------------------------')
-print()
-test_3()
-print()
-print('------------------------------------------------------------------')
-print()
-test_5()
-print()
-print('------------------------------------------------------------------')
-print()
-test_6()
-print()
-print('------------------------------------------------------------------')
-print()
+"""
+## Test lescture équation
+ENZ=['ABTS','ADH', 'NADH', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF','NAD'] ##rajouter NAD pour fausser le résultat
+RE=['acetoneext','glucoseext']
+re=numero(RE)
+enz=numero(ENZ)
 
-print("Temps de calcul des exemples : ",time.time()-start_time)
+solution=algoresolution_système.res([re],[numero('gluconolacrone')],['ab'],20,enz,reaction,MOL,REACTIONS,REACPARMOL)
+
+mt = recherche_chemin.mecatexte(solution[0],reaction)
+for d in mt[0]:
+    print(d)
+print("")
+print("")
+
+"""
+
+"""
+##NO et glucose donnent gluconolacrone avec NO3 en réactif annexe
+recherche_chemin.ENZ = ['ABTS', 'ADH', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'NAD']
+recherche_chemin.résolution_équation("NO2 + glucoseext => DAFF",nb_réactions_max,reaction,MOL,REACTIONS,REACPARMOL)
+"""
+
+
+"""
+## Ancien OU logique à changer sur le fonctionnement pluscourtchemin
+
+ENZ=numero(['ABTS', 'ADH', 'NAD', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'LO'])
+recherche_chemin.ENZ = ['ABTS', 'ADH', 'NAD', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'LO']
+RE = numero(['Lactateext', 'EtOHext'])
+
+recherche_chemin.résolution_équation("Lactateext + EtOHext => ABTSOX",nb_réactions_max,reaction,MOL,REACTIONS,REACPARMOL)
+
+MECAS = recherche_chemin.pluscourtchemin(ENZ, RE, numero('ABTSOX'), nb_réactions_max, True,reaction,MOL,REACTIONS,REACPARMOL)  # Pourquoi tag a ? OU logique ?
+mt = recherche_chemin.mecatexte(MECAS[0][0],reaction)
+for d in mt:
+    print(d)
+"""
+
+
+"""
+##glucose et Non(acetone) donnent gluconolacrone
+recherche_chemin.ENZ = ['AO', 'ADH', 'G_1DH', 'NAD', 'resazurin', 'HRP', 'H2O2']  ##rajouter NAD pour fausser le résultat
+recherche_chemin.résolution_équation("!acetoneext + glucoseext => NADH",nb_réactions_max,reaction,MOL,REACTIONS,REACPARMOL)
+"""
+
+"""
+##glucose et acetone donnent gluconolacrone
+recherche_chemin.ENZ = ['AO', 'ADH', 'G_1DH', 'NAD', 'resazurin', 'HRP', 'H2O2']  ##rajouter NAD pour fausser le résultat
+recherche_chemin.résolution_équation("acetoneext + glucoseext => resorufin",nb_réactions_max,reaction,MOL,REACTIONS,REACPARMOL)
+"""
