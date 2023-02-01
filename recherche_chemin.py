@@ -112,11 +112,12 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime,liste_reaction_texte,MOL,REACTIONS,R
         print('')
         return (False)
 
-    MECANISMES = []  ## liste des mécanismes sous forme de doublet (MECANISME, étiquette)
+    MECANISMES = []  ## liste des mécanismes sous forme de triplet (MECANISME, étiquette, enzymes)
     MECANISME = []  ## mécanisme sous forme d'une liste d'étapes, chaque étape étant une liste de réactions
-
-    print("PRESENCE : ",PRESENCE[prod])
-    print()
+    
+    if imprime:
+        print("PRESENCE : ",PRESENCE[prod])
+        print()
 
     # une fois le produit trouvé, on remonte la chaîne réactionnelle pour écrire le mécanisme par étapes
     for meca in PRESENCE[prod][1]: #Boucle sur chaque reaction ayant produit la molecule recherche (prod)
@@ -211,6 +212,8 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime,liste_reaction_texte,MOL,REACTIONS,R
 
 
 def mecatexte(MECANISME,liste_reaction_texte):  ##simple fonction qui convertit le mécanisme réactionnel renvoyé par l'algorithme en un texte lisible pour l'utilisateur.
+    # MECANISME : liste des etapes reactionelles
+    # Chaque etape (case) dans MECANISME contient
     MT = []
     for k in range(len(MECANISME)):
         ET = []
@@ -340,9 +343,9 @@ def selec2ab(L1,L2):  ##cette fonction aide l'algorithme de remontée. Le but es
     return(l1, l2)
 
 
-def numero(enzyme,MOL):  ##retourne le numéro correspondant à un nom d'enzyme
+def numero(nom_molecule,MOL):  ##retourne le numéro correspondant à un nom d'enzyme
     for i in range(0, len(MOL)):
-        if MOL[i] == enzyme:
+        if MOL[i] == nom_molecule:
             return (i)
 
 
@@ -351,9 +354,6 @@ def numero2(L,MOL):  ##retourne les numéros correspondant aux noms d'enzymes d'
     for k in range(0, len(L)):
         L2.append(numero(L[k],MOL))
     return (L2)
-
-
-
 
 
 # Prend un numéro de molécule en paramétre et renvoie le numéro de molécule faisant la logique "non" ainsi que le numéro de réaction
@@ -389,7 +389,7 @@ def molécule_non_v1(numéro_molécule,MOL,REACTIONS):
 # NON : '!'
 # OU EXCLUSIF : '-'
 # symbole réaction : '=>'
-def résolution_équation(équation_logique,nb_réactions_max,liste_reaction_texte,MOL,REACTIONS,REACPARMOL):
+def résolution_équation(ENZ,équation_logique,nb_réactions_max,liste_reaction_texte,MOL,REACTIONS,REACPARMOL):
     liste_mots = équation_logique.split(" ")
 
     # Récupération du numéro du 1er réactif
