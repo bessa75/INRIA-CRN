@@ -4,7 +4,7 @@
 # etqt : étiquette à avoir ?
 # n    : nb max d'étaps ?
 
-def pluscourtchemin(ENZ,REAC,prod,n,imprime,reaction,MOL,REACTIONS,REACPARMOL):
+def pluscourtchemin(ENZ,REAC,prod,n,imprime,liste_reaction_texte,MOL,REACTIONS,REACPARMOL):
 
     """ PRESENCE : liste des molécules présente.
     Evolue au cours de l'algorithme.
@@ -115,123 +115,79 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime,reaction,MOL,REACTIONS,REACPARMOL):
     MECANISMES = []  ## liste des mécanismes sous forme de doublet (MECANISME, étiquette)
     MECANISME = []  ## mécanisme sous forme d'une liste d'étapes, chaque étape étant une liste de réactions
 
-
+    print("PRESENCE : ",PRESENCE[prod])
+    print()
 
     # une fois le produit trouvé, on remonte la chaîne réactionnelle pour écrire le mécanisme par étapes
-    for meca in PRESENCE[prod][1]:
+    for meca in PRESENCE[prod][1]: #Boucle sur chaque reaction ayant produit la molecule recherche (prod)
+        #print("---")
+        #print("meca finissant par : ",meca)
+        #print()
+        
         MECANISME=[]
         presence_cycles=False ## booléen pour éviter que des cycles ne se répètent
         nbetape = meca[1]
-        PROD = [(prod,meca[2])]
+        PROD = [(prod,meca[2])] #double (molecule,etiquette)
+        
         while nbetape > 0:
+            #print()
+            #print("PROD : ",PROD)
             # print(nbetape)
             ETAPE = []
             PRODBIS = []
-            #print([MOL[prod[0]] for prod in PROD])
+            #print("liste des molecules : ",[MOL[prod[0]] for prod in PROD])
+            
 
             # pour chaque produit on retrouve les réactifs qui l'ont formé et on leur associe l'étiquette correspondante
             for a in PROD:
                 # recherche du numéro r de la réaction ayant permis la production de la molécule a en nbetape étapes
-                r = -1
-                for reac in PRESENCE[a[0]][1]:
-                    if reac[1] == nbetape and reac[2] == a[1] and reac[1] == min([reac[1] for reac in PRESENCE[a[0]][1] if reac[2] == a[1]]):
-                        r = reac[0]
+                reaction_num = -1
+                #print(f"  pour le produit {MOL[a[0]]} avec l'etiquette {a[1]}")
+                for reac in PRESENCE[a[0]][1]: #On recherche la reaction ayant donne le couple a=(molecule,etiquette) a l'etape actuel nbetape
+                    if reac[1] == nbetape and reac[2] == a[1] and reac[1] == min([reac2[1] for reac2 in PRESENCE[a[0]][1] if reac2[2] == a[1]]):
+                        reaction_num = reac[0]
                         break
-                if r == -1: ## potentiellement contingent
+                
+                if reaction_num == -1: ## potentiellement contingent
                     #print(nbetape,MOL[a[0]],a[1])
                     PRODBIS.append(a)
+                    
                 else:
-                    ETAPE.append(r)
-                    reactifs = REACTIONS[r][0]
-                    produits = REACTIONS[r][1]
+                    reactifs,produits = REACTIONS[reaction_num]
+                    
+                    #print("    pour la reaction \"",end="")
+                    #print(' + '.join([MOL[molecule_i] for molecule_i in reactifs]),'->',' + '.join([MOL[molecule_i] for molecule_i in produits]),end="")
+                    #print(f"\" a l'etape {reac[1]} avec l'etiquette {a[1]}={reac[2]}")
+                    
+                    ETAPE.append(reaction_num)
                     for p in produits:
                         if p == prod and nbetape < meca[1]-1:
                             presence_cycles=True #détection d'un cycle rendant le mécanisme invalide : un mécanisme invalide est un mécanisme dans le quel le produit final n'apparait pas seulement dans la dernière réaction
                             break ##on veut sortir de 3 boucles imbriquées donc on va rappeler ce break
-                    if presence_cycles:
-                        break
+                    
+                    if presence_cycles: break
+                    
                     if len(reactifs) == 1:
                         PRODBIS.append((reactifs[0], a[1]))
-                    else:  ##on suppose la molécularité inférieure ou égale à 2
-                        eti = a[1]
-                        r20 = reactifs[0]  # réactif 1
-                        r21 = reactifs[1]  # réactif 2
-                        P0 = PRESENCE[r20][1]  # réactions ayant produit r20
-                        P1 = PRESENCE[r21][1]  # réactions ayant produit r21
-
-                        # Création de L0 et L1, liste des étiquettes avec lesquels r20 a pu être formé avant nbetape
-                        L0 = [d[2] for d in PRESENCE[r20][1] if d[1] <= nbetape - 1]
-                        L1 = [d[2] for d in PRESENCE[r21][1] if d[1] <= nbetape - 1]
-                        # print(L0)
-                        # print(L1)
-                        if eti == 'e':
-                            for re in reactifs:
-                                PRODBIS.append((re, 'e'))
-                        if eti == 'a':
-                            if 'a' in L0:
-                                PRODBIS.append((r20, 'a'))
-                            else:
-                                PRODBIS.append((r20, 'e'))
-                            if 'a' in L1:
-                                PRODBIS.append((r21, 'a'))
-                            else:
-                                PRODBIS.append((r21, 'e'))
-                        if eti == 'b':
-                            if 'b' in L0:
-                                PRODBIS.append((r20, 'b'))
-                            else:
-                                PRODBIS.append((r20, 'e'))
-                            if 'b' in L1:
-                                PRODBIS.append((r21, 'b'))
-                            else:
-                                PRODBIS.append((r21, 'e'))
-                        if eti == 'ab':
-                            sel = selec2ab(L0, L1)
-                            if sel[0] != 'o':
-                                PRODBIS.append((reactifs[0], sel[0]))
-                            if sel[1] != 'o':
-                                PRODBIS.append((reactifs[1], sel[1]))
-                            if sel[0] == 'o' and sel[1] != 'o':
-                                r0 = reactifs[0]
-                                for r in PRESENCE[r0][1]:
-                                    if (r[2] == 'a') or (r[2] == 'b'):
-                                        PRODBIS.append((r0, r[2]))
-                                        break
-                            if sel[1] == 'o' and sel[0] != 'o':
-                                r0 = reactifs[1]
-                                for r in PRESENCE[r0][1]:
-                                    if (r[2] == 'a') or (r[2] == 'b'):
-                                        PRODBIS.append((r0, r[2]))
-                                        break
-                            if sel[0] == 'o' and sel[1] == 'o':
-                                r0 = reactifs[0]
-                                r1 = reactifs[1]
-                                for r in PRESENCE[r0][1]:
-                                    if (r[2] == 'a') or (r[2] == 'b'):
-                                        PRODBIS.append((r0, r[2]))
-                                        etq = r[2]
-                                        break
-                                for r in PRESENCE[r1][1]:
-                                    if ((r[2] == 'a') or (r[2] == 'b')) and r[2] != etq:
-                                        PRODBIS.append((r1, r[2]))
-                if presence_cycles:
-                    break ##break prolongeant un autre pour sortir de 3 boucles successives
-            if presence_cycles:
-                break ##break prolongeant un autre pour sortir de 3 boucles successives
+                    else:  ##on suppose le nombre de reactifs inférieure ou égale à 2
+                        determination_etiquette(reactifs[0],reactifs[1],a[1],PRESENCE[reactifs[0]][1],PRESENCE[reactifs[1]][1],nbetape,PRODBIS)
+                    
+                if presence_cycles: break ##break prolongeant un autre pour sortir de 3 boucles successives
+            if presence_cycles: break ##break prolongeant un autre pour sortir de 3 boucles successives
+            # fin de la boucle pour remonter les reactifs
+            
             if ETAPE != []:
                 MECANISME = [ETAPE] + MECANISME
             # print([MOL[a[0]] for a in PROD])
             # print([MOL[a[0]] for a in PRODBIS])
-            PROD = []
-            for a in PRODBIS:
-                PROD.append(a)
-            PRODBIS = []
+            PROD = [a for a in PRODBIS]
             nbetape=nbetape-1
-        Enzs = []
+        
         #print(presence_cycles)
         if presence_cycles==False:
+            Enzs = []
             for mol in PROD:
-                if mol != numero(REAC[0],MOL) and mol != numero(REAC[1],MOL) and mol not in Enzs:
+                if mol[0] != REAC[0] and mol[0] != REAC[1]:
                     Enzs.append(mol[0])
             MECANISMES.append((MECANISME,meca[2],Enzs))
 
@@ -246,12 +202,90 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime,reaction,MOL,REACTIONS,REACPARMOL):
         for meca in MECANISMES:
             i+=1
             print("mécanisme "+str(i)+":")
-            txt=mecatexte(meca[0],reaction)
-            for a in txt:
-                print(a)
+            txt=mecatexte(meca[0],liste_reaction_texte)
+            for ligne in txt:
+                print(' --- '.join(ligne))
             print(" ")
     print('********************************************')
     return MECANISMES
+
+
+def mecatexte(MECANISME,liste_reaction_texte):  ##simple fonction qui convertit le mécanisme réactionnel renvoyé par l'algorithme en un texte lisible pour l'utilisateur.
+    MT = []
+    for k in range(len(MECANISME)):
+        ET = []
+        for a in MECANISME[k]:
+            reactifs,produits = liste_reaction_texte[a]
+            ET.append(' + '.join(reactifs)+' -> '+' + '.join(produits))
+        MT.append(ET)
+    return (MT)
+
+
+def determination_etiquette(r_0,r_1,eti,P_0,P_1,nbetape,PRODBIS):
+    """
+    r_i les deux reactifs dont il faut determiner les etiquettes lors de leur production
+    eti l'etiquette obtenue par la reaction entre les deux reactifs
+    P_i réactions ayant produit r_i
+    PRODBIS le tableau des (molecules,etiquette) a mettre a jour
+    """
+    
+    # Création de L0 et L1, liste des étiquettes avec lesquels r_0 a pu être formé avant nbetape
+    L0 = [d[2] for d in P_0 if d[1] <= nbetape - 1]
+    L1 = [d[2] for d in P_1 if d[1] <= nbetape - 1]
+    # print(L0)
+    # print(L1)
+    if eti == 'e':
+        PRODBIS.append((r_0, 'e'))
+        PRODBIS.append((r_1, 'e'))
+        
+    if eti == 'a':
+        if 'a' in L0:
+            PRODBIS.append((r_0, 'a'))
+        else:
+            PRODBIS.append((r_0, 'e'))
+        if 'a' in L1:
+            PRODBIS.append((r_1, 'a'))
+        else:
+            PRODBIS.append((r_1, 'e'))
+            
+    if eti == 'b':
+        if 'b' in L0:
+            PRODBIS.append((r_0, 'b'))
+        else:
+            PRODBIS.append((r_0, 'e'))
+        if 'b' in L1:
+            PRODBIS.append((r_1, 'b'))
+        else:
+            PRODBIS.append((r_1, 'e'))
+            
+    if eti == 'ab':
+        sel = selec2ab(L0, L1)
+        if sel[0] != 'o':
+            PRODBIS.append((r_0, sel[0]))
+        if sel[1] != 'o':
+            PRODBIS.append((r_1, sel[1]))
+            
+        if sel[0] == 'o' and sel[1] != 'o':
+            for reaction in P_0:
+                if (reaction[2] == 'a') or (reaction[2] == 'b'):
+                    PRODBIS.append((r_0, reaction[2]))
+                    break
+                    
+        if sel[1] == 'o' and sel[0] != 'o':
+            for reaction in P_1:
+                if (reaction[2] == 'a') or (reaction[2] == 'b'):
+                    PRODBIS.append((r_1, reaction[2]))
+                    break
+                    
+        if sel[0] == 'o' and sel[1] == 'o':
+            for reaction in P_0:
+                if (reaction[2] == 'a') or (reaction[2] == 'b'):
+                    PRODBIS.append((r_0, reaction[2]))
+                    etq = reaction[2]
+                    break
+            for reaction in P_1:
+                if ((reaction[2] == 'a') or (reaction[2] == 'b')) and reaction[2] != etq:
+                    PRODBIS.append((r_1, reaction[2]))
 
 
 def bin(c, d):  ##relation binaire de propagation des étiquettes
@@ -319,14 +353,7 @@ def numero2(L,MOL):  ##retourne les numéros correspondant aux noms d'enzymes d'
     return (L2)
 
 
-def mecatexte(MECANISME,reaction):  ##simple fonction qui convertit le mécanisme réactionnel renvoyé par l'algorithme en un texte lisible pour l'utilisateur.
-    MT = []
-    for k in range(len(MECANISME)):
-        ET = []
-        for a in MECANISME[k]:
-            ET.append(reaction[a])
-        MT.append(ET)
-    return (MT)
+
 
 
 # Prend un numéro de molécule en paramétre et renvoie le numéro de molécule faisant la logique "non" ainsi que le numéro de réaction
@@ -362,7 +389,7 @@ def molécule_non_v1(numéro_molécule,MOL,REACTIONS):
 # NON : '!'
 # OU EXCLUSIF : '-'
 # symbole réaction : '=>'
-def résolution_équation(équation_logique,nb_réactions_max,reaction,MOL,REACTIONS,REACPARMOL):
+def résolution_équation(équation_logique,nb_réactions_max,liste_reaction_texte,MOL,REACTIONS,REACPARMOL):
     liste_mots = équation_logique.split(" ")
 
     # Récupération du numéro du 1er réactif
@@ -381,8 +408,8 @@ def résolution_équation(équation_logique,nb_réactions_max,reaction,MOL,REACT
 
     if liste_mots[1] == '+':
         #print(f"MECAS=pluscourtchemin({numero2(ENZ)},[{réactif_1}, {réactif_2}],{produit},{nb_réactions_max}, True)")
-        MECAS = pluscourtchemin(numero2(ENZ,MOL), [réactif_1, réactif_2], produit, nb_réactions_max, True,reaction,MOL,REACTIONS,REACPARMOL)
-        mt = mecatexte(MECAS[0][0],reaction)
+        MECAS = pluscourtchemin(numero2(ENZ,MOL), [réactif_1, réactif_2], produit, nb_réactions_max, True,liste_reaction_texte,MOL,REACTIONS,REACPARMOL)
+        mt = mecatexte(MECAS[0][0],liste_reaction_texte)
         for d in mt:
             print(d)
         print("")
