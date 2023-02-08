@@ -4,7 +4,7 @@
 # etqt : étiquette à avoir ?
 # n    : nb max d'étaps ?
 
-def pluscourtchemin(ENZ,REAC,prod,n,imprime,liste_reaction_texte,MOL,REACTIONS,REACPARMOL):
+def pluscourtchemin(ENZ,REAC,prod,n,imprime,liste_reaction_texte,MOL,REACTIONS,REACPARMOL,bool=False):
 
     """ PRESENCE : liste des molécules présente.
     Evolue au cours de l'algorithme.
@@ -99,7 +99,8 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime,liste_reaction_texte,MOL,REACTIONS,R
         """ Fin boucle de recherche  """
 
         """ Boucle de recherche ascendante """
-
+    if bool:
+        return(PRESENCE)
     #print("Mécanismes réactionnels obtenus pour le produit en " + str(nbetape) + " étapes maximum avec l'étiquette "+etqt+" :")
     #print(PRESENCE[prod][0:2])
     #print("")
