@@ -179,7 +179,7 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime,liste_reaction_texte,MOL,REACTIONS,R
             # fin de la boucle pour remonter les reactifs
             
             if ETAPE != []:
-                MECANISME = [ETAPE] + MECANISME
+                MECANISME = [ETAPE] + MECANISME ##interet des crochets autour d'ETAPE ?
             # print([MOL[a[0]] for a in PROD])
             # print([MOL[a[0]] for a in PRODBIS])
             PROD = [a for a in PRODBIS]
