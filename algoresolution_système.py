@@ -1,10 +1,12 @@
 from recherche_chemin import pluscourtchemin
+import itertools
 
 def check(Current,LETIQ,nmax,LREAC,LPROD,reaction,MOL,REACTIONS,REACPARMOL): #permet de vérifier que les différents chemins choisis n'interfèrent pas sur leurs étiquettes choisies
     ENZYME=[]
     n=len(LPROD)
     for ligne in Current:
-        for enz in ligne[2]:
+        enzliste=ligne[2]
+        for enz in enzliste:
             ENZYME.append(enz)  #on agrège toutes les enzymes pour obtenir l'ensemble des enzymes qu'on introduit dans le milieu. Il reste à retirer les doublons pour rendre plus efficace les recherches de chemins suivantes
     for k in range(n):
         chemins=pluscourtchemin(ENZYME,LREAC[k],LPROD[k],nmax,False,reaction,MOL,REACTIONS,REACPARMOL) # on lance plus court chemin avec l'ensemble des enzymes pour voir si les étiquettes sont respectées, dès que ce n'est plus vérifié on renvoie false
@@ -28,23 +30,11 @@ def check(Current,LETIQ,nmax,LREAC,LPROD,reaction,MOL,REACTIONS,REACPARMOL): #pe
 def research(Allreactions,LETIQ,nmax,LREAC,LPROD,reaction,MOL,REACTIONS,REACPARMOL): # permet de rechercher si il existe une combinaison des lots d'enzyme d'un chemin par ligne des différents chemins trouvés pour chaque ligne du système tel que les étiquettes de chaque ligne sont préservées
     n=len(Allreactions)
     i=[0]*(n+1)
-    Borne = [0]*n
-    Current=[[]]*n #état actuel des chemins choisis par ligne
-    for k in range(n):
-        Borne[k]=len(Allreactions[k]) # liste des nombres de chemin à parcourir pour chaque ligne
-    p = 0
-    while i[n]==0: # ici on fait une sorte de n-boucle for en parcourant toutes les combinaisons possibles de chemin par ligne
-        for k in range(n):
-            Current[k]=Allreactions[i[k]]  #on met à jour les listes de current pour parcourir toutes les combinaisons possibles
+    Borne = [0]*n+[1]
+    ALL=list(itertools.product(*Allreactions))
+    for Current in ALL:
         if (check(Current,LETIQ,nmax,LREAC,LPROD,reaction,MOL,REACTIONS,REACPARMOL)): #on fait appel à la fonction check pour vérifier que les étiquettes sont bien préservées sur chaque ligne
             return Current
-        i[0]+=1
-        while i[p]==MAX[p]:
-            i[p]=0
-            p+=1
-            i[p]+=1
-            if(i[p]!=MAX[p]):
-                p=0
     return 0 #on renvoie 0 pour signifier qu'aucune combinaison de fonctionne
 
 def res(LREAC,LPROD,LETIQ,nmax,ENZ,reaction,MOL,REACTIONS,REACPARMOL):  #programme à apeler pour la résolution du système, avec des listes pour les produits, réactifs et étiquettes où l'indice i correspond à la ième ligne du système, 'ab' pour et, 'aob' pour a ou b, 'a' pour une simple présence, 'anb' pour a et non b, 'aonb' pour a ou non b, les négations restent à implémenter
