@@ -15,6 +15,8 @@ for r in simple_reactions['reactifs']:
 for p in simple_reactions['produits']:
   molecules.update(p)
 
+
+# équivalence nom - index
 names_to_idx = {mol : idx for idx, mol in enumerate(molecules)}
 
 molecules_encodage = simple_reactions.apply(
@@ -25,6 +27,7 @@ molecules_encodage = simple_reactions.apply(
 mol_enc_to_list1 = molecules_encodage.reactifs.tolist()
 mol_enc_to_list2 = molecules_encodage.produits.tolist()
 
+# [[reactifs, produits]]
 mol_enc_to_list = [[u, v] for u, v in zip(mol_enc_to_list1, mol_enc_to_list2)]
 
 
