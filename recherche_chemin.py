@@ -356,6 +356,20 @@ def numero2(L,MOL):  ##retourne les numéros correspondant aux noms d'enzymes d'
         L2.append(numero(L[k],MOL))
     return (L2)
 
+def mecatexte(MECANISME,liste_reaction_texte,BoolCycles):  ##simple fonction qui convertit le mécanisme réactionnel renvoyé par l'algorithme en un texte lisible pour l'utilisateur.
+    # MECANISME : liste des etapes reactionelles
+    # Chaque etape (case) dans MECANISME contient
+    MT = []
+    for k in range(len(MECANISME)):
+        ET = []
+        for a in MECANISME[k]:
+            reactifs,produits = liste_reaction_texte[a]
+            if BoolCycles[a]==False:
+                ET.append(' + '.join(reactifs)+' -> '+' + '.join(produits))
+            else:
+                ET.append(' + '.join(reactifs)+' <-> '+' + '.join(produits))
+        MT.append(ET)
+    return (MT)
 
 # Prend un numéro de molécule en paramétre et renvoie le numéro de molécule faisant la logique "non" ainsi que le numéro de réaction
 def molécule_non_v1(numéro_molécule,MOL,REACTIONS):
