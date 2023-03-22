@@ -7,12 +7,13 @@
 def pluscourtchemin(ENZ,REAC,prod,n,imprime,liste_reaction_texte,MOL,REACTIONS,REACPARMOL,bool=False):
 
     """ PRESENCE : liste des molécules présente.
-    Evolue au cours de l'algorithme.
-    Chaque case coorespond à une molécule et est de la forme :
-    [boolean marquant la présence,
-    liste des réaction l'ayant produit selon le triplet (numéro de réaction, numéro d'étape, étiquette),
-    liste des étiquettes avec lesquelles la molécule a été produite,
-    liste des doublets (numéro d'étape, étiquette) avec lesquelles la molécule a été produite]"""
+        Evolue au cours de l'algorithme.
+        Chaque case coorespond à une molécule et est de la forme :
+        [boolean marquant la présence,
+        liste des réaction l'ayant produit selon le triplet (numéro de réaction, numéro d'étape, étiquette),
+        liste des étiquettes avec lesquelles la molécule a été produite,
+        liste des doublets (numéro d'étape, étiquette) avec lesquelles la molécule a été produite]
+    """
 
     """     Initialisation des variables """
 
@@ -296,82 +297,90 @@ def determination_etiquette(r_0,r_1,eti,P_0,P_1,nbetape,PRODBIS):
 
 
 def bin(c, d):  ##relation binaire de propagation des étiquettes
-    if c == 'a' and d == 'b':
-        return('ab')
-    if c == 'b' and d == 'a':
-        return('ab')
-    if c == 'ab' or d == 'ab':
-        return('ab')
-    if c == 'a' or d == 'a':
-        return('a')
-    if c == 'b' or d == 'b':
-        return('b')
-    else:
-        return('e')
+    if c == d :
+        return c
+    if 'e' in c + d :
+        return min (c, d)
+    return 'ab'
+
+    # if c == 'a' and d == 'b':
+    #     return('ab')
+    # if c == 'b' and d == 'a':
+    #     return('ab')
+    # if c == 'ab' or d == 'ab':
+    #     return('ab')
+    # if c == 'a' or d == 'a':
+    #     return('a')
+    # if c == 'b' or d == 'b':
+    #     return('b')
+    # else:
+    #     return('e')
 
 
 def selec(L):  ##fonction utile pour selec2ab
     if 'ab' in L:
         return('ab')
-    if 'a' in L and 'b' in L:
-        return('o')
+    if 'a' in L :
+        if 'b' in L:
+            return('o')
+        return 'a'
     if 'b' in L:
         return('b')
-    if 'a' in L:
-        return('a')
-    else:
-        return('e')
+    return('e')
 
 
 def selec2ab(L1,L2):  ##cette fonction aide l'algorithme de remontée. Le but est, quand le produit d'une réaction est avec l'étiquette 'ab', de choisir avec quelles étiquettes on va considérer les réactifs qui ont mené à ce produit. Si on a 'o' on peut choisir 'a' ou 'b' indifféremment.
     l1 = selec(L1)
     l2 = selec(L2)
-    if l2 == 'o':
-        if l1 == 'ab':
-            return('ab', 'o')
-        if l1 == 'b':
-            return('b', 'a')
-        if l1 == 'a':
-            return('a', 'b')
-        if l1 == 'o':
-            return('o', 'o')
-    if l1 == 'o':
-        if l2 == 'o':
-            return('o', 'o')
-        if l2 == 'b':
-            return('a', 'b')
-        if l2 == 'a':
-            return('b', 'a')
-        if l2 == 'ab':
-            return('o', 'ab')
-    return(l1, l2)
+    # if l2 == 'o':
+    #     if l1 == 'ab':
+    #         return('ab', 'o')
+    #     if l1 == 'b':
+    #         return('b', 'a')
+    #     if l1 == 'a':
+    #         return('a', 'b')
+    #     if l1 == 'o':
+    #         return('o', 'o')
+    # if l1 == 'o':
+    #     if l2 == 'o':
+    #         return('o', 'o')
+    #     if l2 == 'b':
+    #         return('a', 'b')
+    #     if l2 == 'a':
+    #         return('b', 'a')
+    #     if l2 == 'ab':
+    #         return('o', 'ab')
+    return (l1, l2)
 
 
 def numero(nom_molecule,MOL):  ##retourne le numéro correspondant à un nom d'enzyme
-    for i in range(0, len(MOL)):
-        if MOL[i] == nom_molecule:
-            return (i)
+    # for i in range(0, len(MOL)):
+    #     if MOL[i] == nom_molecule:
+    #         return (i)
+    MOL.index(nom_molecule)
 
 
 def numero2(L,MOL):  ##retourne les numéros correspondant aux noms d'enzymes d'une liste d'enzymes
-    L2 = []
-    for k in range(0, len(L)):
-        L2.append(numero(L[k],MOL))
-    return (L2)
+    # L2 = []
+    # for k in range(0, len(L)):
+    #     L2.append(numero(L[k],MOL))
+    return [numero(l) for l in L]
 
 def mecatexte(MECANISME,liste_reaction_texte,BoolCycles):  ##simple fonction qui convertit le mécanisme réactionnel renvoyé par l'algorithme en un texte lisible pour l'utilisateur.
     # MECANISME : liste des etapes reactionelles
     # Chaque etape (case) dans MECANISME contient
     MT = []
+    mt_append = MT.append
     for k in range(len(MECANISME)):
         ET = []
+        append = ET.append
         for a in MECANISME[k]:
             reactifs,produits = liste_reaction_texte[a]
             if BoolCycles[a]==False:
-                ET.append(' + '.join(reactifs)+' -> '+' + '.join(produits))
+                append(' + '.join(reactifs)+' -> '+' + '.join(produits))
             else:
-                ET.append(' + '.join(reactifs)+' <-> '+' + '.join(produits))
-        MT.append(ET)
+                append(' + '.join(reactifs)+' <-> '+' + '.join(produits))
+        mt_append(ET)
     return (MT)
 
 # Prend un numéro de molécule en paramétre et renvoie le numéro de molécule faisant la logique "non" ainsi que le numéro de réaction
