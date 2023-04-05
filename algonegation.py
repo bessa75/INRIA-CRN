@@ -1,5 +1,41 @@
-from recherche_chemin import pluscourtchemin
-def algo_negation(A,B,C,ENZ,CYCLES,CYCLESPARMOL,REACPARMOL,reaction,MOL,REACTIONS,n,reac):
+REACPARMOL2=[]#cette liste contient pour chaque molécule, les numéros des réactions dans lesquels elle est un réactif
+REACPARMOLP=[]#cette liste contient pour chaque molécules, les numéros des réactions qui la produisent
+ENZYMES=numero2(enzymes,MOL)
+CYCLES=[]
+CYCLESPARMOL=[]
+BoolCycles=[False]*len(REACTIONS)
+for k in range (len(MOL)):
+    REACPARMOL2.append([])
+    CYCLESPARMOL.append([])
+    REACPARMOLP.append([])
+for k in range (0,len(REACTIONS)):
+    for i in range (0,len(REACTIONS)):
+        reac1=REACTIONS[k]
+        reac2=REACTIONS[i]
+        if (reac2[0],reac2[1])==(reac1[1],reac1[0]) and (reac1 not in CYCLES):
+            BoolCycles[k]=True
+            BoolCycles[i]=True
+            CYCLES.append(reac1)
+            for a in reac1[0]:
+                CYCLESPARMOL[a].append(k)
+for k in range (0,len(REACTIONS)):
+    reac=REACTIONS[k]
+    reactifs=reac[0]
+    REACPARMOL2[reactifs[0]].append(k)
+    if len(reactifs)==2:
+        REACPARMOL2[reactifs[1]].append(k)
+    produits=reac[1]
+    REACPARMOLP[produits[0]].append(k)
+    if len(produits)==2:
+        REACPARMOLP[produits[1]].append(k)
+#cas 1 :
+ENZ1=numero2(['ABTS','NAD', 'resazurin', 'HRP','NR', 'AO', 'POD', 'G_1DH', 'O2', 'DAF'],MOL)
+#cas 2 :
+ENZ2=numero2(['ABTS','NAD', 'resazurin', 'HRP','NR', 'AO', 'POD', 'G_1DH', 'O2', 'DAF','ADH'],MOL)
+#cas 3 :
+ENZ3=numero2(['ABTS','NAD', 'resazurin', 'HRP','NR', 'AO', 'POD', 'G_1DH', 'O2', 'DAF'],MOL)
+
+def algo_negation(A,B,C,ENZ,CYCLES,CYCLESPARMOL,REACPARMOL,reaction,MOL,REACTIONS,n):
     PRODINT=[]
     REACT=[]
     ACONSOMMER=[C]
@@ -83,4 +119,13 @@ def algo_negation(A,B,C,ENZ,CYCLES,CYCLESPARMOL,REACPARMOL,reaction,MOL,REACTION
     print("")
     return(RES)
 
+#print(numero('ABTSOX',MOL))
+
+print(algo_negation(numero('glucose',MOL),numero('acetone',MOL),numero('NADH',MOL),ENZ1,CYCLES,CYCLESPARMOL,REACPARMOL2,reaction,MOL,REACTIONS,5))
+#print(mecatexte(algo_negation(numero('glucose',MOL),numero('acetone',MOL),numero('NADH',MOL),ENZ1,CYCLES,CYCLESPARMOL,REACPARMOL2,reaction,MOL,REACTIONS,5)[0],reaction))
+print(algo_negation(numero('Lactateext',MOL),numero('EtOHext',MOL),numero('ABTSOX',MOL),ENZ2,CYCLES,CYCLESPARMOL,REACPARMOL2,reaction,MOL,REACTIONS,5))
+#print(mecatexte(algo_negation(numero('Lactateext',MOL),numero('EtOHext',MOL),numero('ABTSOX',MOL),ENZ2,CYCLES,CYCLESPARMOL,REACPARMOL2,reaction,MOL,REACTIONS,5)[0][0],reaction))
+print(algo_negation(numero('glucoseext',MOL),numero('NO3ext',MOL),numero('NADH',MOL),ENZ3,CYCLES,CYCLESPARMOL,REACPARMOL2,reaction,MOL,REACTIONS,5))
+#print(mecatexte(algo_negation(numero('glucoseext',MOL),numero('NO3ext',MOL),numero('NADH',MOL),ENZ3,CYCLES,CYCLESPARMOL,REACPARMOL2,reaction,MOL,REACTIONS,5)[0][0],reaction))
+#print(reaction[a])
 
