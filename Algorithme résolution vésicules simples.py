@@ -7,7 +7,7 @@ import time
 
 start_time = time.time()
 
-def numero3(texte):
+def numero(texte):
     if type(texte) is str:
         return recherche_chemin.numero(texte,liste_molecules)
     if type(texte) is list:
@@ -71,7 +71,7 @@ liste_molecules = elmts
 for molecule in enzymes :
     if not(molecule in enzymes):
         liste_molecules.append(molecule)
-liste_molecules.pop(numero3('H_2O_2'))  # Remove 'H_2O_2', 'H2O2' is in list
+liste_molecules.pop(numero('H_2O_2'))  # Remove 'H_2O_2', 'H2O2' is in list
 
 dictionnaire_molecules={liste_molecules[i] : i for i in range(len(liste_molecules))}
 
@@ -159,10 +159,10 @@ def test_2():
 ## Test lescture équation
     ENZ=['ABTS','ADH', 'NADH', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF','NAD'] ##rajouter NAD pour fausser le résultat
     RE=['acetoneext','glucoseext']
-    re=numero3(RE)
-    enz=numero3(ENZ)
+    re=numero(RE)
+    enz=numero(ENZ)
 
-    solution=algoresolution_système.res([re],[numero3('gluconolacrone')],['ab'],20,enz,reaction,liste_molecules,REACTIONS,REACPARMOL,reac,CYCLES,CYCLESPARMOL)
+    solution=algoresolution_système.res([re],[numero('gluconolacrone')],['ab'],20,enz,reaction,liste_molecules,REACTIONS,REACPARMOL,reac,CYCLES,CYCLESPARMOL)
     print(solution)
     mt = recherche_chemin.mecatexte(solution[0],reaction)
     for d in mt[0]:
@@ -181,11 +181,11 @@ def test_4():
 ## Ancien OU logique à changer sur le fonctionnement pluscourtchemin
     ENZ=['ABTS', 'ADH', 'NAD', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'LO']
     #recherche_chemin.ENZ = ['ABTS', 'ADH', 'NAD', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'LO']
-    RE = numero3(['Lactateext', 'EtOHext'])
+    RE = numero(['Lactateext', 'EtOHext'])
 
     recherche_chemin.résolution_équation(ENZ,"Lactateext + EtOHext => ABTSOX",nb_réactions_max,reaction,liste_molecules,REACTIONS,REACPARMOL)
 
-    MECAS = recherche_chemin.pluscourtchemin(numero2(ENZ,MOL), RE, numero3('ABTSOX'), nb_réactions_max, True,reaction,liste_molecules,REACTIONS,REACPARMOL)  # Pourquoi tag a ? OU logique ?
+    MECAS = recherche_chemin.pluscourtchemin(numero(ENZ), RE, numero('ABTSOX'), nb_réactions_max, True,reaction,liste_molecules,REACTIONS,REACPARMOL)  # Pourquoi tag a ? OU logique ?
     mt = recherche_chemin.mecatexte(MECAS[0][0],reaction)
     for d in mt:
         print(d)
@@ -195,10 +195,10 @@ def test_5():
 ##glucose et Non(acetone) donnent gluconolacrone
     ENZ = ['AO', 'ADH', 'G_1DH', 'resazurin', 'HRP', 'H2O2']  ##rajouter NAD pour fausser le résultat
     RE=['acetoneext','glucoseext']
-    re=numero3(RE)
-    enz=numero3(ENZ)
+    re=numero(RE)
+    enz=numero(ENZ)
 
-    solution=algoresolution_système.res([[numero3('glucose'),numero3('acetone')]],[numero3('NADH')],['anb'],20,ENZ1,reaction,liste_molecules,REACTIONS,REACPARMOL,reac,CYCLES,CYCLESPARMOL)
+    solution=algoresolution_système.res([[numero('glucose'),numero('acetone')]],[numero('NADH')],['anb'],20,ENZ1,reaction,liste_molecules,REACTIONS,REACPARMOL,reac,CYCLES,CYCLESPARMOL)
     print(solution)
     '''
     mt = recherche_chemin.mecatexte(solution[0],reaction)
