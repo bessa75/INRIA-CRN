@@ -1,15 +1,10 @@
 import recherche_chemin
 import algoresolution_système
 from creation_CRN_v2 import *
-<<<<<<< HEAD
+from brenda import get_data
 #bibliothéque python
 import re
 import time
-from brenda import get_data
-=======
-from brenda import get_data
-import re #bibliothéque python
->>>>>>> 3ba088a561b3030246152c24fe5fbc32fa02a7ab
 
 def numero(texte):
     if type(texte) is str:
@@ -17,7 +12,6 @@ def numero(texte):
     if type(texte) is list:
         return recherche_chemin.numero2(texte,listeMoleculeTexte)
 
-<<<<<<< HEAD
 """    Déclaration variables et constantes"""
 
 
@@ -28,23 +22,12 @@ def get_data_from_file(file):
     regex = ["(present\()|(, [e\-0-9]+\))|\.", "(MA.*for )|\+|(=>)|\."]
     blocs = {"inputs": (regex[0], inputs), "enzymes": (regex[0], enzymes), "elmts": (regex[1], elmts)}
 
-=======
-
-def get_data_from_file(file):
-    elmts = []
-    inputs = []
-    enzymes = []
-    regex = ["(present\()|(, [e\-0-9]+\))|\.", "(MA.*for )|\+|(=>)|\."]
-    blocs = {"inputs": (regex[0], inputs), "enzymes": (regex[0], enzymes), "elmts": (regex[1], elmts)}
-
->>>>>>> 3ba088a561b3030246152c24fe5fbc32fa02a7ab
     """ Création du tableau "reaction" de l'ensemble des réactions possible données par le fichier file"""
     friends = {'test': []}  # Chaque elmt et l'ensemble des elements avec lesquels il reagit
     # par contre les enzymes ne sont pas comptés comme éléments, du coup ils ne font pas partie des clés du dict.
 
     reaction = []  # Liste des réactions en version texte
     with open(file) as f:
-<<<<<<< HEAD
         while f.readline() != "% Inputs\n":
             continue
         bloc = 'inputs'
@@ -60,19 +43,6 @@ def get_data_from_file(file):
                 if l.find('reaction') > 0:
                     bloc = 'elmts'
                     continue
-=======
-    while f.readline() != "% Inputs\n":
-        continue
-    bloc = 'inputs'
-    while True:
-        l = f.readline()
-        if not l:
-            break
-
-        if l[0] == '%':
-            if l.find("Enzymes") > 0:
-                bloc = 'enzymes'
->>>>>>> 3ba088a561b3030246152c24fe5fbc32fa02a7ab
                 continue
 
             if len(l) < 3:
@@ -97,12 +67,6 @@ def get_data_from_file(file):
     return elmts, enzymes, reaction
 
 
-<<<<<<< HEAD
-=======
-    return elmts, enzymes, reaction
-
-
->>>>>>> 3ba088a561b3030246152c24fe5fbc32fa02a7ab
 """    Déclaration variables et constantes"""
 nb_réactions_max = 50
 
