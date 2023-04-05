@@ -15,9 +15,9 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime,liste_reaction_texte,MOL,REACTIONS,R
     liste des doublets (numéro d'étape, étiquette) avec lesquelles la molécule a été produite]"""
 
     """     Initialisation des variables """
-
     # Initialisation de chaque molécule comme absente
     PRESENCE = []
+    NbPresence=[]
     for k in range(0, len(MOL)):
         PRESENCE.append([False, [], [], []])
     nbetape = 0  # Nombre d'étapes réactionnels pour obtenir le produis cherché (la plus longue chaine d'étapes)
@@ -28,12 +28,16 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime,liste_reaction_texte,MOL,REACTIONS,R
     for k in range(len(REAC)):
         if k == 0:
             PRESENCE[REAC[k]] = [True, [(-1, 0, 'a')], ['a'], [(-1, 'a')]]
+            NbPresence.append((REAC[k],'a'))
         if k == 1:
             PRESENCE[REAC[k]] = [True, [(-1, 0, 'b')], ['b'], [(-1, 'b')]]
+            NbPresence.append((REAC[k],'b'))
         nbmol += 1
+        
     for a in ENZ:  ##initialisation de la liste de présence pour ajouter les enzymes
         PRESENCE[a] = [True, [(-1, 0, 'e')], ['e'], [(-1, 'e')]]
         nbmol += 1
+        NbPresence.append((a,'e'))
 
         """ Boucle de recherche descendante """
     ##exploration des différents chemins réactionnels par itérations successives
@@ -44,7 +48,9 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime,liste_reaction_texte,MOL,REACTIONS,R
         PRESENCEBIS = []
 
         ## itération sur les molécules présences
-        for num_molecule in range(len(PRESENCE)):
+        for doublet in NbPresence:
+            num_molecule=doublet[0]
+            eti_molecule=doublet[1]
             if PRESENCE[num_molecule][0]:
                 # On récupére la liste des réactions où la molécule intervient
                 REACPOT = REACPARMOL[num_molecule]
@@ -62,39 +68,42 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime,liste_reaction_texte,MOL,REACTIONS,R
                     if reactifs_presents:  ##si oui on met à jour la liste de présence
                         ## cas où il y a un seul réactif (marginal) / REACTIONS[a][0] est la liste des réactifs)
                         if len(REACTIONS[a][0]) == 1:
-                            mol = REACTIONS[a][0][0]  ## unique réactif
                             ##étape de mise à jour de la liste de présence (molécule produite à telle étape, avec telle étiquette, par telle réaction)
-                            for e in PRESENCE[mol][2]:
-                                for produit in REACTIONS[a][1]:
-                                    if e not in PRESENCE[produit][2]:
-                                        PRESENCEBIS.append((produit, e))
-                                    if (a, e) not in PRESENCE[produit][3]:
-                                        PRESENCE[produit][1].append((a, nbetape, e))  ## ici on se permet de mettre à jour PRESENCE et pas PRESENCEBIS car cela n'a pas d'influence.
-                                        PRESENCE[produit][3].append((a, e))
+                            for produit in REACTIONS[a][1]:
+                                if eti_molecule not in PRESENCE[produit][2]:
+                                    PRESENCEBIS.append((produit, eti_molecule))
+                                if (a, eti_molecule) not in PRESENCE[produit][3]:
+                                    PRESENCE[produit][1].append((a, nbetape, eti_molecule))  ## ici on se permet de mettre à jour PRESENCE et pas PRESENCEBIS car cela n'a pas d'influence.
+                                    PRESENCE[produit][3].append((a, eti_molecule))
                                     if PRESENCE[produit][0] == False:
                                         nbmol += 1
 
                         if len(REACTIONS[a][0]) == 2:  ## cas où il y a deux réactifs (cas commun)
-                            mol1 = REACTIONS[a][0][0]
-                            mol2 = REACTIONS[a][0][1]
-                            for e1 in PRESENCE[mol1][2]:
-                                for e2 in PRESENCE[mol2][2]:
-                                    e = bin(e1,e2)  ##utilisation de la relation binaire pour la propagation des étiquettes
-                                    for produit in REACTIONS[a][1]:  ##REACTIONS [a][1] correspond aux produits de la réaction a
-                                        if e not in PRESENCE[produit][2]:
-                                            PRESENCEBIS.append((produit, e))
-                                        if (a, e) not in PRESENCE[produit][3]:  ##contingent si on veut juste le plus court chemin
-                                            PRESENCE[produit][3].append((a, e))
-                                            PRESENCE[produit][1].append((a, nbetape, e))
-                                        if PRESENCE[produit][0] == False:
-                                            nbmol += 1
+                            if REACTIONS[a][0][0]==num_molecule:
+                                mol1 = REACTIONS[a][0][0]
+                                mol2 = REACTIONS[a][0][1]
+                            else :
+                                mol2 = REACTIONS[a][0][0]
+                                mol1 = REACTIONS[a][0][1]
+                            for e2 in PRESENCE[mol2][2]:
+                                e = bin(eti_molecule,e2)  ##utilisation de la relation binaire pour la propagation des étiquettes
+                                for produit in REACTIONS[a][1]:  ##REACTIONS [a][1] correspond aux produits de la réaction a
+                                    if e not in PRESENCE[produit][2]:
+                                        PRESENCEBIS.append((produit, e))
+                                    if (a, e) not in PRESENCE[produit][3]:  ##contingent si on veut juste le plus court chemin
+                                        PRESENCE[produit][3].append((a, e))
+                                        PRESENCE[produit][1].append((a, nbetape, e))
+                                    if PRESENCE[produit][0] == False:
+                                        nbmol += 1
 
         # mise à jour de PRESENCE à partir de PRESENCE BIS
+        NbPresence=[]
         for a in PRESENCEBIS:
             if a[1] not in PRESENCE[a[0]][2]:
                 PRESENCE[a[0]][2].append(a[1])
             PRESENCE[a[0]][0] = True
-
+            if a[0] not in NbPresence:
+                NbPresence.append(a)
         """ Fin boucle de recherche  """
 
         """ Boucle de recherche ascendante """
@@ -407,7 +416,6 @@ def résolution_équation(ENZ,équation_logique,nb_réactions_max,liste_reaction
     produit = numero(liste_mots[4],MOL)
 
     if liste_mots[1] == '+':
-        #print(f"MECAS=pluscourtchemin({numero2(ENZ)},[{réactif_1}, {réactif_2}],{produit},{nb_réactions_max}, True)")
         MECAS = pluscourtchemin(numero2(ENZ,MOL), [réactif_1, réactif_2], produit, nb_réactions_max, True,liste_reaction_texte,MOL,REACTIONS,REACPARMOL)
         mt = mecatexte(MECAS[0][0],liste_reaction_texte)
         for d in mt:
