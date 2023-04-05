@@ -1,6 +1,8 @@
 import algoPSC2_0_1
 import algoresolution_système
 from creation_CRN_v2 import *
+from brenda import get_data
+import re #bibliothéque python
 
 def numero(texte):
     if type(texte) is str:
@@ -8,24 +10,20 @@ def numero(texte):
     if type(texte) is list:
         return algoPSC2_0_1.numero2(texte,listeMoleculeTexte)
 
-"""    Déclaration variables et constantes"""
-import re #bibliothéque python
 
-file = "catalog.bc"
-nb_réactions_max = 50
+def get_data_from_file(file):
+    elmts = []
+    inputs = []
+    enzymes = []
+    regex = ["(present\()|(, [e\-0-9]+\))|\.", "(MA.*for )|\+|(=>)|\."]
+    blocs = {"inputs": (regex[0], inputs), "enzymes": (regex[0], enzymes), "elmts": (regex[1], elmts)}
 
-elmts = []
-inputs = []
-enzymes = []
-regex = ["(present\()|(, [e\-0-9]+\))|\.", "(MA.*for )|\+|(=>)|\."]
-blocs = {"inputs": (regex[0], inputs), "enzymes": (regex[0], enzymes), "elmts": (regex[1], elmts)}
+    """ Création du tableau "reaction" de l'ensemble des réactions possible données par le fichier file"""
+    friends = {'test': []}  # Chaque elmt et l'ensemble des elements avec lesquels il reagit
+    # par contre les enzymes ne sont pas comptés comme éléments, du coup ils ne font pas partie des clés du dict.
 
-""" Création du tableau "reaction" de l'ensemble des réactions possible données par le fichier file"""
-friends = {'test': []}  # Chaque elmt et l'ensemble des elements avec lesquels il reagit
-# par contre les enzymes ne sont pas comptés comme éléments, du coup ils ne font pas partie des clés du dict.
-
-reaction = []  # Liste des réactions en version texte
-with open(file) as f:
+    reaction = []  # Liste des réactions en version texte
+    with open(file) as f:
     while f.readline() != "% Inputs\n":
         continue
     bloc = 'inputs'
@@ -62,10 +60,28 @@ with open(file) as f:
 
         blocs[bloc][1].extend([e for e in elts if (e not in blocs[bloc][1])])
 
+    return elmts, enzymes, reaction
+
+
+"""    Déclaration variables et constantes"""
+nb_réactions_max = 50
+
+
+# Utilisation de Brenda
+data = get_data()
+listeReactionsBrut = data['reactions']
+listeMoleculeTexte = data['molecules'] # inclus molecules et enzymes
+# Fin brenda
+
+
+# Utilisation du catalogue
+file = "catalog.bc"
+enzymes, elmts, reaction = get_data_from_file(file)
 listeMoleculeTexte = enzymes + elmts
 listeMoleculeTexte.pop(26)
 
 N=len(listeMoleculeTexte) # Nombre de molecules
+
 
 listeReactionsBrut = []  # Liste des réactions en version numéros
 for a in reaction:
@@ -82,7 +98,9 @@ for a in reaction:
             reac[1].append(algoPSC2_0_1.numero(m,listeMoleculeTexte))
     listeReactionsBrut.append(reac)
 
-listeReactions = [[[] for j in range(N)] for i in range(N)] # liste où chaque case i,j est (numéroe de réaction, listeProduits)
+# Fin  preprocessing du Fichier
+
+listeReactions = [[[] for j in range(N)] for i in range(N)] # liste où chaque case i,j est (numéro de réaction, listeProduits)
 
 for num_reaction, reaction in enumerate(listeReactionsBrut):
     listeReactifs=reaction[0]
