@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ENZ  : Liste des enzymes utilisables (indexé par un numéro du tableau MOL)
 # REAC : Liste des entrées (indexé par un numéro du tableau MOL)
 # prod : produit à obtenir (indexé par un numéro du tableau MOL)
@@ -5,6 +6,14 @@
 # n    : nb max d'étaps ?
 
 def pluscourtchemin(ENZ,REAC,prod,n,imprime,reaction,MOL,REACTIONS,REACPARMOL):
+=======
+#ENZ  : Liste des enzymes utilisables (indexé par un numéro du tableau MOL)
+#REAC : Liste des entrées (indexé par un numéro du tableau MOL)
+#prod : produit à obtenir (indexé par un numéro du tableau MOL)
+#etqt : étiquette à avoir ?
+#n    : nb max d'étaps ?
+def pluscourtchemin(ENZ,REAC,prod,n,imprime):
+>>>>>>> dc41cc4ee89d08f15f80baf471fd6196d1bcd636
 
     """ PRESENCE : liste des molécules présente.
     Evolue au cours de l'algorithme.
@@ -100,11 +109,19 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime,reaction,MOL,REACTIONS,REACPARMOL):
 
         """ Boucle de recherche ascendante """
 
+<<<<<<< HEAD
     #print("Mécanismes réactionnels obtenus pour le produit en " + str(nbetape) + " étapes maximum avec l'étiquette "+etqt+" :")
     #print(PRESENCE[prod][0:2])
     #print("")
     # On vérifie que le produit voulu a été créé
     if (PRESENCE[prod][0] == False):
+=======
+    #print("Mécanismes réactionnels obtenus pour le produit en "+str(nbetape)+" étapes maximum avec l'étiquette "+etqt+" :")
+    #print(PRESENCE[prod][0:2])
+    #print("")
+    #On vérifie que le produit voulu a été créé
+    if (PRESENCE[prod][0]==False):
+>>>>>>> dc41cc4ee89d08f15f80baf471fd6196d1bcd636
         print("impossible d'arriver au produit")
         print("nombre d'étapes=" + str(nbetape))
         print("nombre de molecules=" + str(nbmol))
@@ -112,8 +129,13 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime,reaction,MOL,REACTIONS,REACPARMOL):
         print('')
         return (False)
 
+<<<<<<< HEAD
     MECANISMES = []  ## liste des mécanismes sous forme de doublet (MECANISME, étiquette)
     MECANISME = []  ## mécanisme sous forme d'une liste d'étapes, chaque étape étant une liste de réactions
+=======
+    MECANISMES=[] ## liste des mécanismes sous forme de doublet (MECANISME, étiquette)
+    MECANISME=[] ## mécanisme sous forme d'une liste d'étapes, chaque étape étant une liste de réactions
+>>>>>>> dc41cc4ee89d08f15f80baf471fd6196d1bcd636
 
 
     #print(PRESENCE[numero('DDib5')])
@@ -122,12 +144,21 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime,reaction,MOL,REACTIONS,REACPARMOL):
     for meca in PRESENCE[prod][1]:
         MECANISME=[]
         presence_cycles=False ## booléen pour éviter que des cycles ne se répètent
+<<<<<<< HEAD
         nbetape = meca[1]
         PROD = [(prod,meca[2])]
         while nbetape > 0:
             # print(nbetape)
             ETAPE = []
             PRODBIS = []
+=======
+        nbetape=meca[1]
+        PROD=[(prod,meca[2])]
+        while nbetape>0:
+            #print(nbetape)
+            ETAPE=[]
+            PRODBIS=[]
+>>>>>>> dc41cc4ee89d08f15f80baf471fd6196d1bcd636
             #print([MOL[prod[0]] for prod in PROD])
 
             # pour chaque produit on retrouve les réactifs qui l'ont formé et on leur associe l'étiquette correspondante
@@ -135,22 +166,35 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime,reaction,MOL,REACTIONS,REACPARMOL):
                 # recherche du numéro r de la réaction ayant permis la production de la molécule a en nbetape étapes
                 r = -1
                 for reac in PRESENCE[a[0]][1]:
+<<<<<<< HEAD
                     if reac[1] == nbetape and reac[2] == a[1] and reac[1] == min([reac[1] for reac in PRESENCE[a[0]][1] if reac[2] == a[1]]):
                         r = reac[0]
+=======
+                    if reac[1]==nbetape and reac[2]==a[1] and reac[1]==min([reac[1] for reac in PRESENCE[a[0]][1] if reac[2]==a[1]]):
+                        r=reac[0]
+>>>>>>> dc41cc4ee89d08f15f80baf471fd6196d1bcd636
                         break
                 if r == -1: ## potentiellement contingent
                     #print(nbetape,MOL[a[0]],a[1])
                     PRODBIS.append(a)
                 else:
                     ETAPE.append(r)
+<<<<<<< HEAD
                     reactifs = REACTIONS[r][0]
                     produits = REACTIONS[r][1]
                     for p in produits:
                         if p == prod and nbetape < meca[1]-1:
+=======
+                    reactifs=REACTIONS[r][0]
+                    produits=REACTIONS[r][1]
+                    for p in produits:
+                        if p==prod and nbetape<meca[1]-1:
+>>>>>>> dc41cc4ee89d08f15f80baf471fd6196d1bcd636
                             presence_cycles=True #détection d'un cycle rendant le mécanisme invalide : un mécanisme invalide est un mécanisme dans le quel le produit final n'apparait pas seulement dans la dernière réaction
                             break ##on veut sortir de 3 boucles imbriquées donc on va rappeler ce break
                     if presence_cycles:
                         break
+<<<<<<< HEAD
                     if len(reactifs) == 1:
                         PRODBIS.append((reactifs[0], a[1]))
                     else:  ##on suppose la molécularité inférieure ou égale à 2
@@ -166,6 +210,23 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime,reaction,MOL,REACTIONS,REACPARMOL):
                         # print(L0)
                         # print(L1)
                         if eti == 'e':
+=======
+                    if len(reactifs)==1:
+                        PRODBIS.append((reactifs[0],a[1]))
+                    else: ##on suppose la molécularité inférieure ou égale à 2
+                        eti=a[1]
+                        r20=reactifs[0] #réactif 1
+                        r21=reactifs[1] #réactif 2
+                        P0=PRESENCE[r20][1] #réactions ayant produit r20
+                        P1=PRESENCE[r21][1] #réactions ayant produit r21
+
+                        #Création de L0 et L1, liste des étiquettes avec lesquels r20 a pu être formé avant nbetape
+                        L0=[d[2] for d in PRESENCE[r20][1] if d[1]<=nbetape-1]
+                        L1=[d[2] for d in PRESENCE[r21][1] if d[1]<=nbetape-1]
+                        #print(L0)
+                        #print(L1)
+                        if eti=='e':
+>>>>>>> dc41cc4ee89d08f15f80baf471fd6196d1bcd636
                             for re in reactifs:
                                 PRODBIS.append((re, 'e'))
                         if eti == 'a':
@@ -185,6 +246,7 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime,reaction,MOL,REACTIONS,REACPARMOL):
                             if 'b' in L1:
                                 PRODBIS.append((r21, 'b'))
                             else:
+<<<<<<< HEAD
                                 PRODBIS.append((r21, 'e'))
                         if eti == 'ab':
                             sel = selec2ab(L0, L1)
@@ -194,6 +256,17 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime,reaction,MOL,REACTIONS,REACPARMOL):
                                 PRODBIS.append((reactifs[1], sel[1]))
                             if sel[0] == 'o' and sel[1] != 'o':
                                 r0 = reactifs[0]
+=======
+                                PRODBIS.append((r21,'e'))
+                        if eti=='ab':
+                            sel=selec2ab(L0,L1)
+                            if sel[0]!='o':
+                                PRODBIS.append((reactifs[0],sel[0]))
+                            if sel[1]!='o':
+                                PRODBIS.append((reactifs[1],sel[1]))
+                            if sel[0]=='o' and sel[1]!='o':
+                                r0=reactifs[0]
+>>>>>>> dc41cc4ee89d08f15f80baf471fd6196d1bcd636
                                 for r in PRESENCE[r0][1]:
                                     if (r[2] == 'a') or (r[2] == 'b'):
                                         PRODBIS.append((r0, r[2]))
@@ -213,6 +286,7 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime,reaction,MOL,REACTIONS,REACPARMOL):
                                         etq = r[2]
                                         break
                                 for r in PRESENCE[r1][1]:
+<<<<<<< HEAD
                                     if ((r[2] == 'a') or (r[2] == 'b')) and r[2] != etq:
                                         PRODBIS.append((r1, r[2]))
                 if presence_cycles:
@@ -238,6 +312,33 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime,reaction,MOL,REACTIONS,REACPARMOL):
 
 
 
+=======
+                                    if ((r[2]=='a') or (r[2]=='b')) and r[2]!=etq:
+                                        PRODBIS.append((r1,r[2]))
+                if presence_cycles: 
+                    break ##break prolongeant un autre pour sortir de 3 boucles successives
+            if presence_cycles:
+                break ##break prolongeant un autre pour sortir de 3 boucles successives
+            if ETAPE!=[]:
+                MECANISME=[ETAPE]+MECANISME
+            #print([MOL[a[0]] for a in PROD])
+            #print([MOL[a[0]] for a in PRODBIS])
+            PROD=[]
+            for a in PRODBIS:
+                PROD.append(a)
+            PRODBIS=[]
+            nbetape=nbetape-1
+        Enzs=[]
+        #print(presence_cycles)
+        if presence_cycles==False:
+            for mol in PROD:
+                if mol!=numero(REAC[0]) and mol!=numero(REAC[1]):
+                    Enzs.append(mol[0])
+            MECANISMES.append((MECANISME,meca[2],Enzs))
+
+    
+    
+>>>>>>> dc41cc4ee89d08f15f80baf471fd6196d1bcd636
 
     print('Les mécanismes après sélection sont les suivants')
     print(MECANISMES)
@@ -247,13 +348,25 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime,reaction,MOL,REACTIONS,REACPARMOL):
         for meca in MECANISMES:
             i+=1
             print("mécanisme "+str(i)+":")
+<<<<<<< HEAD
             txt=mecatexte(meca[0],reaction)
+=======
+            txt=mecatexte(meca[0])
+>>>>>>> dc41cc4ee89d08f15f80baf471fd6196d1bcd636
             for a in txt:
                 print(a)
             print(" ")
     print('********************************************')
+<<<<<<< HEAD
     return MECANISMES
 
+=======
+    return(MECANISMES)
+def numero(enzyme): ##retourne le numéro correspondant à un nom d'enzyme
+    for i in range (0,len(MOL)):
+        if MOL[i]==enzyme:
+            return(i)
+>>>>>>> dc41cc4ee89d08f15f80baf471fd6196d1bcd636
 
 def bin(c, d):  ##relation binaire de propagation des étiquettes
     if c == 'a' and d == 'b':
