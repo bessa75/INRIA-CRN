@@ -31,7 +31,6 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime,liste_reaction_texte,MOL,REACTIONS,R
         if k == 1:
             PRESENCE[REAC[k]] = [True, [(-1, 0, 'b')], ['b'], [(-1, 'b')]]
         nbmol += 1
-
     for a in ENZ:  ##initialisation de la liste de présence pour ajouter les enzymes
         PRESENCE[a] = [True, [(-1, 0, 'e')], ['e'], [(-1, 'e')]]
         nbmol += 1
