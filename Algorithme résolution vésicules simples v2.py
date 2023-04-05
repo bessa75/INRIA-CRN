@@ -1,4 +1,5 @@
 import recherche_chemin
+import pandas as pd
 import algoresolution_système
 from creation_CRN_v2 import *
 from brenda import get_data
@@ -17,6 +18,7 @@ def numero(texte):
 
 def get_data_from_file(file):
     elmts = []
+    reaction = []
     inputs = []
     enzymes = []
     regex = ["(present\()|(, [e\-0-9]+\))|\.", "(MA.*for )|\+|(=>)|\."]
@@ -72,35 +74,40 @@ nb_réactions_max = 50
 
 
 # Utilisation de Brenda
-data = get_data()
+print('Importing data')
+dataframe = pd.read_csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vQW5Udu9IvmmRpJdl4GfCGhy0ZEq-kNhKIuo1bGpQUpYchPNmDdYjm846DmKRB6UVWjkIgCXTO_ChiV/pub?output=csv')
+print('End importation')
+print('Getting data')
+data = get_data(dataframe)
+print('End get data')
 listeReactionsBrut = data['reactions']
-listeMoleculeTexte = data['molecules'] # inclus molecules et enzymes
+listeMoleculeTexte = data['molecules_list'] # inclus molecules et enzymes
 # Fin brenda
 
 
-# Utilisation du catalogue
-file = "catalog.bc"
-enzymes, elmts, reaction = get_data_from_file(file)
-listeMoleculeTexte = enzymes + elmts
-listeMoleculeTexte.pop(26)
+# # Utilisation du catalogue
+# file = "catalog.bc"
+# enzymes, elmts, reaction = get_data_from_file(file)
+# listeMoleculeTexte = enzymes + elmts
+# listeMoleculeTexte.pop(26)
 
 N=len(listeMoleculeTexte) # Nombre de molecules
 
 
-listeReactionsBrut = []  # Liste des réactions en version numéros
-for a in reaction:
-    reac = ([], [])
-    for m in a[0]:
-        if m == 'H_20_2' or m == 'H202' or m == 'H_2O_2':
-            reac[0].append(recherche_chemin.numero('H2O2',listeMoleculeTexte))
-        else:
-            reac[0].append(recherche_chemin.numero(m,listeMoleculeTexte))
-    for m in a[1]:
-        if m == 'H_20_2' or m == 'H202' or m == 'H_2O_2':
-            reac[1].append(recherche_chemin.numero('H2O2',listeMoleculeTexte))
-        else:
-            reac[1].append(recherche_chemin.numero(m,listeMoleculeTexte))
-    listeReactionsBrut.append(reac)
+# listeReactionsBrut = []  # Liste des réactions en version numéros
+# for a in reaction:
+#     reac = ([], [])
+#     for m in a[0]:
+#         if m == 'H_20_2' or m == 'H202' or m == 'H_2O_2':
+#             reac[0].append(recherche_chemin.numero('H2O2',listeMoleculeTexte))
+#         else:
+#             reac[0].append(recherche_chemin.numero(m,listeMoleculeTexte))
+#     for m in a[1]:
+#         if m == 'H_20_2' or m == 'H202' or m == 'H_2O_2':
+#             reac[1].append(recherche_chemin.numero('H2O2',listeMoleculeTexte))
+#         else:
+#             reac[1].append(recherche_chemin.numero(m,listeMoleculeTexte))
+#     listeReactionsBrut.append(reac)
 
 # Fin  preprocessing du Fichier
 
