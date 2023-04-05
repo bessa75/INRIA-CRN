@@ -193,15 +193,15 @@ def remonteeOU(A,B,C,listeIni) :
 
 def déterminationCRN (A,B,C,n,relation,ini,listeReactions) : 
     if relation == "ET" : 
-        MelangesInitiaux,melange_C=recherche_melanges_initiaux(ini,n,C,listeReactions)
+        MelangesInitiaux,melange_C=recherche_melanges_initiaux(ini+[A,B],n,C,listeReactions)
         res=remonteeET(A,B,C,melange_C,listeReactions)
     elif relation == "OU" :
-        MelangesInitiaux,melange_C=recherche_melanges_initiaux(ini,n,C,listeReactions)
+        MelangesInitiaux,melange_C=recherche_melanges_initiaux(ini+[A,B],n,C,listeReactions)
         res=remonteeOU(A,B,C,melange_C,listeReactions) 
     else : 
-        MelangesInitiaux,melange_C=recherche_melanges_initiaux(ini,n,C,listeReactions)
+        MelangesInitiaux,melange_C=recherche_melanges_initiaux(ini+[A,B],n,C,listeReactions)
         res=remonteeNON(A,B,C,melange_C,listeReactions)
-    return res
+    return MelangesInitiaux,res
 
 
 def remonteeNON() : 

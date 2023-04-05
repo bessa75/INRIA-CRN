@@ -206,11 +206,6 @@ def test_5():
         print(d)
     '''
 
-def test_6():
-##glucose et acetone donnent gluconolacrone
-    ENZ = ['AO', 'ADH', 'G_1DH', 'NAD', 'resazurin', 'HRP', 'H2O2']  ##rajouter NAD pour fausser le résultat
-    recherche_chemin.résolution_équation(ENZ,"acetoneext + glucoseext => resorufin",nb_réactions_max,reaction,liste_molecules,REACTIONS,REACPARMOL)
-
 
 start_time = time.time()
 print("Test 1 :")
@@ -235,11 +230,6 @@ print('------------------------------------------------------------------')
 print()
 print("Test 5 :")
 test_5()
-print()
-print('------------------------------------------------------------------')
-print()
-print("Test 6 :")
-test_6()
 print()
 print('------------------------------------------------------------------')
 print()
