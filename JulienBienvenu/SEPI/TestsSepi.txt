@@ -1,0 +1,21 @@
+clear_model.
+load(library:examples/sepi/CRNVeryShort.bc).
+draw_influences.
+list_ode.
+search_reduction(library:examples/sepi/CRNlong.bc,library:examples/sepi/CRNshort.bc,mapping_restriction : [11->acetone,b->glucose,j->resorufin]).
+
+clear_model.
+load(library:examples/sepi/CRNVeryShort.bc).
+list_model.
+clear_model.
+load(library:examples/sepi/CRNlong.bc).
+list_model.
+
+search_reduction(library:examples/sepi/CRNlong.bc,library:examples/sepi/CRNVeryShort.bc,timeout : 200,mapping_restriction : [a->acetone, b->glucose, j->resorufin]).
+
+clear_model.
+add_function(resorufin = (acetone * glucose)).
+draw_influences.
+list_model.
+
+search_reduction(library:examples/sepi/BrendaBiochamSmart1Subset.bc,library:examples/sepi/CRNlong.bc,timeout : 200,mapping_restriction : [m286->a, m33->b, m25014->j]).
