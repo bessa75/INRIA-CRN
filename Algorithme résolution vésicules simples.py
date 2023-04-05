@@ -1,9 +1,6 @@
 import recherche_chemin
 import algoresolution_système
-<<<<<<< HEAD
 import algonegation
-=======
->>>>>>> fdb79c0a1adea69ee7c5ad878ff1198ba1c12eb5
 #bibliothéque python
 import re
 import time
@@ -165,11 +162,7 @@ def test_2():
     re=numero(RE)
     enz=numero(ENZ)
 
-<<<<<<< HEAD
     solution=algoresolution_système.res([re],[numero('gluconolacrone')],['ab'],20,enz,reaction,liste_molecules,REACTIONS,REACPARMOL,reac,CYCLES,CYCLESPARMOL)
-=======
-    solution=algoresolution_système.res([re],[numero('gluconolacrone')],['ab'],20,enz,reaction,liste_molecules,REACTIONS,REACPARMOL)
->>>>>>> fdb79c0a1adea69ee7c5ad878ff1198ba1c12eb5
     print(solution)
     mt = recherche_chemin.mecatexte(solution[0],reaction)
     for d in mt[0]:
@@ -204,7 +197,6 @@ def test_5():
     RE=['acetoneext','glucoseext']
     re=numero(RE)
     enz=numero(ENZ)
-<<<<<<< HEAD
 
     solution=algoresolution_système.res([[numero('glucose'),numero('acetone')]],[numero('NADH')],['anb'],20,ENZ1,reaction,liste_molecules,REACTIONS,REACPARMOL,reac,CYCLES,CYCLESPARMOL)
     print(solution)
@@ -214,17 +206,6 @@ def test_5():
         print(d)
     '''
 
-=======
-
-    solution=algoresolution_système.res([[numero('glucose'),numero('acetone')]],[numero('NADH')],['anb'],20,ENZ1,reaction,liste_molecules,REACTIONS,REACPARMOL,reac,CYCLES,CYCLESPARMOL)
-    print(solution)
-    '''
-    mt = recherche_chemin.mecatexte(solution[0],reaction)
-    for d in mt[0]:
-        print(d)
-    '''
-    
->>>>>>> fdb79c0a1adea69ee7c5ad878ff1198ba1c12eb5
 def test_6():
 ##glucose et acetone donnent gluconolacrone
     ENZ = ['AO', 'ADH', 'G_1DH', 'NAD', 'resazurin', 'HRP', 'H2O2']  ##rajouter NAD pour fausser le résultat
@@ -232,11 +213,7 @@ def test_6():
 
 
 start_time = time.time()
-<<<<<<< HEAD
 print("Test 1 :")
-=======
-'''
->>>>>>> fdb79c0a1adea69ee7c5ad878ff1198ba1c12eb5
 test_1()
 print()
 print('------------------------------------------------------------------')
@@ -251,25 +228,17 @@ test_3()
 print()
 print('------------------------------------------------------------------')
 print()
-<<<<<<< HEAD
 print("Test 4 :")
 test_4()
 print()
 print('------------------------------------------------------------------')
 print()
 print("Test 5 :")
-=======
-'''
->>>>>>> fdb79c0a1adea69ee7c5ad878ff1198ba1c12eb5
 test_5()
 print()
 print('------------------------------------------------------------------')
 print()
-<<<<<<< HEAD
 print("Test 6 :")
-=======
-'''
->>>>>>> fdb79c0a1adea69ee7c5ad878ff1198ba1c12eb5
 test_6()
 print()
 print('------------------------------------------------------------------')
@@ -277,21 +246,12 @@ print()
 
 #print(numero('ABTSOX',MOL))
 
-<<<<<<< HEAD
 #print(algo_negation(numero('glucose',MOL),numero('acetone',MOL),numero('NADH',MOL),ENZ1,CYCLES,CYCLESPARMOL,REACPARMOL2,reaction,MOL,REACTIONS,5))
 #print(mecatexte(algo_negation(numero('glucose',MOL),numero('acetone',MOL),numero('NADH',MOL),ENZ1,CYCLES,CYCLESPARMOL,REACPARMOL2,reaction,MOL,REACTIONS,5)[0],reaction))
 #print(algonegation.algo_negation(numero('Lactateext',MOL),numero('EtOHext',MOL),numero('ABTSOX',MOL),ENZ2,CYCLES,CYCLESPARMOL,REACPARMOL2,reaction,MOL,REACTIONS,5,reac))
 #print(mecatexte(algo_negation(numero('Lactateext',MOL),numero('EtOHext',MOL),numero('ABTSOX',MOL),ENZ2,CYCLES,CYCLESPARMOL,REACPARMOL2,reaction,MOL,REACTIONS,5)[0][0],reaction))
 #print(algonegation.algo_negation(numero('glucoseext',MOL),numero('NO3ext',MOL),numero('NADH',MOL),ENZ3,CYCLES,CYCLESPARMOL,REACPARMOL2,reaction,MOL,REACTIONS,5,reac))
-=======
-print(algo_negation(numero('glucose',MOL),numero('acetone',MOL),numero('NADH',MOL),ENZ1,CYCLES,CYCLESPARMOL,REACPARMOL2,reaction,MOL,REACTIONS,5))
-#print(mecatexte(algo_negation(numero('glucose',MOL),numero('acetone',MOL),numero('NADH',MOL),ENZ1,CYCLES,CYCLESPARMOL,REACPARMOL2,reaction,MOL,REACTIONS,5)[0],reaction))
-print(algo_negation(numero('Lactateext',MOL),numero('EtOHext',MOL),numero('ABTSOX',MOL),ENZ2,CYCLES,CYCLESPARMOL,REACPARMOL2,reaction,MOL,REACTIONS,5))
-#print(mecatexte(algo_negation(numero('Lactateext',MOL),numero('EtOHext',MOL),numero('ABTSOX',MOL),ENZ2,CYCLES,CYCLESPARMOL,REACPARMOL2,reaction,MOL,REACTIONS,5)[0][0],reaction))
-print(algo_negation(numero('glucoseext',MOL),numero('NO3ext',MOL),numero('NADH',MOL),ENZ3,CYCLES,CYCLESPARMOL,REACPARMOL2,reaction,MOL,REACTIONS,5))
->>>>>>> fdb79c0a1adea69ee7c5ad878ff1198ba1c12eb5
 #print(mecatexte(algo_negation(numero('glucoseext',MOL),numero('NO3ext',MOL),numero('NADH',MOL),ENZ3,CYCLES,CYCLESPARMOL,REACPARMOL2,reaction,MOL,REACTIONS,5)[0][0],reaction))
 #print(reaction[a])
 
 print("Temps de calcul des exemples : ",time.time()-start_time)
-'''
