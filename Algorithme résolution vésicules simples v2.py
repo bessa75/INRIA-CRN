@@ -1,14 +1,10 @@
 import recherche_chemin
 import algoresolution_système
 from creation_CRN_v2 import *
-<<<<<<< HEAD
 #bibliothéque python
 import re
 import time
-=======
 from brenda import get_data
-import re #bibliothéque python
->>>>>>> Introduction de brenda pour les données
 
 def numero(texte):
     if type(texte) is str:
@@ -16,11 +12,8 @@ def numero(texte):
     if type(texte) is list:
         return recherche_chemin.numero2(texte,listeMoleculeTexte)
 
-<<<<<<< HEAD
 """    Déclaration variables et constantes"""
 
-=======
->>>>>>> Introduction de brenda pour les données
 
 def get_data_from_file(file):
     elmts = []
@@ -35,41 +28,41 @@ def get_data_from_file(file):
 
     reaction = []  # Liste des réactions en version texte
     with open(file) as f:
-    while f.readline() != "% Inputs\n":
-        continue
-    bloc = 'inputs'
-    while True:
-        l = f.readline()
-        if not l:
-            break
-
-        if l[0] == '%':
-            if l.find("Enzymes") > 0:
-                bloc = 'enzymes'
-                continue
-            if l.find('reaction') > 0:
-                bloc = 'elmts'
-                continue
+        while f.readline() != "% Inputs\n":
             continue
+        bloc = 'inputs'
+        while True:
+            l = f.readline()
+            if not l:
+                break
 
-        if len(l) < 3:
-            continue
+            if l[0] == '%':
+                if l.find("Enzymes") > 0:
+                    bloc = 'enzymes'
+                    continue
+                if l.find('reaction') > 0:
+                    bloc = 'elmts'
+                    continue
+                continue
 
-        if bloc == 'elmts':
-            elmt = l.split('=>')
-            reactifs = re.sub("(MA.*for )|\+", " ", elmt[0]).split()
-            for r in reactifs:
-                try:
-                    friends[r].extend([e for e in reactifs if e not in friends[r]])
-                except:
-                    friends.update({r: [e for e in reactifs if e != r]})
-            produits = re.sub("\+|\.", " ", elmt[1]).split()
-            reaction.append((reactifs, produits))
-            elts = reactifs + produits
-        else:
-            elts = re.sub(blocs[bloc][0], '', l).split()
+            if len(l) < 3:
+                continue
 
-        blocs[bloc][1].extend([e for e in elts if (e not in blocs[bloc][1])])
+            if bloc == 'elmts':
+                elmt = l.split('=>')
+                reactifs = re.sub("(MA.*for )|\+", " ", elmt[0]).split()
+                for r in reactifs:
+                    try:
+                        friends[r].extend([e for e in reactifs if e not in friends[r]])
+                    except:
+                        friends.update({r: [e for e in reactifs if e != r]})
+                produits = re.sub("\+|\.", " ", elmt[1]).split()
+                reaction.append((reactifs, produits))
+                elts = reactifs + produits
+            else:
+                elts = re.sub(blocs[bloc][0], '', l).split()
+
+            blocs[bloc][1].extend([e for e in elts if (e not in blocs[bloc][1])])
 
     return elmts, enzymes, reaction
 
