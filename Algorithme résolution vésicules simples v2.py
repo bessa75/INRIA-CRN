@@ -1,7 +1,7 @@
 import recherche_chemin
-import pandas as pd
 import algoresolution_système
 from creation_CRN_v2 import *
+import pandas as pd
 from brenda import get_data
 #bibliothéque python
 import re
@@ -18,7 +18,6 @@ def numero(texte):
 
 def get_data_from_file(file):
     elmts = []
-    reaction = []
     inputs = []
     enzymes = []
     regex = ["(present\()|(, [e\-0-9]+\))|\.", "(MA.*for )|\+|(=>)|\."]
@@ -72,44 +71,48 @@ def get_data_from_file(file):
 """    Déclaration variables et constantes"""
 nb_réactions_max = 50
 
-
+"""
 # Utilisation de Brenda
-print('Importing data')
+print("Start import")
 dataframe = pd.read_csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vQW5Udu9IvmmRpJdl4GfCGhy0ZEq-kNhKIuo1bGpQUpYchPNmDdYjm846DmKRB6UVWjkIgCXTO_ChiV/pub?output=csv')
-print('End importation')
-print('Getting data')
+print("End import")
+print()
+print("Start read data")
 data = get_data(dataframe)
-print('End get data')
 listeReactionsBrut = data['reactions']
 listeMoleculeTexte = data['molecules_list'] # inclus molecules et enzymes
+print("End read data")
 # Fin brenda
+"""
+
+# Utilisation du catalogue
+file = "catalog.bc"
+enzymes, elmts, reaction = get_data_from_file(file)
+listeMoleculeTexte = enzymes + elmts
+listeMoleculeTexte.pop(26)
 
 
-# # Utilisation du catalogue
-# file = "catalog.bc"
-# enzymes, elmts, reaction = get_data_from_file(file)
-# listeMoleculeTexte = enzymes + elmts
-# listeMoleculeTexte.pop(26)
 
 N=len(listeMoleculeTexte) # Nombre de molecules
 
 
-# listeReactionsBrut = []  # Liste des réactions en version numéros
-# for a in reaction:
-#     reac = ([], [])
-#     for m in a[0]:
-#         if m == 'H_20_2' or m == 'H202' or m == 'H_2O_2':
-#             reac[0].append(recherche_chemin.numero('H2O2',listeMoleculeTexte))
-#         else:
-#             reac[0].append(recherche_chemin.numero(m,listeMoleculeTexte))
-#     for m in a[1]:
-#         if m == 'H_20_2' or m == 'H202' or m == 'H_2O_2':
-#             reac[1].append(recherche_chemin.numero('H2O2',listeMoleculeTexte))
-#         else:
-#             reac[1].append(recherche_chemin.numero(m,listeMoleculeTexte))
-#     listeReactionsBrut.append(reac)
+listeReactionsBrut = []  # Liste des réactions en version numéros
+for a in reaction:
+    reac = ([], [])
+    for m in a[0]:
+        if m == 'H_20_2' or m == 'H202' or m == 'H_2O_2':
+            reac[0].append(recherche_chemin.numero('H2O2',listeMoleculeTexte))
+        else:
+            reac[0].append(recherche_chemin.numero(m,listeMoleculeTexte))
+    for m in a[1]:
+        if m == 'H_20_2' or m == 'H202' or m == 'H_2O_2':
+            reac[1].append(recherche_chemin.numero('H2O2',listeMoleculeTexte))
+        else:
+            reac[1].append(recherche_chemin.numero(m,listeMoleculeTexte))
+    listeReactionsBrut.append(reac)
 
 # Fin  preprocessing du Fichier
+
 
 listeReactions = [[[] for j in range(N)] for i in range(N)] # liste où chaque case i,j est (numéro de réaction, listeProduits)
 
@@ -130,8 +133,9 @@ for num_reaction, reaction in enumerate(listeReactionsBrut):
 
 
 def test_1():
+##glucose et acetone donnent resorufin
+    print("Test 1 :")
     start_time = time.time()
-    ##glucose et acetone donnent gluconolacrone
 
     EspecesInitiales=numero(['AO', 'ADH', 'G_1DH', 'NAD', 'resazurin', 'HRP', 'H2O2','acetoneext', 'glucoseext'])
     nbEtapeMax=50
@@ -139,15 +143,24 @@ def test_1():
     B=numero('glucoseext')
     C=numero('resorufin')
 
-    MelangesInitiaux,melange_C=recherche_melanges_initiaux(EspecesInitiales,nbEtapeMax,C,listeReactions)
-    #print(déterminationCRN (A,B,C,nbEtapeMax,"ET",EspecesInitiales,listeReactions))
+    #MelangesInitiaux,melange_C=recherche_melanges_initiaux(EspecesInitiales,nbEtapeMax,C,listeReactions)
+    MelangesInitiaux,res=déterminationCRN (A,B,C,nbEtapeMax,"ET",EspecesInitiales,listeReactions)
 
     affichage_mélanges_i(MelangesInitiaux,C,listeMoleculeTexte)
-    print("Temps de calcul des exemples : ",time.time()-start_time)
+    print()
+    print("res : ",res)
+    print()
+    print("affichage CRN")
+    affichage_CRN(res[1],listeReactions,listeMoleculeTexte)
+
+    print("Temps de calcul : ",time.time()-start_time)
+    print()
+    print('------------------------------------------------------------------')
     print()
 
 def test_2():
-    ## Test lescture équation
+## Test lescture équation
+    print("Test 2 :")
     ENZ=['ABTS','ADH', 'NADH', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF','NAD']
     RE=['acetoneext','glucoseext']
     re=numero(RE)
@@ -158,10 +171,14 @@ def test_2():
     mt = recherche_chemin.mecatexte(solution[0],reaction)
     for d in mt[0]:
         print(d)
+    print()
+    print('------------------------------------------------------------------')
+    print()
 
 def test_3():
+##NO et glucose donnent gluconolacrone avec NO3 en réactif annexe
+    print("Test 3 :")
     start_time = time.time()
-    ##NO et glucose donnent gluconolacrone avec NO3 en réactif annexe
     EspecesInitiales=numero(['H2O2','acetoneext', 'ABTS', 'ADH', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'NAD'])
     nbEtapeMax=50
     A=numero('NO2')
@@ -170,10 +187,13 @@ def test_3():
 
     MelangesInitiaux,res=déterminationCRN (A,B,C,nbEtapeMax,'ET',EspecesInitiales,listeReactions)
     affichage_mélanges_i(MelangesInitiaux,C,listeMoleculeTexte)
-    print("Temps de calcul des exemples : ",time.time()-start_time)
+    print("Temps de calcul : ",time.time()-start_time)
+    print()
+    print('------------------------------------------------------------------')
     print()
 
 def test_4():
+    print("Test 4 :")
     start_time = time.time()
     ## Ancien OU logique à changer sur le fonctionnement pluscourtchemin
     EspecesInitiales=numero(['ABTS', 'ADH', 'NAD', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'LO'])
@@ -184,11 +204,20 @@ def test_4():
 
     MelangesInitiaux,res=déterminationCRN (A,B,C,nbEtapeMax,'ET',EspecesInitiales,listeReactions)
     affichage_mélanges_i(MelangesInitiaux,C,listeMoleculeTexte)
-    print("Temps de calcul des exemples : ",time.time()-start_time)
+
+    print()
+
+    print("affichage CRN")
+    affichage_CRN(MelangesInitiaux[C][0],listeReactions,listeMoleculeTexte)
+    print("Temps de calcul : ",time.time()-start_time)
+    print()
+    print('------------------------------------------------------------------')
     print()
 
 def test_5():
-    ##glucose et Non(acetone) donnent gluconolacrone
+##glucose et Non(acetone) donnent gluconolacrone
+    print("Test 5 :")
+    start_time = time.time()
     ENZ = ['AO', 'ADH', 'G_1DH', 'resazurin', 'HRP', 'H2O2']  ##rajouter NAD pour fausser le résultat
     RE=['acetoneext','glucoseext']
     re=numero(RE)
@@ -197,34 +226,15 @@ def test_5():
     solution=algoresolution_système.res([[numero('glucose'),numero('acetone')]],[numero('NADH')],['anb'],20,ENZ1,reaction,listeMoleculeTexte,REACTIONS,REACPARMOL,reac,CYCLES,CYCLESPARMOL)
     print(solution)
 
+    print("Temps de calcul : ",time.time()-start_time)
+    print()
+    print('------------------------------------------------------------------')
+    print()
 
-start_time = time.time()
-print("Test 1 :")
+
+
 test_1()
-print()
-print('------------------------------------------------------------------')
-print()
-"""
-print("Test 2 :")
-test_2()
-print()
-print('------------------------------------------------------------------')
-print()
-"""
-print("Test 3 :")
-test_3()
-print()
-print('------------------------------------------------------------------')
-print()
-print("Test 4 :")
-test_4()
-print()
-print('------------------------------------------------------------------')
-print()
-"""
-print("Test 5 :")
-test_5()
-print()
-print('------------------------------------------------------------------')
-print()
-"""
+#test_2()
+#test_3()
+#test_4()
+#test_5()

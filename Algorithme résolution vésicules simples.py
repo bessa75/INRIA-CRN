@@ -150,13 +150,18 @@ print(algo_negation(numero('glucoseext',MOL),numero('NO3ext',MOL),numero('NADH',
 '''
 
 def test_1():
-    ##glucose et acetone donnent gluconolacrone
+##glucose et acetone donnent resorufin
+    print("Test 1 :")
     ENZ = ['AO', 'ADH', 'G_1DH', 'NAD', 'resazurin', 'HRP', 'H2O2']  ##rajouter NAD pour fausser le résultat
     MECAS = recherche_chemin.résolution_équation(ENZ,"acetoneext + glucoseext => resorufin",nb_réactions_max,reaction,liste_molecules,REACTIONS,REACPARMOL)
+    print()
+    print('------------------------------------------------------------------')
+    print()
 
 
 def test_2():
 ## Test lescture équation
+    print("Test 2 :")
     ENZ=['ABTS','ADH', 'NADH', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF','NAD'] ##rajouter NAD pour fausser le résultat
     RE=['acetoneext','glucoseext']
     re=numero(RE)
@@ -169,30 +174,42 @@ def test_2():
         print(d)
     print("")
     print("")
+    print()
+    print('------------------------------------------------------------------')
+    print()
 
 
 def test_3():
 ##NO et glucose donnent gluconolacrone avec NO3 en réactif annexe
+    print("Test 3 :")
     ENZ = ['ABTS', 'ADH', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'NAD']
     recherche_chemin.résolution_équation(ENZ,"NO2 + glucoseext => DAFF",nb_réactions_max,reaction,liste_molecules,REACTIONS,REACPARMOL)
+    print()
+    print('------------------------------------------------------------------')
+    print()
 
 
 def test_4():
 ## Ancien OU logique à changer sur le fonctionnement pluscourtchemin
+    print("Test 4 :")
     ENZ=['ABTS', 'ADH', 'NAD', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'LO']
     #recherche_chemin.ENZ = ['ABTS', 'ADH', 'NAD', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'LO']
     RE = numero(['Lactateext', 'EtOHext'])
 
     recherche_chemin.résolution_équation(ENZ,"Lactateext + EtOHext => ABTSOX",nb_réactions_max,reaction,liste_molecules,REACTIONS,REACPARMOL)
 
-    MECAS = recherche_chemin.pluscourtchemin(numero(ENZ), RE, numero('ABTSOX'), nb_réactions_max, True,reaction,liste_molecules,REACTIONS,REACPARMOL)  # Pourquoi tag a ? OU logique ?
+    MECAS = recherche_chemin.pluscourtchemin(numero(ENZ), RE, numero('ABTSOX'), nb_réactions_max, True,reaction,liste_molecules,REACTIONS,REACPARMOL)
     mt = recherche_chemin.mecatexte(MECAS[0][0],reaction)
     for d in mt:
         print(d)
+    print()
+    print('------------------------------------------------------------------')
+    print()
 
 
 def test_5():
 ##glucose et Non(acetone) donnent gluconolacrone
+    print("Test 5 :")
     ENZ = ['AO', 'ADH', 'G_1DH', 'resazurin', 'HRP', 'H2O2']  ##rajouter NAD pour fausser le résultat
     RE=['acetoneext','glucoseext']
     re=numero(RE)
@@ -205,34 +222,17 @@ def test_5():
     for d in mt[0]:
         print(d)
     '''
+    print()
+    print('------------------------------------------------------------------')
+    print()
 
 
 start_time = time.time()
-print("Test 1 :")
 test_1()
-print()
-print('------------------------------------------------------------------')
-print()
-print("Test 2 :")
-test_2()
-print()
-print('------------------------------------------------------------------')
-print()
-print("Test 3 :")
-test_3()
-print()
-print('------------------------------------------------------------------')
-print()
-print("Test 4 :")
-test_4()
-print()
-print('------------------------------------------------------------------')
-print()
-print("Test 5 :")
-test_5()
-print()
-print('------------------------------------------------------------------')
-print()
+#test_2()
+#test_3()
+#test_4()
+#test_5()
 
 #print(numero('ABTSOX',MOL))
 

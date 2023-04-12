@@ -87,19 +87,28 @@ def creationCRN(espIni,R) :
     present = espIni #ensemble des espèces présentes dans le système 
     cree = espIni #ensemble des espèces crées à l'étape précédente
     CRN = [] #ensemble des récations obtenues et correspondant au CRN 
+    liste_reaction_passe=[] #[reaction[0] for reaction in CRN]
 
     #corps de la fonction de création du CRN
     while cree != [] : 
         newEsp = [] #va servir à stocker les espèces crées à cette étape 
         for mol1 in cree : 
-            for mol2 in present : 
-                for mol3 in R[mol1-1][mol2-1]: 
-                    if  not(((mol1,mol2,mol3) in CRN)or (mol2,mol1,mol3) in CRN)  : 
-                        newEsp.append(mol3)
-                        CRN.append((mol1,mol2,mol3))
+            for mol2 in present :
+                produits=R[mol1][mol2]
+                if (len(produits)>0):
+                    if (mol1==mol2):
+                        CRN.append(([mol1],produits))
+                    else :
+                        if(not([mol1,mol2] in liste_reaction_passe or [mol2,mol1] in liste_reaction_passe)):
+                            liste_reaction_passe.append([mol1,mol2])
+                            CRN.append(([mol1,mol2],produits))
+
+                    for mol3 in R[mol1][mol2]: 
+                        if not(mol3 in present or mol3 in newEsp): 
+                            newEsp.append(mol3)
         cree = newEsp
         present = present + newEsp
-
+    print()
     return CRN 
 
 
@@ -120,46 +129,59 @@ def remonteeET(A,B,C,listeIni,R) :
             #Création du CRN sans A
             iniSansA = ini.copy()
             iniSansA.remove(A)
-            CRNsansA = creationCRN(iniSansA,R) 
-            #print(CRNsansA)
+            CRNsansA = creationCRN(iniSansA,R)
+
+            liste_produits_CRNsansA=set() # pour avoir les liste des molécules présentes dans CRNsansA
+            for liste_produits in [reaction[1] for reaction in CRNsansA]: # On récupére la liste des produits de chaque réaction
+                for produit in liste_produits: # On ajoute chacun des produits à la liste globale
+                    liste_produits_CRNsansA.add(produit)
+
+
             #Création du CRN sans B
             iniSansB = ini.copy()
             iniSansB.remove(B)
             CRNsansB = creationCRN(iniSansB,R) 
-            #print(CRNsansB)
+
+            liste_produits_CRNsansB=set() # pour avoir les liste des molécules présentes dans CRNsansB
+            for liste_produits in [reaction[1] for reaction in CRNsansB]: # On récupére la liste des produits de chaque réaction
+                for produit in liste_produits: # On ajoute chacun des produits à la liste globale
+                    liste_produits_CRNsansB.add(produit)
+
 
             #Vérifie que C n'apparait pas si A ou B est absent 
-            if (C in [triplet[2] for triplet in CRNsansA]) or (C in [triplet[2] for triplet in CRNsansA]) : 
+            if (C in liste_produits_CRNsansA) or (C in liste_produits_CRNsansB) :
                 None
 
             #Si ça n'est pas le cas on a trouvé les bonnes espèces initiales car si A ou B manque on a pas de C et si A et B sont présents on a C
             #Le dernier point étant dû à l'hypothèse de construction sur listeIni 
-            else : 
-                #print(ini)
-                return creationCRN(ini,R),ini
+            else :
+                return (creationCRN(ini,R),ini)
 
 
 #L'objectif de cette fonction est de trouver une combinaison initiale d'espèces permettant d'obtenir le CRN de A ou B -> C
 """Attention il s'agit de la version sans prise en compte des concentrations et de la potentielle disparition de C !!! """
 #A et B sont les réactifs et C le produit, listeIni est l'ensemble des espèces initiales permettenat d'obtenir C (cf. la descente)
-def remonteeOU(A,B,C,listeIni) : 
+def remonteeOU(A,B,C,listeIni,R) : 
 
     #on peut ajouter une initialisation que consisterait à trier listeIni selon un ordre défénie 
 
     #corpsdef remonteeOU(A,B,C,listeIni) : 
 
     #on peut ajouter une initialisation que consisterait à trier listeIni selon un ordre défénie 
-
+    print("A : ",A)
+    print("B : ",B)
+    print("C : ",C)
     #corps de la fonction : 
     for ini1 in listeIni : 
+        ini1=ini1[1]
         for ini2 in listeIni : 
+            ini2=ini2[1]
             #Vérification du fait que A ou B est bien présent dans l'un des deux. 
-            if not((A in ini1 and B in ini2) or not(B in ini1 and A in ini2)):  
+            if not((A in ini1 and B in ini2) or not(B in ini1 and A in ini2)):  # a checker
+                #print("  pas A ou B")
                 None
             else : 
 
-
-                
                 #Création de l'ensemble des espèces initiales sans A ni B pour vérifier que C n'est plus dans le CRN associé
                 ini1SansRien = ini1.copy()
                 if A in ini1SansRien : 
@@ -174,17 +196,18 @@ def remonteeOU(A,B,C,listeIni) :
                     ini2SansRien.remove(B)
 
                 iniSansRien = ini1SansRien + ini2SansRien
-                
-                CRNsansRien = creationCRN(iniSansRien) 
+                #print("iniSansRien ",iniSansRien)
+                CRNsansRien = creationCRN(iniSansRien,R) 
 
                 #Vérifie que C n'apparait pas si A et B sont absents 
                 if (C in [triplet[2] for triplet in CRNsansRien]) : 
+                    #print("  Non")
                     None
 
                 #Si ça n'est pas le cas on a trouvé les bonnes espèces initiales car si A ou B manque on a pas de C et si A et B sont présents on a C
                 #Le dernier point étant dû à l'hypothèse de construction sur listeIni 
                 else : 
-                    return creationCRN(ini1 + ini2),ini1,ini2 
+                    return creationCRN(ini1 + ini2,R),ini1,ini2 
     
 
 #Cette fonction renvoie le CRN entre A,B et C pour une relation choisie.
@@ -194,6 +217,7 @@ def remonteeOU(A,B,C,listeIni) :
 def déterminationCRN (A,B,C,n,relation,ini,listeReactions) : 
     if relation == "ET" : 
         MelangesInitiaux,melange_C=recherche_melanges_initiaux(ini+[A,B],n,C,listeReactions)
+        print("melange_C ",melange_C)
         res=remonteeET(A,B,C,melange_C,listeReactions)
     elif relation == "OU" :
         MelangesInitiaux,melange_C=recherche_melanges_initiaux(ini+[A,B],n,C,listeReactions)
@@ -206,7 +230,6 @@ def déterminationCRN (A,B,C,n,relation,ini,listeReactions) :
 
 def remonteeNON() : 
     return None 
-
 
 
 def affichage_mélanges_i(MelangesInitiaux,numMol,listeMoleculeTexte):
@@ -224,3 +247,19 @@ def affichage_mélanges_i(MelangesInitiaux,numMol,listeMoleculeTexte):
 def affichage_tous_mélanges(MelangesInitiaux,listeMoleculeTexte):
     for mol_i in range(len(listeMoleculeTexte)):
         affichage_mélanges_i(MelangesInitiaux,mol_i,listeMoleculeTexte)
+
+
+def affichage_CRN(melangeInitial,listeReactions,listeMoleculeTexte):
+    #melangeInitial liste des molécules présentes au départ
+
+    nb_molécules=len(melangeInitial)
+
+    CRN=creationCRN(melangeInitial,listeReactions)
+
+    print("molécules initiales :")
+    print(",".join("{0}".format(listeMoleculeTexte[mol]) for mol in melangeInitial))
+    print()
+
+    for reaction in CRN:
+        print(" + ".join("{0}".format(listeMoleculeTexte[mol]) for mol in reaction[0]), '->', " + ".join("{0}".format(listeMoleculeTexte[mol]) for mol in reaction[1])) #" + ".join("{0}".format(listeMoleculeTexte[mol]) for mol in listeReactions[mol1][mol2])
+                
