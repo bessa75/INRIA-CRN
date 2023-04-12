@@ -143,34 +143,15 @@ def test_1():
     B=numero('glucoseext')
     C=numero('resorufin')
 
-    #MelangesInitiaux,melange_C=recherche_melanges_initiaux(EspecesInitiales,nbEtapeMax,C,listeReactions)
     MelangesInitiaux,res=déterminationCRN (A,B,C,nbEtapeMax,"ET",EspecesInitiales,listeReactions)
 
+    #Affichage des résultats
     affichage_mélanges_i(MelangesInitiaux,C,listeMoleculeTexte)
     print()
-    print("res : ",res)
-    print()
-    print("affichage CRN")
+    print("Affichage du CRN trouvé")
     affichage_CRN(res[1],listeReactions,listeMoleculeTexte)
 
     print("Temps de calcul : ",time.time()-start_time)
-    print()
-    print('------------------------------------------------------------------')
-    print()
-
-def test_2():
-## Test lescture équation
-    print("Test 2 :")
-    ENZ=['ABTS','ADH', 'NADH', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF','NAD']
-    RE=['acetoneext','glucoseext']
-    re=numero(RE)
-    enz=numero(ENZ)
-
-    solution=algoresolution_système.res([re],[numero('gluconolacrone')],['ab'],20,enz,reaction,listeMoleculeTexte,REACTIONS,REACPARMOL,reac,CYCLES,CYCLESPARMOL)
-    print(solution)
-    mt = recherche_chemin.mecatexte(solution[0],reaction)
-    for d in mt[0]:
-        print(d)
     print()
     print('------------------------------------------------------------------')
     print()
@@ -179,6 +160,7 @@ def test_3():
 ##NO et glucose donnent gluconolacrone avec NO3 en réactif annexe
     print("Test 3 :")
     start_time = time.time()
+
     EspecesInitiales=numero(['H2O2','acetoneext', 'ABTS', 'ADH', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'NAD'])
     nbEtapeMax=50
     A=numero('NO2')
@@ -186,16 +168,23 @@ def test_3():
     C=numero('DAFF')
 
     MelangesInitiaux,res=déterminationCRN (A,B,C,nbEtapeMax,'ET',EspecesInitiales,listeReactions)
+
+    #Affichage des résultats
     affichage_mélanges_i(MelangesInitiaux,C,listeMoleculeTexte)
+    print()
+    print("Affichage du CRN trouvé")
+    affichage_CRN(res[1],listeReactions,listeMoleculeTexte)
+
     print("Temps de calcul : ",time.time()-start_time)
     print()
     print('------------------------------------------------------------------')
     print()
 
 def test_4():
+## Ancien OU logique à changer sur le fonctionnement pluscourtchemin
     print("Test 4 :")
     start_time = time.time()
-    ## Ancien OU logique à changer sur le fonctionnement pluscourtchemin
+    
     EspecesInitiales=numero(['ABTS', 'ADH', 'NAD', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'LO'])
     nbEtapeMax=50
     A=numero('Lactateext')
@@ -203,12 +192,13 @@ def test_4():
     C=numero('ABTSOX')
 
     MelangesInitiaux,res=déterminationCRN (A,B,C,nbEtapeMax,'ET',EspecesInitiales,listeReactions)
+
+    #Affichage des résultats
     affichage_mélanges_i(MelangesInitiaux,C,listeMoleculeTexte)
-
     print()
-
-    print("affichage CRN")
+    print("Affichage du CRN trouvé")
     affichage_CRN(MelangesInitiaux[C][0],listeReactions,listeMoleculeTexte)
+
     print("Temps de calcul : ",time.time()-start_time)
     print()
     print('------------------------------------------------------------------')
@@ -233,8 +223,8 @@ def test_5():
 
 
 
-test_1()
-#test_2()
+#test_1()
+
 #test_3()
 #test_4()
 #test_5()

@@ -108,7 +108,6 @@ def creationCRN(espIni,R) :
                             newEsp.append(mol3)
         cree = newEsp
         present = present + newEsp
-    print()
     return CRN 
 
 
@@ -121,6 +120,7 @@ def remonteeET(A,B,C,listeIni,R) :
 
     #corps de la fonction : 
     for ini in listeIni : 
+        nbEtape=ini[0]
         ini=ini[1]
         #Verification que A et B sont présent (condition nécessaire)
         if not(A in ini) or not(B in ini) : 
@@ -131,10 +131,10 @@ def remonteeET(A,B,C,listeIni,R) :
             iniSansA.remove(A)
             CRNsansA = creationCRN(iniSansA,R)
 
-            liste_produits_CRNsansA=set() # pour avoir les liste des molécules présentes dans CRNsansA
-            for liste_produits in [reaction[1] for reaction in CRNsansA]: # On récupére la liste des produits de chaque réaction
-                for produit in liste_produits: # On ajoute chacun des produits à la liste globale
-                    liste_produits_CRNsansA.add(produit)
+            listeProduits_CRNsansA=set() # pour avoir les liste des molécules présentes dans CRNsansA
+            for listeProduits in [reaction[1] for reaction in CRNsansA]: # On récupére la liste des produits de chaque réaction
+                for produit in listeProduits: # On ajoute chacun des produits à la liste globale
+                    listeProduits_CRNsansA.add(produit)
 
 
             #Création du CRN sans B
@@ -142,20 +142,20 @@ def remonteeET(A,B,C,listeIni,R) :
             iniSansB.remove(B)
             CRNsansB = creationCRN(iniSansB,R) 
 
-            liste_produits_CRNsansB=set() # pour avoir les liste des molécules présentes dans CRNsansB
-            for liste_produits in [reaction[1] for reaction in CRNsansB]: # On récupére la liste des produits de chaque réaction
-                for produit in liste_produits: # On ajoute chacun des produits à la liste globale
-                    liste_produits_CRNsansB.add(produit)
+            listeProduits_CRNsansB=set() # pour avoir les liste des molécules présentes dans CRNsansB
+            for listeProduits in [reaction[1] for reaction in CRNsansB]: # On récupére la liste des produits de chaque réaction
+                for produit in listeProduits: # On ajoute chacun des produits à la liste globale
+                    listeProduits_CRNsansB.add(produit)
 
 
             #Vérifie que C n'apparait pas si A ou B est absent 
-            if (C in liste_produits_CRNsansA) or (C in liste_produits_CRNsansB) :
+            if (C in listeProduits_CRNsansA) or (C in listeProduits_CRNsansB) :
                 None
 
             #Si ça n'est pas le cas on a trouvé les bonnes espèces initiales car si A ou B manque on a pas de C et si A et B sont présents on a C
             #Le dernier point étant dû à l'hypothèse de construction sur listeIni 
             else :
-                return (creationCRN(ini,R),ini)
+                return (creationCRN(ini,R),[nbEtape,ini])
 
 
 #L'objectif de cette fonction est de trouver une combinaison initiale d'espèces permettant d'obtenir le CRN de A ou B -> C
@@ -217,7 +217,6 @@ def remonteeOU(A,B,C,listeIni,R) :
 def déterminationCRN (A,B,C,n,relation,ini,listeReactions) : 
     if relation == "ET" : 
         MelangesInitiaux,melange_C=recherche_melanges_initiaux(ini+[A,B],n,C,listeReactions)
-        print("melange_C ",melange_C)
         res=remonteeET(A,B,C,melange_C,listeReactions)
     elif relation == "OU" :
         MelangesInitiaux,melange_C=recherche_melanges_initiaux(ini+[A,B],n,C,listeReactions)
@@ -239,9 +238,7 @@ def affichage_mélanges_i(MelangesInitiaux,numMol,listeMoleculeTexte):
     print("Pour obtenir la molécule ",listeMoleculeTexte[numMol])
     for melange in MelangesInitiaux[numMol]:
         print(f"   En {melange[0]} étape avec le mélange : ",end="")
-        for réac_initiaux in melange[1]:
-            print(listeMoleculeTexte[réac_initiaux],end=",")
-        print()
+        print(",".join("{0}".format(listeMoleculeTexte[mol]) for mol in melange[1]))
 
 
 def affichage_tous_mélanges(MelangesInitiaux,listeMoleculeTexte):
@@ -252,12 +249,12 @@ def affichage_tous_mélanges(MelangesInitiaux,listeMoleculeTexte):
 def affichage_CRN(melangeInitial,listeReactions,listeMoleculeTexte):
     #melangeInitial liste des molécules présentes au départ
 
-    nb_molécules=len(melangeInitial)
+    nb_molécules=len(melangeInitial[1])
 
-    CRN=creationCRN(melangeInitial,listeReactions)
+    CRN=creationCRN(melangeInitial[1],listeReactions)
 
-    print("molécules initiales :")
-    print(",".join("{0}".format(listeMoleculeTexte[mol]) for mol in melangeInitial))
+    print(f"   En {melangeInitial[0]} étape avec le mélange : ",end="")
+    print(",".join("{0}".format(listeMoleculeTexte[mol]) for mol in melangeInitial[1]))
     print()
 
     for reaction in CRN:
