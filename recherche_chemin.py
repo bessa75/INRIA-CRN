@@ -4,7 +4,7 @@
 # etqt : étiquette à avoir ?
 # n    : nb max d'étaps ?
 
-def pluscourtchemin(ENZ,REAC,prod,n,imprime,liste_reaction_texte,MOL,REACTIONS,REACPARMOL,bool=False):
+def pluscourtchemin(ENZ,REAC,prod,SETM,SETR,n,imprime,liste_reaction_texte,MOL,REACTIONS,REACPARMOL,bool=False,bool2=False):
 
     """ PRESENCE : liste des molécules présente.
     Evolue au cours de l'algorithme.
@@ -57,45 +57,70 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime,liste_reaction_texte,MOL,REACTIONS,R
 
                 ## itération sur les réactions impliquant la molécule en tant que réactif
                 for a in REACPOT:
-
-                    reactifs_presents = True
-                    for b in REACTIONS[a][0]:
-                        ## on teste si tout les réactifs de la réaction en question sont présents
-                        if PRESENCE[b][0] == False:
-                            reactifs_presents = False
-                            break
-
-                    if reactifs_presents:  ##si oui on met à jour la liste de présence
-                        ## cas où il y a un seul réactif (marginal) / REACTIONS[a][0] est la liste des réactifs)
-                        if len(REACTIONS[a][0]) == 1:
-                            ##étape de mise à jour de la liste de présence (molécule produite à telle étape, avec telle étiquette, par telle réaction)
-                            for produit in REACTIONS[a][1]:
-                                if eti_molecule not in PRESENCE[produit][2]:
-                                    PRESENCEBIS.append((produit, eti_molecule))
-                                if (a, eti_molecule) not in PRESENCE[produit][3]:
-                                    PRESENCE[produit][1].append((a, nbetape, eti_molecule))  ## ici on se permet de mettre à jour PRESENCE et pas PRESENCEBIS car cela n'a pas d'influence.
-                                    PRESENCE[produit][3].append((a, eti_molecule))
-                                    if PRESENCE[produit][0] == False:
-                                        nbmol += 1
-
-                        if len(REACTIONS[a][0]) == 2:  ## cas où il y a deux réactifs (cas commun)
-                            if REACTIONS[a][0][0]==num_molecule:
-                                mol1 = REACTIONS[a][0][0]
-                                mol2 = REACTIONS[a][0][1]
-                            else :
-                                mol2 = REACTIONS[a][0][0]
-                                mol1 = REACTIONS[a][0][1]
-                            for e2 in PRESENCE[mol2][2]:
-                                e = bin(eti_molecule,e2)  ##utilisation de la relation binaire pour la propagation des étiquettes
-                                for produit in REACTIONS[a][1]:  ##REACTIONS [a][1] correspond aux produits de la réaction a
-                                    if e not in PRESENCE[produit][2]:
-                                        PRESENCEBIS.append((produit, e))
-                                    if (a, e) not in PRESENCE[produit][3]:  ##contingent si on veut juste le plus court chemin
-                                        PRESENCE[produit][3].append((a, e))
-                                        PRESENCE[produit][1].append((a, nbetape, e))
-                                    if PRESENCE[produit][0] == False:
-                                        nbmol += 1
-
+                    if a in SETR or bool2:
+                        reactifs_presents = True
+                        for b in REACTIONS[a][0]:
+                            ## on teste si tout les réactifs de la réaction en question sont présents
+                            if PRESENCE[b][0] == False:
+                                reactifs_presents = False
+                                break
+    
+                        if reactifs_presents:  ##si oui on met à jour la liste de présence
+                            ## cas où il y a un seul réactif (marginal) / REACTIONS[a][0] est la liste des réactifs)
+                            if len(REACTIONS[a][0]) == 1:
+                                ##étape de mise à jour de la liste de présence (molécule produite à telle étape, avec telle étiquette, par telle réaction)
+                                for produit in REACTIONS[a][1]:
+                                    if produit in SETM or bool2:
+                                        if eti_molecule not in PRESENCE[produit][2]:
+                                            PRESENCEBIS.append((produit, eti_molecule))
+                                        if (a, eti_molecule) not in PRESENCE[produit][3]:
+                                            PRESENCE[produit][1].append((a, nbetape, eti_molecule))  ## ici on se permet de mettre à jour PRESENCE et pas PRESENCEBIS car cela n'a pas d'influence.
+                                            PRESENCE[produit][3].append((a, eti_molecule))
+                                            if PRESENCE[produit][0] == False:
+                                                nbmol += 1
+    
+                            if len(REACTIONS[a][0]) == 2:  ## cas où il y a deux réactifs (cas commun)
+                                if REACTIONS[a][0][0]==num_molecule:
+                                    mol1 = REACTIONS[a][0][0]
+                                    mol2 = REACTIONS[a][0][1]
+                                else :
+                                    mol2 = REACTIONS[a][0][0]
+                                    mol1 = REACTIONS[a][0][1]
+                                for e2 in PRESENCE[mol2][2]:
+                                    e = bin(eti_molecule,e2)  ##utilisation de la relation binaire pour la propagation des étiquettes
+                                    for produit in REACTIONS[a][1]:  ##REACTIONS [a][1] correspond aux produits de la réaction a
+                                        if e not in PRESENCE[produit][2]:
+                                            PRESENCEBIS.append((produit, e))
+                                        if (a, e) not in PRESENCE[produit][3]:  ##contingent si on veut juste le plus court chemin
+                                            PRESENCE[produit][3].append((a, e))
+                                            PRESENCE[produit][1].append((a, nbetape, e))
+                                        if PRESENCE[produit][0] == False:
+                                            nbmol += 1
+                            if len(REACTIONS[a][0]) == 3:
+                                if REACTIONS[a][0][0]==num_molecule:
+                                    mol1 = REACTIONS[a][0][0]
+                                    mol2 = REACTIONS[a][0][1]
+                                    mol3 = REACTIONS[a][0][2]
+                                elif REACTIONS[a][0][1]==num_molecule:
+                                    mol2 = REACTIONS[a][0][0]
+                                    mol1 = REACTIONS[a][0][1]
+                                    mol3=REACTIONS[a][0][2]
+                                else:
+                                    mol2 = REACTIONS[a][0][0]
+                                    mol3 = REACTIONS[a][0][1]
+                                    mol1=REACTIONS[a][0][2]
+                                for e2 in PRESENCE[mol2][2]:
+                                    e2b=bin(eti_molecule,e3)
+                                    for e3 in PRESENCE[mol3][2]:
+                                        e=bin(e2b,e3)
+                                        for produit in REACTIONS[a][1]:  ##REACTIONS [a][1] correspond aux produits de la réaction a
+                                            if e not in PRESENCE[produit][2]:
+                                                PRESENCEBIS.append((produit, e))
+                                            if (a, e) not in PRESENCE[produit][3]:  ##contingent si on veut juste le plus court chemin
+                                                PRESENCE[produit][3].append((a, e))
+                                                PRESENCE[produit][1].append((a, nbetape, e))
+                                            if PRESENCE[produit][0] == False:
+                                                nbmol += 1
         # mise à jour de PRESENCE à partir de PRESENCE BIS
         NbPresence=[]
         for a in PRESENCEBIS:
@@ -168,8 +193,8 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime,liste_reaction_texte,MOL,REACTIONS,R
                     #print("    pour la reaction \"",end="")
                     #print(' + '.join([MOL[molecule_i] for molecule_i in reactifs]),'->',' + '.join([MOL[molecule_i] for molecule_i in produits]),end="")
                     #print(f"\" a l'etape {reac[1]} avec l'etiquette {a[1]}={reac[2]}")
-                    
-                    ETAPE.append(reaction_num)
+                    if reaction_num not in ETAPE:
+                        ETAPE.append(reaction_num)
                     for p in produits:
                         if p == prod and nbetape < meca[1]-1:
                             presence_cycles=True #détection d'un cycle rendant le mécanisme invalide : un mécanisme invalide est un mécanisme dans le quel le produit final n'apparait pas seulement dans la dernière réaction
@@ -180,7 +205,7 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime,liste_reaction_texte,MOL,REACTIONS,R
                     if len(reactifs) == 1:
                         PRODBIS.append((reactifs[0], a[1]))
                     else:  ##on suppose le nombre de reactifs inférieure ou égale à 2
-                        determination_etiquette(reactifs[0],reactifs[1],a[1],PRESENCE[reactifs[0]][1],PRESENCE[reactifs[1]][1],nbetape,PRODBIS)
+                        determination_etiquette(reactifs,a[1],[PRESENCE[reactif][1] for reactif in reactifs],nbetape,PRODBIS)
                     
                 if presence_cycles: break ##break prolongeant un autre pour sortir de 3 boucles successives
             if presence_cycles: break ##break prolongeant un autre pour sortir de 3 boucles successives
@@ -233,7 +258,7 @@ def mecatexte(MECANISME,liste_reaction_texte):  ##simple fonction qui convertit 
     return (MT)
 
 
-def determination_etiquette(r_0,r_1,eti,P_0,P_1,nbetape,PRODBIS):
+def determination_etiquette(R,eti,P,nbetape,PRODBIS):
     """
     r_i les deux reactifs dont il faut determiner les etiquettes lors de leur production
     eti l'etiquette obtenue par la reaction entre les deux reactifs
@@ -242,35 +267,39 @@ def determination_etiquette(r_0,r_1,eti,P_0,P_1,nbetape,PRODBIS):
     """
     
     # Création de L0 et L1, liste des étiquettes avec lesquels r_0 a pu être formé avant nbetape
-    L0 = [d[2] for d in P_0 if d[1] <= nbetape - 1]
-    L1 = [d[2] for d in P_1 if d[1] <= nbetape - 1]
+    r_0=R[0]
+    r_1=R[1]
+    P_0=P[0]
+    P_1=P[1]
+    L0 = [(d[1],d[2]) for d in P_0 if d[1] <= nbetape - 1]
+    L1 = [(d[1],d[2]) for d in P_1 if d[1] <= nbetape - 1]
     # print(L0)
     # print(L1)
     if eti == 'e':
-        PRODBIS.append((r_0, 'e'))
-        PRODBIS.append((r_1, 'e'))
+        for r in R:
+            PRODBIS.append((r,'e'))
         
     if eti == 'a':
-        if 'a' in L0:
-            PRODBIS.append((r_0, 'a'))
-        else:
-            PRODBIS.append((r_0, 'e'))
-        if 'a' in L1:
-            PRODBIS.append((r_1, 'a'))
-        else:
-            PRODBIS.append((r_1, 'e'))
+        for i in range (0,len(R)):
+            r=R[i]
+            p=P[i]
+            L=[d[2] for d in p if d[1] <= nbetape - 1]
+            if 'a' in L:
+                PRODBIS.append((r, 'a'))
+            else:
+                PRODBIS.append((r, 'e'))
             
     if eti == 'b':
-        if 'b' in L0:
-            PRODBIS.append((r_0, 'b'))
-        else:
-            PRODBIS.append((r_0, 'e'))
-        if 'b' in L1:
-            PRODBIS.append((r_1, 'b'))
-        else:
-            PRODBIS.append((r_1, 'e'))
-            
-    if eti == 'ab':
+        for i in range (0,len(R)):
+            r=R[i]
+            p=P[i]
+            L=[d[2] for d in p if d[1] <= nbetape - 1]
+            if 'a' in L:
+                PRODBIS.append((r, 'b'))
+            else:
+                PRODBIS.append((r, 'e'))
+        '''
+    if eti == 'ab' and len(R)==2:
         sel = selec2ab(L0, L1)
         if sel[0] != 'o':
             PRODBIS.append((r_0, sel[0]))
@@ -298,7 +327,15 @@ def determination_etiquette(r_0,r_1,eti,P_0,P_1,nbetape,PRODBIS):
             for reaction in P_1:
                 if ((reaction[2] == 'a') or (reaction[2] == 'b')) and reaction[2] != etq:
                     PRODBIS.append((r_1, reaction[2]))
-
+'''
+    LL=[]
+    for Pi in P:
+        Pb=[(d[1],d[2]) for d in Pi if d[1] <= nbetape - 1]
+        LL.append(Pb)
+    if eti=='ab':
+        sel=selecXab(LL)
+        for i in range (0,len(R)):
+            PRODBIS.append((R[i],sel[i]))
 
 def bin(c, d):  ##relation binaire de propagation des étiquettes
     if c == 'a' and d == 'b':
@@ -316,13 +353,24 @@ def bin(c, d):  ##relation binaire de propagation des étiquettes
 
 
 def selec(L):  ##fonction utile pour selec2ab
-    if 'ab' in L:
+    L1=[l[1] for l in L]
+    if 'ab' in L1:
         return('ab')
-    if 'a' in L and 'b' in L:
-        return('o')
-    if 'b' in L:
+    if 'a' in L1 and 'b' in L1:
+        mina=1000
+        minb=1000
+        for i in range (0,len(L)):
+            if L1[i]=='a':
+                mina=min([mina,L[i][0]])
+            if L1[i]=='b':
+                minb=min([minb,L[i][0]])
+        if mina<minb:
+            return('oa')
+        else:
+            return('ob')
+    if 'b' in L1:
         return('b')
-    if 'a' in L:
+    if 'a' in L1:
         return('a')
     else:
         return('e')
@@ -331,27 +379,91 @@ def selec(L):  ##fonction utile pour selec2ab
 def selec2ab(L1,L2):  ##cette fonction aide l'algorithme de remontée. Le but est, quand le produit d'une réaction est avec l'étiquette 'ab', de choisir avec quelles étiquettes on va considérer les réactifs qui ont mené à ce produit. Si on a 'o' on peut choisir 'a' ou 'b' indifféremment.
     l1 = selec(L1)
     l2 = selec(L2)
-    if l2 == 'o':
+    if l2[0] == 'o':
         if l1 == 'ab':
-            return('ab', 'o')
+            return('ab', l2[1])
         if l1 == 'b':
             return('b', 'a')
         if l1 == 'a':
             return('a', 'b')
-        if l1 == 'o':
-            return('o', 'o')
-    if l1 == 'o':
-        if l2 == 'o':
-            return('o', 'o')
+        if l1[0] == 'o':
+            if l1[1]==l2[1]:
+                return('a', 'b')
+            else:
+                return(l1[1],l2[1])
+    if l1[0] == 'o':
+        if l2[0] == 'o':
+            if l1[1]==l2[1]:
+                return('a', 'b')
+            else:
+                return(l1[1],l2[1])
         if l2 == 'b':
             return('a', 'b')
         if l2 == 'a':
             return('b', 'a')
         if l2 == 'ab':
-            return('o', 'ab')
+            return(l1[1], 'ab')
     return(l1, l2)
 
-
+def selecXab(LL):
+    SEL=[]
+    ETI=[]
+    BOOL=[False,False,False]
+    CORR=['ab','a','b']
+    for i in range (0,len(LL)):
+        sel=selec(LL[i])
+        SEL.append(sel)
+        ETI.append(sel)
+        if sel=='ab':
+            BOOL[0]=True
+        if sel=='a':
+            BOOL[1]=True
+        if sel=='b':
+            BOOL[2]=True
+    if BOOL[0]:
+        for eti in ETI:
+            if eti[0]=='o':
+                eti=eti[1]
+        return(ETI)
+    if BOOL[1]:
+        for eti in ETI:
+            if eti=='ob':
+                eti='b' 
+                BOOL[2]=True
+        if BOOL[2]:
+            for eti in ETI:
+                if eti=='oa':
+                    eti='a'
+        else:
+            b=True
+            for eti in ETI:
+                if eti=='oa' and b:
+                    b=False
+                    eti='b'
+                elif eti=='oa' and b==False:
+                    eti='a'
+        return(ETI)
+    if BOOL[2]:
+        for eti in ETI:
+            if eti=='oa':
+                eti='a' 
+                BOOL[1]=True
+        if BOOL[1]:
+            for eti in ETI:
+                if eti=='ob':
+                    eti='b'
+        else:
+            b=True
+            for eti in ETI:
+                if eti=='ob' and b:
+                    b=False
+                    eti='a'
+                elif eti=='ob' and b==False:
+                    eti='b'
+        return(ETI)
+    
+    
+    
 def numero(nom_molecule,MOL):  ##retourne le numéro correspondant à un nom d'enzyme
     for i in range(0, len(MOL)):
         if MOL[i] == nom_molecule:
