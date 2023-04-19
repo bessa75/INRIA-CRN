@@ -1,12 +1,12 @@
 import recherche_chemin
 import algoresolution_système
 import algonegation
+import algo_application_brenda as aab
 #bibliothéque python
 import re
 import time
 
 start_time = time.time()
-
 def numero3(texte):
     if type(texte) is str:
         return recherche_chemin.numero(texte,liste_molecules)
@@ -152,10 +152,12 @@ print(algo_negation(numero('glucoseext',MOL),numero('NO3ext',MOL),numero('NADH',
 
 def test_1():
     ##glucose et acetone donnent gluconolacrone
-    ENZ = ['AO', 'ADH', 'G_1DH', 'NAD', 'resazurin', 'HRP', 'H2O2']  ##rajouter NAD pour fausser le résultat
-    MECAS = recherche_chemin.résolution_équation(ENZ,"acetoneext + glucoseext => resorufin",nb_réactions_max,reaction,liste_molecules,REACTIONS,REACPARMOL)
-
-
+    ENZ10 = ['AO', 'ADH', 'G_1DH', 'NAD', 'resazurin', 'HRP', 'H2O2']  ##rajouter NAD pour fausser le résultat
+    MECAS = aab.brenda(recherche_chemin.numero2(ENZ10,MOL),recherche_chemin.numero2(["acetoneext","glucoseext"],MOL),recherche_chemin.numero("resorufin",MOL),nb_réactions_max,True,reaction,liste_molecules,REACTIONS,REACPARMOL,REACPARMOLP)
+#brenda(ENZ,Reac,prod,n,imprime,liste_reaction_texte,MOL,REACTIONS,REACPARMOL,bool=False)
+ENZ10 = ['AO', 'ADH', 'G_1DH', 'NAD', 'resazurin', 'HRP', 'H2O2']
+recherche_chemin.pluscourtchemin(recherche_chemin.numero2(ENZ10,MOL),recherche_chemin.numero2(["acetoneext","glucoseext"],MOL),recherche_chemin.numero("resorufin",MOL),set(),set(),nb_réactions_max,True,reaction,liste_molecules,REACTIONS,REACPARMOL,bool2=True)
+#pluscourtchemin(ENZ,REAC,prod,SETM,SETR,n,imprime,liste_reaction_texte,MOL,REACTIONS,REACPARMOL,bool=False)
 def test_2():
 ## Test lescture équation
     ENZ=['ABTS','ADH', 'NADH', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF','NAD'] ##rajouter NAD pour fausser le résultat
@@ -175,8 +177,10 @@ def test_2():
 
 def test_3():
 ##NO et glucose donnent gluconolacrone avec NO3 en réactif annexe
-    ENZ = ['ABTS', 'ADH', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'NAD']
-    recherche_chemin.résolution_équation(ENZ,"NO2 + glucoseext => DAFF",nb_réactions_max,reaction,liste_molecules,REACTIONS,REACPARMOL)
+    #ENZ10 = ['ABTS', 'ADH', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'NAD']
+    #recherche_chemin.résolution_équation(ENZ10,"NO2 + glucoseext => DAFF",nb_réactions_max,reaction,liste_molecules,REACTIONS,REACPARMOL)
+    ENZ10 = ['ABTS', 'ADH', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'NAD']
+    aab.brenda(recherche_chemin.numero2(ENZ10,MOL),recherche_chemin.numero2(["NO2","glucoseext"],MOL),recherche_chemin.numero("DAFF",MOL),nb_réactions_max,True,reaction,liste_molecules,REACTIONS,REACPARMOL,REACPARMOLP)
 
 
 def test_4():
@@ -187,7 +191,7 @@ def test_4():
 
     recherche_chemin.résolution_équation(ENZ,"Lactateext + EtOHext => ABTSOX",nb_réactions_max,reaction,liste_molecules,REACTIONS,REACPARMOL)
 
-    MECAS = recherche_chemin.pluscourtchemin(numero2(ENZ,MOL), RE, numero3('ABTSOX'), nb_réactions_max, True,reaction,liste_molecules,REACTIONS,REACPARMOL)  # Pourquoi tag a ? OU logique ?
+    MECAS = recherche_chemin.pluscourtchemin(recherche_chemin.numero2(ENZ,MOL), RE, numero3('ABTSOX'), nb_réactions_max, True,reaction,liste_molecules,REACTIONS,REACPARMOL)  # Pourquoi tag a ? OU logique ?
     mt = recherche_chemin.mecatexte(MECAS[0][0],reaction)
     for d in mt:
         print(d)
@@ -220,11 +224,11 @@ test_1()
 print()
 print('------------------------------------------------------------------')
 print()
-print("Test 2 :")
-test_2()
-print()
-print('------------------------------------------------------------------')
-print()
+#print("Test 2 :")
+#test_2()
+#print()
+#print('------------------------------------------------------------------')
+#print()
 print("Test 3 :")
 test_3()
 print()
