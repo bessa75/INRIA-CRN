@@ -148,7 +148,7 @@ def test_1():
 
 def test_2():
 ##NO et glucose donnent gluconolacrone avec NO3 en réactif annexe
-    print("Test 3 :")
+    print("Test 2 :")
     start_time = time.time()
 
     EspecesInitiales=numero(['H2O2','acetoneext', 'ABTS', 'ADH', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'NAD'])
@@ -172,7 +172,7 @@ def test_2():
 
 def test_3():
 ## Lactateext ET EtOHext donnent ABTSOX
-    print("Test 4 :")
+    print("Test 3 :")
     start_time = time.time()
     
     EspecesInitiales=numero(['ABTS', 'ADH', 'NAD', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'LO'])
