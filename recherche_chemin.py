@@ -349,18 +349,11 @@ def determination_etiquette(R,eti,P,nbetape,PRODBIS):
             PRODBIS.append((R[i],sel[i]))
 
 def bin(c, d):  ##relation binaire de propagation des étiquettes
-    if c == 'a' and d == 'b':
-        return('ab')
-    if c == 'b' and d == 'a':
-        return('ab')
-    if c == 'ab' or d == 'ab':
-        return('ab')
-    if c == 'a' or d == 'a':
-        return('a')
-    if c == 'b' or d == 'b':
-        return('b')
-    else:
-        return('e')
+    # Gain de 5 comparaisons
+    if c == d : return c
+    if 'e' == c : return d
+    if 'e' == d: return c
+    return 'ab'
 
 
 def selec(L):  ##fonction utile pour selec2ab
@@ -476,16 +469,21 @@ def selecXab(LL):
     
     
 def numero(nom_molecule,MOL):  ##retourne le numéro correspondant à un nom d'enzyme
-    for i in range(0, len(MOL)):
-        if MOL[i] == nom_molecule:
-            return (i)
+    # En fait il faut directement le faire à l'endroit où est fait l'appel
+    return MOL.index(nom_molecule)
+    # for i in range(0, len(MOL)):
+    #     if MOL[i] == nom_molecule:
+    #         return (i)
 
 
 def numero2(L,MOL):  ##retourne les numéros correspondant aux noms d'enzymes d'une liste d'enzymes
-    L2 = []
-    for k in range(0, len(L)):
-        L2.append(numero(L[k],MOL))
-    return (L2)
+    # Les boucles for ralentissent les programmes python
+    return [numero(L[k], MOL) for k in range(len(L))]
+    
+    # L2 = []
+    # for k in range(0, len(L)):
+    #     L2.append(numero(L[k],MOL))
+    # return (L2)
 
 
 # Prend un numéro de molécule en paramétre et renvoie le numéro de molécule faisant la logique "non" ainsi que le numéro de réaction

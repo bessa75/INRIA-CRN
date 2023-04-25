@@ -8,7 +8,7 @@ def test_recherche_chemin(_params):
    ENZ, REAC, prod, n, imprime, liste_reaction_texte, MOL, REACTIONS, REACPARMOL, bool = _params
    # print(REACTIONS[:20])
    # print(REACTIONS[:20])
-
+   # recherche_chemin.pluscourtchemin(ENZ,REAC,prod,SETM,SETR,n,imprime,liste_reaction_texte,MOL,REACTIONS,REACPARMOL,bool=False,bool2=False)
    return recherche_chemin.pluscourtchemin(ENZ, REAC, prod, n, imprime, liste_reaction_texte, MOL, REACTIONS, REACPARMOL, bool)
 
 def brenda_test():
@@ -67,5 +67,7 @@ def main():
 
 
 if __name__ == '__main__':
-   #main()
-   print(brenda.stats('data.json'))
+   main()
+   # molecularities, molecules = brenda.stats('data.json')
+   # print(molecularities[:5])
+   # print(molecules[:5])
