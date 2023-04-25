@@ -2,7 +2,7 @@ import recherche_chemin
 import algoresolution_système
 from creation_CRN_v2 import *
 import pandas as pd
-from brenda import get_data
+from brenda import read_data
 #bibliothéque python
 import re
 import time
@@ -73,11 +73,7 @@ nb_réactions_max = 50
 
 """
 # Utilisation de Brenda
-print("Start import")
-dataframe = pd.read_csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vQW5Udu9IvmmRpJdl4GfCGhy0ZEq-kNhKIuo1bGpQUpYchPNmDdYjm846DmKRB6UVWjkIgCXTO_ChiV/pub?output=csv')
-print("End import")
-print()
-print("Start read data")
+
 data = get_data(dataframe)
 listeReactionsBrut = data['reactions']
 listeMoleculeTexte = data['molecules_list'] # inclus molecules et enzymes
@@ -86,48 +82,80 @@ print("End read data")
 """
 
 # Utilisation du catalogue
-file = "catalog.bc"
-enzymes, elmts, reaction = get_data_from_file(file)
-listeMoleculeTexte = enzymes + elmts
-listeMoleculeTexte.pop(26)
+def get_liste_reactions_catalog():
+    file = "catalog.bc"
+    enzymes, elmts, reaction = get_data_from_file(file)
+    listeMoleculeTexte = enzymes + elmts
+    listeMoleculeTexte.pop(26)
 
 
 
-N=len(listeMoleculeTexte) # Nombre de molecules
+    N=len(listeMoleculeTexte) # Nombre de molecules
 
 
-listeReactionsBrut = []  # Liste des réactions en version numéros
-for a in reaction:
-    reac = ([], [])
-    for m in a[0]:
-        if m == 'H_20_2' or m == 'H202' or m == 'H_2O_2':
-            reac[0].append(recherche_chemin.numero('H2O2',listeMoleculeTexte))
+    listeReactionsBrut = []  # Liste des réactions en version numéros
+    for a in reaction:
+        reac = ([], [])
+        for m in a[0]:
+            if m == 'H_20_2' or m == 'H202' or m == 'H_2O_2':
+                reac[0].append(recherche_chemin.numero('H2O2',listeMoleculeTexte))
+            else:
+                reac[0].append(recherche_chemin.numero(m,listeMoleculeTexte))
+        for m in a[1]:
+            if m == 'H_20_2' or m == 'H202' or m == 'H_2O_2':
+                reac[1].append(recherche_chemin.numero('H2O2',listeMoleculeTexte))
+            else:
+                reac[1].append(recherche_chemin.numero(m,listeMoleculeTexte))
+        listeReactionsBrut.append(reac)
+
+    # Fin  preprocessing du Fichier
+
+
+    listeReactions = [[[] for j in range(N)] for i in range(N)] # liste où chaque case i,j est (numéro de réaction, listeProduits)
+
+    for num_reaction, reaction in enumerate(listeReactionsBrut):
+        listeReactifs=reaction[0]
+        listeProduits=reaction[1]
+        if len(listeReactifs)==1:
+            listeReactions[listeReactifs[0]][listeReactifs[0]]=listeReactions[listeReactifs[0]][listeReactifs[0]]+listeProduits
+        elif len(listeReactifs)==2:
+            listeReactions[listeReactifs[0]][listeReactifs[1]]=listeReactions[listeReactifs[0]][listeReactifs[1]]+listeProduits
+            listeReactions[listeReactifs[1]][listeReactifs[0]]=listeReactions[listeReactifs[1]][listeReactifs[0]]+listeProduits
         else:
-            reac[0].append(recherche_chemin.numero(m,listeMoleculeTexte))
-    for m in a[1]:
-        if m == 'H_20_2' or m == 'H202' or m == 'H_2O_2':
-            reac[1].append(recherche_chemin.numero('H2O2',listeMoleculeTexte))
+            print('--- Plus que 2 réactifs---')
+    return listeReactions, listeMoleculeTexte
+
+
+def get_liste_reactions_brenda():
+
+    fichier = "data.json"
+    data = read_data(fichier)
+
+    listeMoleculeTexte = data['molecules_list']
+    rpm = data['reactions_per_molecule']
+    listeReactionsBrut = data['reactions']
+
+    N = len(listeMoleculeTexte)
+
+    print(N)
+    if N > 100:
+        N = N//100
+
+    listeReactions = [ [ [] for j in range(N) ] for i in range(N)]
+    for num_reaction, reaction in enumerate(listeReactionsBrut):
+        listeReactifs=reaction[0]
+        listeProduits=reaction[1]
+        if len(listeReactifs)==1:
+            listeReactions[listeReactifs[0]][listeReactifs[0]]=listeReactions[listeReactifs[0]][listeReactifs[0]]+listeProduits
+        elif len(listeReactifs)==2:
+            listeReactions[listeReactifs[0]][listeReactifs[1]]=listeReactions[listeReactifs[0]][listeReactifs[1]]+listeProduits
+            listeReactions[listeReactifs[1]][listeReactifs[0]]=listeReactions[listeReactifs[1]][listeReactifs[0]]+listeProduits
         else:
-            reac[1].append(recherche_chemin.numero(m,listeMoleculeTexte))
-    listeReactionsBrut.append(reac)
+            print('--- Plus que 2 réactifs---')
 
-# Fin  preprocessing du Fichier
-
-
-listeReactions = [[[] for j in range(N)] for i in range(N)] # liste où chaque case i,j est (numéro de réaction, listeProduits)
-
-for num_reaction, reaction in enumerate(listeReactionsBrut):
-    listeReactifs=reaction[0]
-    listeProduits=reaction[1]
-    if len(listeReactifs)==1:
-        listeReactions[listeReactifs[0]][listeReactifs[0]]=listeReactions[listeReactifs[0]][listeReactifs[0]]+listeProduits
-    elif len(listeReactifs)==2:
-        listeReactions[listeReactifs[0]][listeReactifs[1]]=listeReactions[listeReactifs[0]][listeReactifs[1]]+listeProduits
-        listeReactions[listeReactifs[1]][listeReactifs[0]]=listeReactions[listeReactifs[1]][listeReactifs[0]]+listeProduits
-    else:
-        print('--- Plus que 2 réactifs---')
+    return listeReactions, listeMoleculeTexte
     
-    
+
 
 """    Résolution des 3 exemples"""
 
@@ -221,10 +249,6 @@ def test_5():
     print('------------------------------------------------------------------')
     print()
 
+lr, lm = get_liste_reactions_brenda()
 
-
-#test_1()
-
-#test_3()
-#test_4()
-#test_5()
+print(lr[:5])

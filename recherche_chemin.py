@@ -20,6 +20,10 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime,liste_reaction_texte,MOL,REACTIONS,R
     PRESENCE = []
     for k in range(0, len(MOL)):
         PRESENCE.append([False, [], [], []])
+
+    # print('len(PRESENCE) = ', len(PRESENCE))
+    # print('len(MOL) = ', len(MOL))
+
     nbetape = 0  # Nombre d'étapes réactionnels pour obtenir le produis cherché (la plus longue chaine d'étapes)
     nbmol = 0  # Nombre total de molécules présente (au sens qui ont été produite à un moment)
     nbmolbis = 0
@@ -27,15 +31,20 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime,liste_reaction_texte,MOL,REACTIONS,R
     ##initialisation de la liste de présence pour les réactifs de REAC (formés à l'étape -1, par la réaction 0 qui n'existe pas)
     for k in range(len(REAC)):
         if k == 0:
+            # print(len(PRESENCE))
+            # print(len(REAC))
+            # print(REAC[k])
             PRESENCE[REAC[k]] = [True, [(-1, 0, 'a')], ['a'], [(-1, 'a')]]
         if k == 1:
             PRESENCE[REAC[k]] = [True, [(-1, 0, 'b')], ['b'], [(-1, 'b')]]
         nbmol += 1
+    
     for a in ENZ:  ##initialisation de la liste de présence pour ajouter les enzymes
         PRESENCE[a] = [True, [(-1, 0, 'e')], ['e'], [(-1, 'e')]]
         nbmol += 1
 
         """ Boucle de recherche descendante """
+    
     ##exploration des différents chemins réactionnels par itérations successives
     while (nbetape < n):
         nbetape += 1
@@ -47,12 +56,19 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime,liste_reaction_texte,MOL,REACTIONS,R
         for num_molecule in range(len(PRESENCE)):
             if PRESENCE[num_molecule][0]:
                 # On récupére la liste des réactions où la molécule intervient
+                print('presence num molecule = ', PRESENCE[num_molecule])
                 REACPOT = REACPARMOL[num_molecule]
+                print('Reaction pot: \n', REACPOT)
 
                 ## itération sur les réactions impliquant la molécule en tant que réactif
                 for a in REACPOT:
 
                     reactifs_presents = True
+                    print(f'valeur de a = {a}')
+                    print(f'len reactions = {len(REACTIONS)}')
+                    
+                    print(REACTIONS[a])
+
                     for b in REACTIONS[a][0]:
                         ## on teste si tout les réactifs de la réaction en question sont présents
                         if PRESENCE[b][0] == False:
@@ -98,6 +114,7 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime,liste_reaction_texte,MOL,REACTIONS,R
         """ Fin boucle de recherche  """
 
         """ Boucle de recherche ascendante """
+    
     if bool:
         return(PRESENCE)
     #print("Mécanismes réactionnels obtenus pour le produit en " + str(nbetape) + " étapes maximum avec l'étiquette "+etqt+" :")
@@ -192,12 +209,10 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime,liste_reaction_texte,MOL,REACTIONS,R
                     Enzs.append(mol[0])
             MECANISMES.append((MECANISME,meca[2],Enzs))
 
-
-
-
     print('Les mécanismes après sélection sont les suivants')
     print(MECANISMES)
     print(" ")
+
     if imprime==True: ##Si on décide de print les mécanismes sous forme de texte, on les affiche
         i=0
         for meca in MECANISMES:
@@ -207,7 +222,9 @@ def pluscourtchemin(ENZ,REAC,prod,n,imprime,liste_reaction_texte,MOL,REACTIONS,R
             for ligne in txt:
                 print(' --- '.join(ligne))
             print(" ")
+    
     print('********************************************')
+    
     return MECANISMES
 
 
