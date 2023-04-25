@@ -1,5 +1,6 @@
 import recherche_chemin
 import algoresolution_système
+import algonegation
 #bibliothéque python
 import re
 import time
@@ -135,7 +136,7 @@ ENZ2=recherche_chemin.numero2(['ABTS','NAD', 'resazurin', 'HRP','NR', 'AO', 'POD
 #cas 3 :
 ENZ3=recherche_chemin.numero2(['ABTS','NAD', 'resazurin', 'HRP','NR', 'AO', 'POD', 'G_1DH', 'O2', 'DAF'],liste_molecules)
 print("Temps d'initialisation : ",time.time()-start_time)
-    
+
 """    Résolution des 3 exemples"""
 
 '''
@@ -149,49 +150,66 @@ print(algo_negation(numero('glucoseext',MOL),numero('NO3ext',MOL),numero('NADH',
 '''
 
 def test_1():
-    ##glucose et acetone donnent gluconolacrone
+##glucose et acetone donnent resorufin
+    print("Test 1 :")
     ENZ = ['AO', 'ADH', 'G_1DH', 'NAD', 'resazurin', 'HRP', 'H2O2']  ##rajouter NAD pour fausser le résultat
     MECAS = recherche_chemin.résolution_équation(ENZ,"acetoneext + glucoseext => resorufin",nb_réactions_max,reaction,liste_molecules,REACTIONS,REACPARMOL)
+    print()
+    print('------------------------------------------------------------------')
+    print()
 
 
 def test_2():
 ## Test lescture équation
+    print("Test 2 :")
     ENZ=['ABTS','ADH', 'NADH', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF','NAD'] ##rajouter NAD pour fausser le résultat
     RE=['acetoneext','glucoseext']
     re=numero(RE)
     enz=numero(ENZ)
 
-    solution=algoresolution_système.res([re],[numero('gluconolacrone')],['ab'],20,enz,reaction,liste_molecules,REACTIONS,REACPARMOL)
+    solution=algoresolution_système.res([re],[numero('gluconolacrone')],['ab'],20,enz,reaction,liste_molecules,REACTIONS,REACPARMOL,reac,CYCLES,CYCLESPARMOL)
     print(solution)
     mt = recherche_chemin.mecatexte(solution[0],reaction)
     for d in mt[0]:
         print(d)
     print("")
     print("")
+    print()
+    print('------------------------------------------------------------------')
+    print()
 
-    
+
 def test_3():
 ##NO et glucose donnent gluconolacrone avec NO3 en réactif annexe
+    print("Test 3 :")
     ENZ = ['ABTS', 'ADH', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'NAD']
     recherche_chemin.résolution_équation(ENZ,"NO2 + glucoseext => DAFF",nb_réactions_max,reaction,liste_molecules,REACTIONS,REACPARMOL)
+    print()
+    print('------------------------------------------------------------------')
+    print()
 
 
 def test_4():
 ## Ancien OU logique à changer sur le fonctionnement pluscourtchemin
-    ENZ=numero(['ABTS', 'ADH', 'NAD', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'LO'])
+    print("Test 4 :")
+    ENZ=['ABTS', 'ADH', 'NAD', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'LO']
     #recherche_chemin.ENZ = ['ABTS', 'ADH', 'NAD', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'LO']
     RE = numero(['Lactateext', 'EtOHext'])
 
     recherche_chemin.résolution_équation(ENZ,"Lactateext + EtOHext => ABTSOX",nb_réactions_max,reaction,liste_molecules,REACTIONS,REACPARMOL)
 
-    MECAS = recherche_chemin.pluscourtchemin(ENZ, RE, numero('ABTSOX'), nb_réactions_max, True,reaction,liste_molecules,REACTIONS,REACPARMOL)  # Pourquoi tag a ? OU logique ?
+    MECAS = recherche_chemin.pluscourtchemin(numero(ENZ), RE, numero('ABTSOX'), nb_réactions_max, True,reaction,liste_molecules,REACTIONS,REACPARMOL)
     mt = recherche_chemin.mecatexte(MECAS[0][0],reaction)
     for d in mt:
         print(d)
+    print()
+    print('------------------------------------------------------------------')
+    print()
 
 
 def test_5():
 ##glucose et Non(acetone) donnent gluconolacrone
+    print("Test 5 :")
     ENZ = ['AO', 'ADH', 'G_1DH', 'resazurin', 'HRP', 'H2O2']  ##rajouter NAD pour fausser le résultat
     RE=['acetoneext','glucoseext']
     re=numero(RE)
@@ -204,47 +222,26 @@ def test_5():
     for d in mt[0]:
         print(d)
     '''
-    
-def test_6():
-##glucose et acetone donnent gluconolacrone
-    ENZ = ['AO', 'ADH', 'G_1DH', 'NAD', 'resazurin', 'HRP', 'H2O2']  ##rajouter NAD pour fausser le résultat
-    recherche_chemin.résolution_équation(ENZ,"acetoneext + glucoseext => resorufin",nb_réactions_max,reaction,liste_molecules,REACTIONS,REACPARMOL)
+    print()
+    print('------------------------------------------------------------------')
+    print()
 
 
 start_time = time.time()
-'''
 test_1()
-print()
-print('------------------------------------------------------------------')
-print()
-test_2()
-print()
-print('------------------------------------------------------------------')
-print()
-test_3()
-print()
-print('------------------------------------------------------------------')
-print()
-'''
-test_5()
-print()
-print('------------------------------------------------------------------')
-print()
-'''
-test_6()
-print()
-print('------------------------------------------------------------------')
-print()
+#test_2()
+#test_3()
+#test_4()
+#test_5()
 
 #print(numero('ABTSOX',MOL))
 
-print(algo_negation(numero('glucose',MOL),numero('acetone',MOL),numero('NADH',MOL),ENZ1,CYCLES,CYCLESPARMOL,REACPARMOL2,reaction,MOL,REACTIONS,5))
+#print(algo_negation(numero('glucose',MOL),numero('acetone',MOL),numero('NADH',MOL),ENZ1,CYCLES,CYCLESPARMOL,REACPARMOL2,reaction,MOL,REACTIONS,5))
 #print(mecatexte(algo_negation(numero('glucose',MOL),numero('acetone',MOL),numero('NADH',MOL),ENZ1,CYCLES,CYCLESPARMOL,REACPARMOL2,reaction,MOL,REACTIONS,5)[0],reaction))
-print(algo_negation(numero('Lactateext',MOL),numero('EtOHext',MOL),numero('ABTSOX',MOL),ENZ2,CYCLES,CYCLESPARMOL,REACPARMOL2,reaction,MOL,REACTIONS,5))
+#print(algonegation.algo_negation(numero('Lactateext',MOL),numero('EtOHext',MOL),numero('ABTSOX',MOL),ENZ2,CYCLES,CYCLESPARMOL,REACPARMOL2,reaction,MOL,REACTIONS,5,reac))
 #print(mecatexte(algo_negation(numero('Lactateext',MOL),numero('EtOHext',MOL),numero('ABTSOX',MOL),ENZ2,CYCLES,CYCLESPARMOL,REACPARMOL2,reaction,MOL,REACTIONS,5)[0][0],reaction))
-print(algo_negation(numero('glucoseext',MOL),numero('NO3ext',MOL),numero('NADH',MOL),ENZ3,CYCLES,CYCLESPARMOL,REACPARMOL2,reaction,MOL,REACTIONS,5))
+#print(algonegation.algo_negation(numero('glucoseext',MOL),numero('NO3ext',MOL),numero('NADH',MOL),ENZ3,CYCLES,CYCLESPARMOL,REACPARMOL2,reaction,MOL,REACTIONS,5,reac))
 #print(mecatexte(algo_negation(numero('glucoseext',MOL),numero('NO3ext',MOL),numero('NADH',MOL),ENZ3,CYCLES,CYCLESPARMOL,REACPARMOL2,reaction,MOL,REACTIONS,5)[0][0],reaction))
 #print(reaction[a])
 
 print("Temps de calcul des exemples : ",time.time()-start_time)
-'''
