@@ -302,7 +302,7 @@ def determination_etiquette(R,eti,P,nbetape,PRODBIS):
             r=R[i]
             p=P[i]
             L=[d[2] for d in p if d[1] <= nbetape - 1]
-            if 'a' in L:
+            if 'b' in L:
                 PRODBIS.append((r, 'b'))
             else:
                 PRODBIS.append((r, 'e'))
@@ -543,3 +543,9 @@ def résolution_équation(ENZ,équation_logique,nb_réactions_max,liste_reaction
         print("")
         print("")
         #return MECAS
+
+
+# def afficher (mecanisme):
+#     for i in range (0,len(mecanisme)):
+#         print(mecanisme[i])
+#         print("")
