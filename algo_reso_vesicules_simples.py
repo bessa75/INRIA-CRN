@@ -1,6 +1,6 @@
 import recherche_chemin
 import algoresolution_système
-import algonegation
+#import negation
 import algo_application_brenda as aab
 #bibliothéque python
 import re
@@ -196,7 +196,7 @@ def test_4():
 
     recherche_chemin.résolution_équation(ENZ,"Lactateext + EtOHext => ABTSOX",nb_réactions_max,reaction,liste_molecules,REACTIONS,REACPARMOL)
 
-    MECAS = recherche_chemin.pluscourtchemin(recherche_chemin.numero2(ENZ,MOL), RE, numero3('ABTSOX'), nb_réactions_max, True,reaction,liste_molecules,REACTIONS,REACPARMOL)  # Pourquoi tag a ? OU logique ?
+    MECAS = recherche_chemin.pluscourtchemin(recherche_chemin.numero2(ENZ,MOL), RE, numero3('ABTSOX'),set(),set(), nb_réactions_max, True,reaction,liste_molecules,REACTIONS,REACPARMOL)  # Pourquoi tag a ? OU logique ?
     mt = recherche_chemin.mecatexte(MECAS[0][0],reaction)
     for d in mt:
         print(d)
@@ -213,6 +213,7 @@ def test_5():
     re=numero3(RE)
     enz=numero3(ENZ)
 
+    # res is broken
     solution=algoresolution_système.res([[numero3('glucose'),numero3('acetone')]],[numero3('NADH')],['anb'],20,ENZ1,reaction,liste_molecules,REACTIONS,REACPARMOL,reac,CYCLES,CYCLESPARMOL)
     print(solution)
     '''

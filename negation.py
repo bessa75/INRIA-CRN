@@ -1,3 +1,5 @@
+from recherche_chemin import numero2
+
 REACPARMOL2=[]#cette liste contient pour chaque molécule, les numéros des réactions dans lesquels elle est un réactif
 REACPARMOLP=[]#cette liste contient pour chaque molécules, les numéros des réactions qui la produisent
 ENZYMES=numero2(enzymes,MOL)
