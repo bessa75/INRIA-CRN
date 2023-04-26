@@ -7,40 +7,61 @@ from tqdm import tqdm
 
 link_to_data = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQW5Udu9IvmmRpJdl4GfCGhy0ZEq-kNhKIuo1bGpQUpYchPNmDdYjm846DmKRB6UVWjkIgCXTO_ChiV/pub?output=csv'
 
-class UnionFind:
-  def __init__(self, size):
-    self.parent = list(range(size))
-  
-  def find(self, x):
-    if self.parent[x] != x:
-      self.parent[x] = self.find(self.parent[x])
-    return self.parent[x]
-  
-  def union(self, *args):
-    parent = self.find(args[0])
-    for arg in args[1:]:
-      self.parent[self.find(arg)] = parent
+class DisJointSets():
+   def __init__(self,N):
+      # Initially, all elements are single element subsets
+      self._parents = [node for node in range(N)]
+      self._ranks = [1 for _ in range(N)]
+      self._reachable = [set([node]) for node in range(N)]
 
-  def nbr_of_sets(self):
-    return len(set(self.parent))
+   def find(self, u):
+      while u != self._parents[u]:
+         # path compression technique
+         self._parents[u] = self._parents[self._parents[u]]
+         u = self._parents[u]
+      return u
+
+   def connected(self, u, v):
+      return self.find(u) == self.find(v)
+
+   def _union(self, u, v):
+      # Union by rank optimization
+      root_u, root_v = self.find(u), self.find(v)
+      if root_u == root_v:
+         return True
+      if self._ranks[root_u] > self._ranks[root_v]:
+         self._parents[root_v] = root_u
+      elif self._ranks[root_v] > self._ranks[root_u]:
+         self._parents[root_u] = root_v
+      else:
+         self._parents[root_u] = root_v
+         self._ranks[root_v] += 1
+      return False
+  
+   def union(self, *args):
+      for arg in args[1:]:
+         self._union(args[0], arg)
+
+   def nbr_of_sets(self):
+      return len(set(self._parents))
 class Reachable:
-  def __init__(self, size):
-    self.parent = list(range(size))
-    self.reachable = [set() for _ in range(size)]
-  # Ici on remonte jusqu'au parent en ajoutant à chaque fois la liste des produits dans produits atteignables
-  # Compression de chemin pour la recherche : O(log(N)) N = nombre de molécules = 120000
-  def find(self, idx, produit):
-    self.reachable[idx].update(produit)
-    if self.parent[idx] != idx:
-      self.parent[idx] = self.find(self.parent[idx], produit)
-      # self.produits[idx].update(produit)
-    return self.parent[idx]
-  
-  def union(self, produits, *args):
-    parent = self.find(args[0], produits)
-    for arg in args[1:]:
-      self.parent[self.find(arg, produits)] = parent
-  
+   def __init__(self, size):
+      self._parents = list(range(size))
+      self._reachable = [set() for _ in range(size)]
+      self._rank = [0 for _ in range(size)]
+   # Ici on remonte jusqu'au parent en ajoutant à chaque fois la liste des produits dans produits atteignables
+   def find(self, u, produits):
+      while u != self._parents[u]:
+         # path compression technique
+         self._parents[u] = self._parents[self._parents[u]]
+         u = self._parents[u]
+      return u
+
+   def union(self, produits, *args):
+      parent = self.find(args[0], produits)
+      for arg in args[1:]:
+         self._parents[self.find(arg, produits)] = parent
+
 
 def write_data(fichier):  
   print("Reading data from distant database...")
@@ -77,7 +98,7 @@ def write_data(fichier):
   tic = time.perf_counter()
 
   # UnionFind pour identifier les molécules qui sont liées par des réactions
-  cluster_friends = UnionFind(len(molecules))
+  clusters = DisJointSets(len(molecules))
   reachable = Reachable(len(molecules))
   # encodage
   """
@@ -100,6 +121,7 @@ def write_data(fichier):
   ]
   """
   reactions_per_mol = [ set() for _ in range(len(molecules))]
+  reaction_per_mol_p = [ set() for _ in range(len(molecules))]
   add = reactions.append
   counter = 0
   inconsistant = 0
@@ -127,10 +149,14 @@ def write_data(fichier):
       # Sinon on peut ajouter la réaction
 
       add([reactifs, produits, kms, kcats, phs])
-      for r in d.reactifs:
-          reactions_per_mol[names_to_idx[r]].add(counter)
+      for r in reactifs:
+          reactions_per_mol[r].add(counter)
+      for p in produits:
+          reaction_per_mol_p[p].add(counter)
+
+      
       # Unions des molécules qui sont liées par cette réaction
-      cluster_friends.union(*reactifs)
+      clusters.union(*reactifs)
       reachable.union(produits, *reactifs)
       
       counter += 1
@@ -146,8 +172,9 @@ def write_data(fichier):
     'molecules_list': list(molecules), 
     'reactions': reactions, 
     'reactions_per_molecule': [list(rpm) for rpm in reactions_per_mol],
-    'cluster': cluster_friends.parent,
-    'reachable': [list(reach) for reach in reachable.reachable]
+    'reactions_per_molecule_p': [list(rpm) for rpm in reaction_per_mol_p],
+    'cluster': clusters._parents,
+    'reachable': [list(reach) for reach in reachable._reachable]
   }
 
   with open(fichier, 'w') as f: json.dump(dictionnaire, f)

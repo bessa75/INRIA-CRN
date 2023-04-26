@@ -13,43 +13,37 @@ def pluscourtchemin(ENZ,REAC,prod,SETM,SETR,n,imprime,liste_reaction_texte,MOL,R
     liste des réaction l'ayant produit selon le triplet (numéro de réaction, numéro d'étape, étiquette),
     liste des étiquettes avec lesquelles la molécule a été produite,
     liste des doublets (numéro d'étape, étiquette) avec lesquelles la molécule a été produite]"""
-
+    # print(SETM)
     """     Initialisation des variables """
     # Initialisation de chaque molécule comme absente
     PRESENCE = []
     NbPresence=[]
     for k in range(0, len(MOL)):
         PRESENCE.append([False, [], [], []])
-
-    # print('len(PRESENCE) = ', len(PRESENCE))
-    # print('len(MOL) = ', len(MOL))
-
     nbetape = 0  # Nombre d'étapes réactionnels pour obtenir le produis cherché (la plus longue chaine d'étapes)
     nbmol = 0  # Nombre total de molécules présente (au sens qui ont été produite à un moment)
     nbmolbis = 0
-
+    print('REAC :'+str([MOL[i] for i in REAC]))
     ##initialisation de la liste de présence pour les réactifs de REAC (formés à l'étape -1, par la réaction 0 qui n'existe pas)
     for k in range(len(REAC)):
         if k == 0:
-            # print(len(PRESENCE))
-            # print(len(REAC))
-            # print(REAC[k])
             PRESENCE[REAC[k]] = [True, [(-1, 0, 'a')], ['a'], [(-1, 'a')]]
             NbPresence.append((REAC[k],'a'))
         if k == 1:
             PRESENCE[REAC[k]] = [True, [(-1, 0, 'b')], ['b'], [(-1, 'b')]]
             NbPresence.append((REAC[k],'b'))
         nbmol += 1
-        
+    print(nbmol)
     for a in ENZ:  ##initialisation de la liste de présence pour ajouter les enzymes
         PRESENCE[a] = [True, [(-1, 0, 'e')], ['e'], [(-1, 'e')]]
         nbmol += 1
         NbPresence.append((a,'e'))
 
         """ Boucle de recherche descendante """
-    
     ##exploration des différents chemins réactionnels par itérations successives
     while (nbetape < n):
+        print('etape :'+str(nbetape))
+        print('nombre de molecules :'+str(nbmol))
         nbetape += 1
         nbmolbis = nbmol
         ## on veut que les molécules produites soient notées présentes uniquement à la fin de l'étape pour ne pas mélanger les étapes. On ne met donc pas à jour directement PRESENCE, mais d'abord PRESENCEBIS.
@@ -58,12 +52,11 @@ def pluscourtchemin(ENZ,REAC,prod,SETM,SETR,n,imprime,liste_reaction_texte,MOL,R
         ## itération sur les molécules présences
         for doublet in NbPresence:
             num_molecule=doublet[0]
+            #print(MOL[num_molecule])
             eti_molecule=doublet[1]
             if PRESENCE[num_molecule][0]:
                 # On récupére la liste des réactions où la molécule intervient
-                print('presence num molecule = ', PRESENCE[num_molecule])
                 REACPOT = REACPARMOL[num_molecule]
-                print('Reaction pot: \n', REACPOT)
 
                 ## itération sur les réactions impliquant la molécule en tant que réactif
                 for a in REACPOT:
@@ -72,11 +65,16 @@ def pluscourtchemin(ENZ,REAC,prod,SETM,SETR,n,imprime,liste_reaction_texte,MOL,R
                         for b in REACTIONS[a][0]:
                             ## on teste si tout les réactifs de la réaction en question sont présents
                             if PRESENCE[b][0] == False:
+                                #if 'L-ascorbic acid alpha-D-glucoside' in [MOL[i] for i in REACTIONS[a][0]]:
+                                    #print(MOL[b])
                                 reactifs_presents = False
                                 break
-    
+                        if 'L-ascorbic acid alpha-D-glucoside' in [MOL[i] for i in REACTIONS[a][0]]:
+                            print([[MOL[i] for i in REACTIONS[a][0]],[MOL[i] for i in REACTIONS[a][1]]])
+                            print([doublet for doublet in NbPresence if doublet==(68051, 'ab')])
                         if reactifs_presents:  ##si oui on met à jour la liste de présence
                             ## cas où il y a un seul réactif (marginal) / REACTIONS[a][0] est la liste des réactifs)
+                            
                             if len(REACTIONS[a][0]) == 1:
                                 ##étape de mise à jour de la liste de présence (molécule produite à telle étape, avec telle étiquette, par telle réaction)
                                 for produit in REACTIONS[a][1]:
@@ -120,7 +118,7 @@ def pluscourtchemin(ENZ,REAC,prod,SETM,SETR,n,imprime,liste_reaction_texte,MOL,R
                                     mol3 = REACTIONS[a][0][1]
                                     mol1=REACTIONS[a][0][2]
                                 for e2 in PRESENCE[mol2][2]:
-                                    e2b=bin(eti_molecule,e3)
+                                    e2b=bin(eti_molecule,e2)
                                     for e3 in PRESENCE[mol3][2]:
                                         e=bin(e2b,e3)
                                         for produit in REACTIONS[a][1]:  ##REACTIONS [a][1] correspond aux produits de la réaction a
@@ -137,12 +135,11 @@ def pluscourtchemin(ENZ,REAC,prod,SETM,SETR,n,imprime,liste_reaction_texte,MOL,R
             if a[1] not in PRESENCE[a[0]][2]:
                 PRESENCE[a[0]][2].append(a[1])
             PRESENCE[a[0]][0] = True
-            if a[0] not in NbPresence:
+            if a not in NbPresence:
                 NbPresence.append(a)
         """ Fin boucle de recherche  """
 
         """ Boucle de recherche ascendante """
-    
     if bool:
         return(PRESENCE)
     #print("Mécanismes réactionnels obtenus pour le produit en " + str(nbetape) + " étapes maximum avec l'étiquette "+etqt+" :")
@@ -155,7 +152,7 @@ def pluscourtchemin(ENZ,REAC,prod,SETM,SETR,n,imprime,liste_reaction_texte,MOL,R
         print("nombre de molecules=" + str(nbmol))
         print('********************************************')
         print('')
-        return (False)
+        return ([[[]]])
 
     MECANISMES = []  ## liste des mécanismes sous forme de triplet (MECANISME, étiquette, enzymes)
     MECANISME = []  ## mécanisme sous forme d'une liste d'étapes, chaque étape étant une liste de réactions
@@ -199,7 +196,7 @@ def pluscourtchemin(ENZ,REAC,prod,SETM,SETR,n,imprime,liste_reaction_texte,MOL,R
                     PRODBIS.append(a)
                     
                 else:
-                    reactifs,produits = REACTIONS[reaction_num]
+                    reactifs,produits = REACTIONS[reaction_num][0],REACTIONS[reaction_num][1]
                     
                     #print("    pour la reaction \"",end="")
                     #print(' + '.join([MOL[molecule_i] for molecule_i in reactifs]),'->',' + '.join([MOL[molecule_i] for molecule_i in produits]),end="")
@@ -237,10 +234,12 @@ def pluscourtchemin(ENZ,REAC,prod,SETM,SETR,n,imprime,liste_reaction_texte,MOL,R
                     Enzs.append(mol[0])
             MECANISMES.append((MECANISME,meca[2],Enzs))
 
+
+
+
     print('Les mécanismes après sélection sont les suivants')
     print(MECANISMES)
     print(" ")
-
     if imprime==True: ##Si on décide de print les mécanismes sous forme de texte, on les affiche
         i=0
         for meca in MECANISMES:
@@ -250,9 +249,7 @@ def pluscourtchemin(ENZ,REAC,prod,SETM,SETR,n,imprime,liste_reaction_texte,MOL,R
             for ligne in txt:
                 print(' --- '.join(ligne))
             print(" ")
-    
     print('********************************************')
-    
     return MECANISMES
 
 
@@ -349,11 +346,18 @@ def determination_etiquette(R,eti,P,nbetape,PRODBIS):
             PRODBIS.append((R[i],sel[i]))
 
 def bin(c, d):  ##relation binaire de propagation des étiquettes
-    # Gain de 5 comparaisons
-    if c == d : return c
-    if 'e' == c : return d
-    if 'e' == d: return c
-    return 'ab'
+    if c == 'a' and d == 'b':
+        return('ab')
+    if c == 'b' and d == 'a':
+        return('ab')
+    if c == 'ab' or d == 'ab':
+        return('ab')
+    if c == 'a' or d == 'a':
+        return('a')
+    if c == 'b' or d == 'b':
+        return('b')
+    else:
+        return('e')
 
 
 def selec(L):  ##fonction utile pour selec2ab
@@ -469,21 +473,16 @@ def selecXab(LL):
     
     
 def numero(nom_molecule,MOL):  ##retourne le numéro correspondant à un nom d'enzyme
-    # En fait il faut directement le faire à l'endroit où est fait l'appel
-    return MOL.index(nom_molecule)
-    # for i in range(0, len(MOL)):
-    #     if MOL[i] == nom_molecule:
-    #         return (i)
+    for i in range(0, len(MOL)):
+        if MOL[i] == nom_molecule:
+            return (i)
 
 
 def numero2(L,MOL):  ##retourne les numéros correspondant aux noms d'enzymes d'une liste d'enzymes
-    # Les boucles for ralentissent les programmes python
-    return [numero(L[k], MOL) for k in range(len(L))]
-    
-    # L2 = []
-    # for k in range(0, len(L)):
-    #     L2.append(numero(L[k],MOL))
-    # return (L2)
+    L2 = []
+    for k in range(0, len(L)):
+        L2.append(numero(L[k],MOL))
+    return (L2)
 
 
 # Prend un numéro de molécule en paramétre et renvoie le numéro de molécule faisant la logique "non" ainsi que le numéro de réaction
@@ -537,7 +536,7 @@ def résolution_équation(ENZ,équation_logique,nb_réactions_max,liste_reaction
     produit = numero(liste_mots[4],MOL)
 
     if liste_mots[1] == '+':
-        MECAS = pluscourtchemin(numero2(ENZ,MOL), [réactif_1, réactif_2], produit, nb_réactions_max, True,liste_reaction_texte,MOL,REACTIONS,REACPARMOL)
+        MECAS = pluscourtchemin(numero2(ENZ,MOL), [réactif_1, réactif_2], produit,set(),set(), nb_réactions_max, True,liste_reaction_texte,MOL,REACTIONS,REACPARMOL)
         mt = mecatexte(MECAS[0][0],liste_reaction_texte)
         for d in mt:
             print(d)
