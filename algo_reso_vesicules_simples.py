@@ -267,3 +267,4 @@ print()
 #print(reaction[a])
 
 print("Temps de calcul des exemples : ",time.time()-start_time)
+

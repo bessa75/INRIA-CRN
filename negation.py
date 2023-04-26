@@ -12,12 +12,20 @@ for k in range (0,len(REACTIONS)):
     for i in range (0,len(REACTIONS)):
         reac1=REACTIONS[k]
         reac2=REACTIONS[i]
-        if (reac2[0],reac2[1])==(reac1[1],reac1[0]) and (reac1 not in CYCLES):
-            BoolCycles[k]=True
-            BoolCycles[i]=True
-            CYCLES.append(reac1)
-            for a in reac1[0]:
-                CYCLESPARMOL[a].append(k)
+        bol1=True
+        if len(reac1[0])==len(reac2[1]) and len(reac1[1])==len(reac2[0]):
+            for a in reac2[0]:
+                if a not in reac1[1]:
+                    bol1=False
+            for a in reac2[1]:
+                if a not in reac1[0]:
+                    bol1=False
+            if bol1 and (reac1 not in CYCLES):
+                BoolCycles[k]=True
+                BoolCycles[i]=True
+                CYCLES.append(reac1)
+                for a in reac1[0]:
+                    CYCLESPARMOL[a].append(k)
 for k in range (0,len(REACTIONS)):
     reac=REACTIONS[k]
     reactifs=reac[0]
@@ -29,13 +37,14 @@ for k in range (0,len(REACTIONS)):
     if len(produits)==2:
         REACPARMOLP[produits[1]].append(k)
 #cas 1 :
-ENZ1=numero2(['ABTS','NAD', 'resazurin', 'HRP','NR', 'AO', 'POD', 'G_1DH', 'O2', 'DAF'],MOL)
+ENZ1=numero2(['AO', 'ADH', 'G_1DH', 'resazurin', 'HRP', 'H2O2'],MOL)
 #cas 2 :
-ENZ2=numero2(['ABTS','NAD', 'resazurin', 'HRP','NR', 'AO', 'POD', 'G_1DH', 'O2', 'DAF','ADH'],MOL)
+ENZ2=numero2(['ABTS', 'ADH', 'NAD', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'LO'],MOL)
 #cas 3 :
-ENZ3=numero2(['ABTS','NAD', 'resazurin', 'HRP','NR', 'AO', 'POD', 'G_1DH', 'O2', 'DAF'],MOL)
+ENZ3=numero2(['ABTS', 'ADH', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'G_1DH', 'O2', 'DAF', 'NAD'],MOL)
 
 def algo_negation(A,B,C,ENZ,CYCLES,CYCLESPARMOL,REACPARMOL,reaction,MOL,REACTIONS,n):
+    print('********************************************')
     PRODINT=[]
     REACT=[]
     ACONSOMMER=[C]
@@ -79,8 +88,10 @@ def algo_negation(A,B,C,ENZ,CYCLES,CYCLESPARMOL,REACPARMOL,reaction,MOL,REACTION
                     BOOL.append(False)
                 else:
                     BOOL.append((True,i))
-    print('********************************************')
-    PRESENCE=pluscourtchemin(ENZ,[B],0,n,False,reac,MOL,REACTIONS,REACPARMOL,bool=True)
+
+    set1= {}
+    set2= {}
+    PRESENCE=pluscourtchemin(ENZ,[B],0,set1,set2,n,False,reac,MOL,REACTIONS,REACPARMOL,bool=True,bool2=True)
     ENZint=[]
     for k in range (0,len(PRODINT)):
         m=PRODINT[k]
@@ -90,23 +101,24 @@ def algo_negation(A,B,C,ENZ,CYCLES,CYCLESPARMOL,REACPARMOL,reaction,MOL,REACTION
         #print(PRESm[0])
         if PRESm[0] and 'a' in PRESm[2]:
             print("produit intermédiaire considéré : "+MOL[m])
-            P2=pluscourtchemin(ENZ,[B,0],m,n,False,reac,MOL,REACTIONS,REACPARMOL,bool=False)
-            for mec in P2:
-                if mec[1]=='a':
-                    meca=mec[0]
-                    meca.append([REACT[k]])
-                    if BOOL[k]!=False:
-                        meca.append([CYCLESa[BOOL[k][1]]])
-                    Res=(meca,'a',mec[2])
-                    RES.append(Res)
-                if mec[1]=='e':
-                    meca=mec[0]
-                    meca.append([REACT[k]])
-                    if BOOL[k]!=False:
-                        meca.append([CYCLESa[BOOL[k][1]]])
-                    Res=(meca,'e',mec[2])
-                    RES.append(Res)
-                    ENZint.append([MOL[i] for i in Res[2]])
+            P2=pluscourtchemin(ENZ,[B,0],m,set1,set2,n,False,reac,MOL,REACTIONS,REACPARMOL,bool2=True)
+            if P2!=False:
+                for mec in P2:
+                    if mec[1]=='a':
+                        meca=mec[0]
+                        meca.append([REACT[k]])
+                        if BOOL[k]!=False:
+                            meca.append([CYCLESa[BOOL[k][1]]])
+                        Res=(meca,'a',mec[2])
+                        RES.append(Res)
+                    if mec[1]=='e':
+                        meca=mec[0]
+                        meca.append([REACT[k]])
+                        if BOOL[k]!=False:
+                            meca.append([CYCLESa[BOOL[k][1]]])
+                        Res=(meca,'e',mec[2])
+                        RES.append(Res)
+                        ENZint.append([MOL[i] for i in Res[2]])
     """ PRESENCE : liste des molécules présente.
     Evolue au cours de l'algorithme.
     Chaque case coorespond à une molécule et est de la forme :
@@ -121,11 +133,13 @@ def algo_negation(A,B,C,ENZ,CYCLES,CYCLESPARMOL,REACPARMOL,reaction,MOL,REACTION
 
 #print(numero('ABTSOX',MOL))
 
-print(algo_negation(numero('glucose',MOL),numero('acetone',MOL),numero('NADH',MOL),ENZ1,CYCLES,CYCLESPARMOL,REACPARMOL2,reaction,MOL,REACTIONS,5))
+print(algo_negation(numero('glucose',MOL),numero('acetone',MOL),numero('NADH',MOL),ENZ2,CYCLES,CYCLESPARMOL,REACPARMOL2,reaction,MOL,REACTIONS,5))
 #print(mecatexte(algo_negation(numero('glucose',MOL),numero('acetone',MOL),numero('NADH',MOL),ENZ1,CYCLES,CYCLESPARMOL,REACPARMOL2,reaction,MOL,REACTIONS,5)[0],reaction))
 print(algo_negation(numero('Lactateext',MOL),numero('EtOHext',MOL),numero('ABTSOX',MOL),ENZ2,CYCLES,CYCLESPARMOL,REACPARMOL2,reaction,MOL,REACTIONS,5))
 #print(mecatexte(algo_negation(numero('Lactateext',MOL),numero('EtOHext',MOL),numero('ABTSOX',MOL),ENZ2,CYCLES,CYCLESPARMOL,REACPARMOL2,reaction,MOL,REACTIONS,5)[0][0],reaction))
-print(algo_negation(numero('glucoseext',MOL),numero('NO3ext',MOL),numero('NADH',MOL),ENZ3,CYCLES,CYCLESPARMOL,REACPARMOL2,reaction,MOL,REACTIONS,5))
+print(algo_negation(numero('glucoseext',MOL),numero('NO3ext',MOL),numero('NADH',MOL),ENZ2,CYCLES,CYCLESPARMOL,REACPARMOL2,reaction,MOL,REACTIONS,5))
 #print(mecatexte(algo_negation(numero('glucoseext',MOL),numero('NO3ext',MOL),numero('NADH',MOL),ENZ3,CYCLES,CYCLESPARMOL,REACPARMOL2,reaction,MOL,REACTIONS,5)[0][0],reaction))
 #print(reaction[a])
+
+
 
