@@ -1,9 +1,105 @@
+from recherche_chemin import *
+import re
+
+def numero3(texte):
+    if type(texte) is str:
+        return numero(texte,liste_molecules)
+    if type(texte) is list:
+        return numero2(texte,liste_molecules)
+
+"""    Lecture du fichier catalogue"""
+
+
+file = "catalog.bc"
+nb_réactions_max = 50
+
+elmts = []
+inputs = []
+enzymes = []
+regex = ["(present\()|(, [e\-0-9]+\))|\.", "(MA.*for )|\+|(=>)|\."]
+blocs = {"inputs": (regex[0], inputs), "enzymes": (regex[0], enzymes), "elmts": (regex[1], elmts)}
+
+""" Création du tableau "reaction" de l'ensemble des réactions possible données par le fichier file"""
+friends = {'test': []}  # Chaque elmt et l'ensemble des elements avec lesquels il reagit
+# par contre les enzymes ne sont pas comptés comme éléments, du coup ils ne font pas partie des clés du dict.
+
+reaction = []  # Liste des réactions en version texte
+with open(file) as f:
+    while f.readline() != "% Inputs\n":
+        continue
+    bloc = 'inputs'
+    while True:
+        l = f.readline()
+        if not l:
+            break
+
+        if l[0] == '%':
+            if l.find("Enzymes") > 0:
+                bloc = 'enzymes'
+                continue
+            if l.find('reaction') > 0:
+                bloc = 'elmts'
+                continue
+            continue
+
+        if len(l) < 3:
+            continue
+
+        if bloc == 'elmts':
+            elmt = l.split('=>')
+            reactifs = re.sub("(MA.*for )|\+", " ", elmt[0]).split()
+            for r in reactifs:
+                try:
+                    friends[r].extend([e for e in reactifs if e not in friends[r]])
+                except:
+                    friends.update({r: [e for e in reactifs if e != r]})
+            produits = re.sub("\+|\.", " ", elmt[1]).split()
+            reaction.append((reactifs, produits))
+            elts = reactifs + produits
+        else:
+            elts = re.sub(blocs[bloc][0], '', l).split()
+
+        blocs[bloc][1].extend([e for e in elts if (e not in blocs[bloc][1])])
+
+liste_molecules = elmts
+for molecule in enzymes :
+    if not(molecule in enzymes):
+        liste_molecules.append(molecule)
+liste_molecules.pop(numero3('H_2O_2'))  # Remove 'H_2O_2', 'H2O2' is in list
+
+dictionnaire_molecules={liste_molecules[i] : i for i in range(len(liste_molecules))}
+
+REACTIONS = []  # Liste des réactions en version numéros
+for a in reaction:
+    reac = ([], [])
+    for m in a[0]:
+        if m == 'H_20_2' or m == 'H202' or m == 'H_2O_2':
+            reac[0].append(numero('H2O2',liste_molecules))
+        else:
+            reac[0].append(numero(m,liste_molecules))
+    for m in a[1]:
+        if m == 'H_20_2' or m == 'H202' or m == 'H_2O_2':
+            reac[1].append(numero('H2O2',liste_molecules))
+        else:
+            reac[1].append(numero(m,liste_molecules))
+    REACTIONS.append(reac)
+
+
+REACPARMOL = [] # REACPARMOL = ?
+for k in range(0, len(liste_molecules)):
+    REACPARMOL.append([])
+for k in range(0, len(REACTIONS)):
+    for u in REACTIONS[k][0]:
+        REACPARMOL[u].append(k)
+
 REACPARMOL2=[]#cette liste contient pour chaque molécule, les numéros des réactions dans lesquels elle est un réactif
 REACPARMOLP=[]#cette liste contient pour chaque molécules, les numéros des réactions qui la produisent
+MOL=liste_molecules
 ENZYMES=numero2(enzymes,MOL)
 CYCLES=[]
 CYCLESPARMOL=[]
 BoolCycles=[False]*len(REACTIONS)
+
 for k in range (len(MOL)):
     REACPARMOL2.append([])
     CYCLESPARMOL.append([])

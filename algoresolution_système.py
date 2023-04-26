@@ -1,12 +1,12 @@
 from recherche_chemin import pluscourtchemin
 import itertools
-import algonegation
+#import negation
 
 def check(Current,LETIQ,nmax,LREAC,LPROD,reaction,MOL,REACTIONS,REACPARMOL,n,reac,CYCLES,CYCLESPARMOL): #permet de vérifier que les différents chemins choisis n'interfèrent pas sur leurs étiquettes choisies
     ENZYME=[]
     n=len(LPROD)
     for ligne in Current:
-        enzliste=ligne[2]
+        enzliste=ligne[2] # Broken
         for enz in enzliste:
             ENZYME.append(enz)  #on agrège toutes les enzymes pour obtenir l'ensemble des enzymes qu'on introduit dans le milieu. Il reste à retirer les doublons pour rendre plus efficace les recherches de chemins suivantes
     for k in range(n):
@@ -71,7 +71,7 @@ def res(LREAC,LPROD,LETIQ,nmax,ENZ,reaction,MOL,REACTIONS,REACPARMOL,reac,CYCLES
     MECANISMES=[]
     Allreactions=[] # tableau de tous les chemins trouvés pour chaque ligne du système de manière indépendante
     for k in range(n):
-        Allreactions.append(pluscourtchemin(ENZ,LREAC[k],LPROD[k],nmax,False,reaction,MOL,REACTIONS,REACPARMOL)) # on remplit le tableau pour chaque ligne du système
+        Allreactions.append(pluscourtchemin(ENZ,LREAC[k],LPROD[k],set(),set(),nmax,False,reaction,MOL,REACTIONS,REACPARMOL)) # on remplit le tableau pour chaque ligne du système
     for k in range(n,nneg):
         Allreactions.append(algonegation.algo_negation(0,LREAC[k],LPROD[k],CYCLES,CYCLESPARMOL,REACPARMOL,reaction,MOL,REACTIONS,nmax,reac)) # on remplit le tableau pour chaque ligne du système
     result=research(Allreactions,LETIQ,nmax, LREAC,LPROD,reaction,MOL,REACTIONS,REACPARMOL,n,reac,CYCLES,CYCLESPARMOL) # on rentre dans le programme secondaire (qui pourrait être à la suite sans problème)

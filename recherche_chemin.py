@@ -144,7 +144,7 @@ def pluscourtchemin(ENZ,REAC,prod,SETM,SETR,n,imprime,liste_reaction_texte,MOL,R
         print("nombre de molecules=" + str(nbmol))
         print('********************************************')
         print('')
-        return (False)
+        return ([[[]]])
 
     MECANISMES = []  ## liste des mécanismes sous forme de triplet (MECANISME, étiquette, enzymes)
     MECANISME = []  ## mécanisme sous forme d'une liste d'étapes, chaque étape étant une liste de réactions
@@ -528,7 +528,7 @@ def résolution_équation(ENZ,équation_logique,nb_réactions_max,liste_reaction
     produit = numero(liste_mots[4],MOL)
 
     if liste_mots[1] == '+':
-        MECAS = pluscourtchemin(numero2(ENZ,MOL), [réactif_1, réactif_2], produit, nb_réactions_max, True,liste_reaction_texte,MOL,REACTIONS,REACPARMOL)
+        MECAS = pluscourtchemin(numero2(ENZ,MOL), [réactif_1, réactif_2], produit,set(),set(), nb_réactions_max, True,liste_reaction_texte,MOL,REACTIONS,REACPARMOL)
         mt = mecatexte(MECAS[0][0],liste_reaction_texte)
         for d in mt:
             print(d)
