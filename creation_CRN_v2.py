@@ -300,6 +300,6 @@ def affichage_CRN(melangeInitial,listeReactionsBrut,listeReactionParMolecules,li
         listeMoleculesCRN=listeMoleculesCRN.union(set([mol for mol in reaction[0]]))
         listeMoleculesCRN=listeMoleculesCRN.union(set([mol for mol in reaction[1]]))
     print()
-    print("Liste des molécules du CRN : ")
+    print("   Liste des molécules du CRN : ")
     print(", ".join("{0}".format(listeMoleculeTexte[mol]) for mol in listeMoleculesCRN))
     print()

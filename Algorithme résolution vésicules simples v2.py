@@ -5,7 +5,6 @@ import pandas as pd
 import numpy as np
 #importation code perso
 import recherche_chemin
-import algoresolution_système
 from creation_CRN_v2 import *
 from brenda import read_data
 
@@ -120,8 +119,8 @@ def test_1():
     print("Test 1 :")
     start_time = time.time()
 
-    EspecesInitiales=numero(['AO', 'ADH', 'G_1DH', 'NAD', 'resazurin', 'HRP', 'H2O2'])
-    #EspecesInitiales=numero(['antidiuretic hormone', 'beta-d-glucose', 'NAD+', 'resazurin', 'peroxidase', 'H2O2']) #Verrsion brenda
+    EspecesInitiales=numero(['ADH', 'G_1DH', 'NAD', 'resazurin', 'HRP', 'H2O2', 'AO'])
+    #EspecesInitiales=numero(['antidiuretic hormone', 'beta-d-glucose', 'NAD+', 'resazurin', 'peroxidase', 'H2O2']) #Version brenda
     
     nbEtapeMax=15
 
@@ -147,14 +146,25 @@ def test_1():
     print()
 
 def test_2():
-##NO et glucose donnent gluconolacrone avec NO3 en réactif annexe
+##NO et glucose donnent gluconolacrone
     print("Test 2 :")
     start_time = time.time()
 
-    EspecesInitiales=numero(['H2O2','acetoneext', 'ABTS', 'ADH', 'resazurin', 'HRP', 'AO', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'NAD'])
+    EspecesInitiales=numero(['H2O2', 'HRP', 'acetoneext', 'ABTS', 'ADH', 'resazurin', 'HRP2', 'POD', 'NR', 'G_1DH', 'O2', 'DAF', 'NAD', 'AO'])
+    # HRP ?
+    # ABTS ?
+    # HRP2 ?
+    # POD ?
+    # NR ?
+    # DAF
+    # AO ?
+    #EspecesInitiales=numero(['H2O2', '','2-propanone', '', 'antidiuretic hormone', 'resazurin', 'HRP2', 'POD', 'NR', 'beta-d-glucose', 'O2', 'DAF', 'NAD+', 'AO' ]) #Version brenda. AO missing
     nbEtapeMax=50
     A=numero('NO2')
     B=numero('glucoseext')
+    #Brenda name version
+    #A=numero('NO2')
+    #B=numero('d-glucose')
     C=numero('DAFF')
 
     MelangesInitiaux,res=déterminationCRN (A,B,C,nbEtapeMax,'ET',EspecesInitiales,listeReactionsBrut,listeReactionParMolecules)
@@ -194,6 +204,6 @@ def test_3():
     print('------------------------------------------------------------------')
     print()
 
-test_1()
-#test_2()
+#test_1()
+test_2()
 #test_3()
