@@ -3,17 +3,22 @@
 HAZERA Gabriel, LI Romain, TCHOMBA-NGUEKO Ivan, DAGONNEAU Thomas, BESSA Swann, MONTOYA Yann
 
 
-## TODO
+## Fichiers importants
+Rapport.pdf : rapport final du projet
+main_code :
+\begin{itemize}
+\item
+algo_resolution_vesicules_simples.py : application de l'algorithme sur 3 exemples de CRNs
+\item
+pathFinder.py : résolution de type Breadth First Search à partir d'un produit et d'une liste fixée de réactifs, pour une équation logique du type R1 +R2 +... + Rn = C
+\item
+negation.py : résolution de type Breadth First Search d'équations logiques du type A + nonB = C
+\item
+algoresolution_système.py : résolution de systèmes d'équations logique par combinaison des ensembles d'enzymes des équations individuelles
+\item
+tests_brenda.py : extraction et analyse de la base de données Brenda
 
-Clarifier affichage mécanismes trouvés
-Vérifier fonctionnement du NON
-Implémenter le OU
-
-## Ajouter des  files
-
-- [ ] [Créer](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) ou [Téléverser](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) fichiers
-- [ ] [Ajouter des fichiers en ligne de commande](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) ou push un dossier Git existant avec la commande:
-
+\end{itemize}
 ```
 cd existing_repo
 git remote add origin https://gitlab.binets.fr/psc-compiling-math-functions-in-biochemical-reactions/psc.git
