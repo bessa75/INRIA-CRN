@@ -10,9 +10,9 @@ main_code :
 
 * algo_resolution_vesicules_simples.py : application de l'algorithme sur 3 exemples de CRNs
 
-* pathFinder.py : résolution de type Breadth First Search à partir d'un produit et d'une liste fixée de réactifs, pour une équation logique du type R1 +R2 +... + Rn = C
+* pathFinder.py : résolution Breadth First Search à partir d'un produit et d'une liste fixée de réactifs, pour une équation logique du type (R1 +R2 +... + Rn = C)
 
-* negation.py : résolution de type Breadth First Search d'équations logiques du type A + nonB = C
+* negation.py : résolution Breadth First Search d'équations logiques du type (A + nonB = C)
 
 * algoresolution_système.py : résolution de systèmes d'équations logique par combinaison des ensembles d'enzymes des équations individuelles
 
