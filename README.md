@@ -1,8 +1,6 @@
-# PSC
+# Projet Scientifique Collectif : détermination de mécanismes réactionnels correspondant à des équations logiques chimiques
 
-Git privé pour échanger les fichiers.
-
-Branches "main" et "edit-in-progress"
+HAZERA Gabriel, LI Romain, TCHOMBA-NGUEKO Ivan, DAGONNEAU Thomas, BESSA Swann, MONTOYA Yann
 
 
 ## TODO
