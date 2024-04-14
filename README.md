@@ -18,8 +18,6 @@ main_code :
 
 * tests_brenda.py : extraction et analyse de la base de données Brenda
 
-\end{itemize}
-$$
 ```
 cd existing_repo
 git remote add origin https://gitlab.binets.fr/psc-compiling-math-functions-in-biochemical-reactions/psc.git
