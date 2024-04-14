@@ -1,4 +1,4 @@
-# Projet Scientifique Collectif : détermination de mécanismes réactionnels correspondant à des équations logiques chimiques
+# Projet Scientifique Collectif (2022) : détermination de mécanismes réactionnels correspondant à des équations logiques chimiques
 
 HAZERA Gabriel, LI Romain, TCHOMBA-NGUEKO Ivan, DAGONNEAU Thomas, BESSA Swann, MONTOYA Yann
 
