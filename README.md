@@ -6,6 +6,7 @@ HAZERA Gabriel, LI Romain, TCHOMBA-NGUEKO Ivan, DAGONNEAU Thomas, BESSA Swann, M
 ## Fichiers importants
 Rapport.pdf : rapport final du projet
 main_code :
+$$
 \begin{itemize}
 \item
 algo_resolution_vesicules_simples.py : application de l'algorithme sur 3 exemples de CRNs
@@ -19,6 +20,7 @@ algoresolution_système.py : résolution de systèmes d'équations logique par c
 tests_brenda.py : extraction et analyse de la base de données Brenda
 
 \end{itemize}
+$$
 ```
 cd existing_repo
 git remote add origin https://gitlab.binets.fr/psc-compiling-math-functions-in-biochemical-reactions/psc.git
