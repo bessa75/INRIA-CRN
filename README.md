@@ -5,6 +5,7 @@ HAZERA Gabriel, LI Romain, TCHOMBA-NGUEKO Ivan, DAGONNEAU Thomas, BESSA Swann, M
 
 ## Fichiers importants
 Rapport.pdf : rapport final du projet
+
 main_code :
 
 * algo_resolution_vesicules_simples.py : application de l'algorithme sur 3 exemples de CRNs
